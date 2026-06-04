@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import CTASection from "@/components/CTASection.astro";
+import { site } from "@/data/site";
+---
+
+<BaseLayout title="오시는 길" description="비오랩 홀딩스 연락처와 주소를 안내합니다.">
+  <SubHero title="오시는 길" description="제품, 원료, 유통 제휴 문의를 위한 기본 연락처입니다." />
+  <Breadcrumb parent={{ label: "회사소개", href: "/company/" }} current="오시는 길" />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="LOCATION" title="비오랩 홀딩스" description="실주소 확정 전까지는 더미값으로 유지되며, 추후 `src/data/site.ts`에서 쉽게 교체할 수 있습니다." />
+      <div class="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
+        <div class="border border-slate-200 p-8">
+          <h2 class="text-2xl font-black text-brand-navy">{site.name}</h2>
+          <p class="mt-5 leading-7 text-slate-700">{site.address}</p>
+          <p class="mt-5 text-slate-600">대표번호: {site.phone}</p>
+          <p class="text-slate-600">팩스: {site.fax}</p>
+          <p class="text-slate-600">이메일: {site.email}</p>
+        </div>
+        <div class="flex min-h-[320px] items-center justify-center bg-slate-100 text-center text-slate-500">
+          지도 영역<br />실주소 확정 후 지도 임베드 또는 이미지로 교체
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

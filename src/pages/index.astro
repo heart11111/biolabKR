@@ -74,7 +74,7 @@ import { withBase } from "@/lib/path";
     <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
       <div>
         <SectionTitle align="left" eyebrow="NOTICE" title="공지사항 / 언론보도" description="비오랩 홀딩스의 최신 소식과 브랜드 성장 소식을 전합니다." />
-        <a class="inline-flex border border-brand-blue px-5 py-3 text-sm font-bold text-brand-blue" href={withBase("/support/#news")}>전체 보기</a>
+        <a class="inline-flex border border-brand-blue px-5 py-3 text-sm font-bold text-brand-blue" href={withBase("/support/news/")}>전체 보기</a>
       </div>
       <div>
         {news.slice(0, 3).map((item) => <NewsCard item={item} />)}

@@ -2,83 +2,36 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SubHero from "@/components/SubHero.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
-import PageSectionNav from "@/components/PageSectionNav.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
-import Timeline from "@/components/Timeline.astro";
+import SubpageGrid from "@/components/SubpageGrid.astro";
 import CTASection from "@/components/CTASection.astro";
 import { site } from "@/data/site";
+import { companySubpages } from "@/data/subpages";
 ---
 
-<BaseLayout title="회사소개" description="비오랩 홀딩스의 비전, 연혁, 주요 파트너, 오시는 길을 소개합니다.">
+<BaseLayout title="회사소개" description="비오랩 홀딩스의 비전, 회사 개요, 연혁, 파트너, 오시는 길을 소개합니다.">
   <SubHero title="회사소개" description="여성과 아이의 건강을 위한 브랜드와 제품을 연구하며 글로벌 헬스케어 기업으로 성장합니다." />
   <Breadcrumb current="회사소개" />
-  <PageSectionNav sections={site.pageSections.company} />
 
-  <section id="greeting" class="section-band bg-white">
-    <div class="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-      <div class="bg-slate-50 p-8">
-        <p class="mb-4 text-sm font-bold tracking-[0.24em] text-brand-green">CEO MESSAGE</p>
-        <h2 class="text-3xl font-black leading-tight text-brand-navy">건강한 선택이 더 많은 일상에 닿도록 하겠습니다.</h2>
-      </div>
-      <div class="space-y-5 text-base leading-8 text-slate-700">
-        <p>
-          비오랩 홀딩스는 모든 세대가 건강하고 행복한 삶을 누릴 수 있는 사회를 기업의 핵심 가치로 삼습니다.
-        </p>
-        <p>
-          iHEAL이라는 이름처럼 여성과 아이의 건강을 최우선으로 고려한 맞춤형 건강기능식품과 이너케어 솔루션을 개발하고, 검증된 원료와 안정적인 품질 관리로 신뢰를 쌓겠습니다.
-        </p>
-        <p class="font-semibold text-brand-navy">비오랩 홀딩스 임직원 일동</p>
-      </div>
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle
+        eyebrow="COMPANY"
+        title="비오랩 홀딩스를 더 깊게 확인하세요"
+        description="회사소개는 대표 인사말, 회사 개요, 연혁, 파트너, 오시는 길을 각각 별도 페이지로 분리했습니다."
+      />
+      <SubpageGrid items={companySubpages} />
     </div>
   </section>
 
-  <section id="overview" class="section-band bg-slate-50">
-    <div class="container-page">
-      <SectionTitle eyebrow="OVERVIEW" title="회사 개요" />
-      <table class="table-corporate">
-        <tbody>
-          <tr><th>회사명</th><td>{site.name} / {site.englishName}</td></tr>
-          <tr><th>대표 브랜드</th><td>{site.brandName}</td></tr>
-          <tr><th>주요 사업</th><td>건강기능식품, 여성 이너케어, 키즈 건강 제품, 국내외 유통 및 브랜드 운영</td></tr>
-          <tr><th>대표 연락처</th><td>{site.phone} / {site.email}</td></tr>
-          <tr><th>주소</th><td>{site.address}</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="history" class="section-band bg-white">
-    <div class="container-page">
-      <SectionTitle eyebrow="HISTORY" title="연혁" description="2018년 브랜드 시작 이후 국내외 온오프라인 시장으로 확장하고 있습니다." />
-      <Timeline items={site.history} />
-    </div>
-  </section>
-
-  <section id="partners" class="section-band bg-slate-50">
-    <div class="container-page">
-      <SectionTitle eyebrow="PARTNERS" title="주요 고객사 / 파트너" />
-      <div class="grid gap-px border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
-        {site.partners.map((partner) => (
-          <div class="bg-white px-6 py-8 text-center text-lg font-extrabold text-slate-700">{partner}</div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="location" class="section-band bg-white">
-    <div class="container-page">
-      <SectionTitle eyebrow="LOCATION" title="오시는 길" />
-      <div class="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-        <div class="border border-slate-200 p-8">
-          <h3 class="text-2xl font-black text-brand-navy">{site.name}</h3>
-          <p class="mt-5 leading-7 text-slate-700">{site.address}</p>
-          <p class="mt-5 text-slate-600">대표번호: {site.phone}</p>
-          <p class="text-slate-600">이메일: {site.email}</p>
+  <section class="section-band bg-slate-50">
+    <div class="container-page grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      {site.stats.map((stat) => (
+        <div class="border border-slate-200 bg-white p-7 shadow-sm">
+          <strong class="block text-3xl font-black text-brand-blue">{stat.value}</strong>
+          <span class="mt-2 block text-sm font-semibold text-slate-600">{stat.label}</span>
         </div>
-        <div class="flex min-h-[280px] items-center justify-center bg-slate-100 text-center text-slate-500">
-          지도 영역<br />실주소 확정 후 지도 임베드 또는 이미지로 교체
-        </div>
-      </div>
+      ))}
     </div>
   </section>
 

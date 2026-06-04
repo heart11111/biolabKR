@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import ProductCard from "@/components/ProductCard.astro";
+import CTASection from "@/components/CTASection.astro";
+import { products } from "@/data/products";
+
+const innerCareProducts = products.filter((product) => product.category.includes("이너"));
+---
+
+<BaseLayout title="이너케어 제품" description="아이힐 이너클린 V와 비너스 이너 퍼퓸을 소개합니다.">
+  <SubHero title="이너케어" description="Y존 케어, 보습, 피부 장벽 컨셉을 중심으로 한 이너 뷰티 라인입니다." />
+  <Breadcrumb parent={{ label: "제품소개", href: "/products/" }} current="이너케어" />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="INNER CARE" title="이너클린 V / 비너스 이너 퍼퓸" description="약산성 저자극 클렌저와 5중 히알루론산 기반 이너 퍼퓸을 제품군으로 분리했습니다." />
+      <div class="grid gap-6 md:grid-cols-2">
+        {innerCareProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-slate-50">
+    <div class="container-page grid gap-6 md:grid-cols-3">
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">약산성 포뮬러</h2><p class="mt-4 text-sm leading-7 text-slate-600">Y존 pH 밸런스와 순한 세정감을 고려해 데일리 이너케어 루틴에 맞춥니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">5중 히알루론산</h2><p class="mt-4 text-sm leading-7 text-slate-600">피부 보습 컨셉을 위해 다양한 분자량의 히알루론산과 보습 성분을 조합합니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">식물 유래 성분</h2><p class="mt-4 text-sm leading-7 text-slate-600">판테놀, 글루타치온, 식물성 추출물 등 민감한 피부 컨디션을 고려한 원료를 활용합니다.</p></article>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

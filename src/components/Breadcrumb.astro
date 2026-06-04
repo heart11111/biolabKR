@@ -3,16 +3,25 @@ import { withBase } from "@/lib/path";
 
 type Props = {
   current: string;
+  parent?: {
+    label: string;
+    href: string;
+  };
 };
 
-const { current } = Astro.props;
+const { current, parent } = Astro.props;
 ---
 
 <nav class="border-b border-slate-200 bg-slate-50" aria-label="현재 위치">
   <div class="container-page flex h-12 items-center gap-2 text-sm text-slate-500">
     <a class="hover:text-brand-blue" href={withBase("/")}>Home</a>
     <span aria-hidden="true">/</span>
+    {parent && (
+      <>
+        <a class="hover:text-brand-blue" href={withBase(parent.href)}>{parent.label}</a>
+        <span aria-hidden="true">/</span>
+      </>
+    )}
     <span class="font-semibold text-brand-navy">{current}</span>
   </div>
 </nav>
-

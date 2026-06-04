@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import Timeline from "@/components/Timeline.astro";
+import CTASection from "@/components/CTASection.astro";
+import { site } from "@/data/site";
+---
+
+<BaseLayout title="연혁" description="비오랩 홀딩스와 iHEAL 브랜드의 성장 흐름을 소개합니다.">
+  <SubHero title="연혁" description="2018년 창업 이후 국내외 온오프라인 채널로 확장하고 있습니다." />
+  <Breadcrumb parent={{ label: "회사소개", href: "/company/" }} current="연혁" />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="HISTORY" title="브랜드 성장 연혁" description="무차입 경영 기조와 제품력을 기반으로 국내 시장을 다진 뒤 해외 시장으로 확장했습니다." />
+      <Timeline items={site.history} />
+    </div>
+  </section>
+
+  <section class="section-band bg-slate-50">
+    <div class="container-page grid gap-6 md:grid-cols-3">
+      <article class="border border-slate-200 bg-white p-7"><strong class="text-3xl font-black text-brand-blue">63.97억</strong><p class="mt-4 text-sm leading-7 text-slate-600">2024년 역대 최고 매출로 첨부 IR 자료에 기재된 실적 기준입니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><strong class="text-3xl font-black text-brand-blue">300+</strong><p class="mt-4 text-sm leading-7 text-slate-600">2025년 1월 올리브영 진출 후 전국 300개 이상 오프라인 매장 입점 현황입니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><strong class="text-3xl font-black text-brand-blue">100만+</strong><p class="mt-4 text-sm leading-7 text-slate-600">비너스 유산균 누적 출고 수량으로 대표 제품의 장기 판매 흐름을 보여줍니다.</p></article>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

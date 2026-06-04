@@ -1,0 +1,48 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import CTASection from "@/components/CTASection.astro";
+import { articles } from "@/data/articles";
+import { withBase } from "@/lib/path";
+
+const innerArticles = articles.filter((article) => article.category === "이너케어");
+---
+
+<BaseLayout title="이너케어 건강정보" description="pH 밸런스와 데일리 이너케어 루틴 정보를 제공합니다.">
+  <SubHero title="이너케어 건강정보" description="민감한 부위일수록 산도, 보습감, 자극감을 함께 고려해야 합니다." />
+  <Breadcrumb parent={{ label: "건강정보", href: "/health/" }} current="이너케어" />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="INNER CARE" title="순한 이너케어 루틴" description="약산성 포뮬러, 보습 성분, 저자극 세정 기준을 중심으로 정보를 정리했습니다." />
+      <div class="grid gap-6 md:grid-cols-3">
+        {["pH 밸런스", "보습과 진정", "외용 제품 사용 기준"].map((item, index) => (
+          <article class="border border-slate-200 bg-slate-50 p-7">
+            <span class="text-sm font-black text-brand-green">0{index + 1}</span>
+            <h2 class="mt-5 text-xl font-black text-brand-navy">{item}</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-600">일상에서 반복 사용되는 제품인 만큼 사용감과 표시사항을 함께 확인하는 것이 중요합니다.</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-slate-50">
+    <div class="container-page">
+      <SectionTitle eyebrow="COLUMN" title="관련 칼럼" />
+      <div class="grid gap-6 md:grid-cols-3">
+        {innerArticles.map((article) => (
+          <a class="border border-slate-200 bg-white p-7 shadow-sm hover:shadow-corporate" href={withBase(`/health/${article.slug}/`)}>
+            <span class="text-sm font-bold text-brand-green">{article.category}</span>
+            <h2 class="mt-4 text-xl font-black text-brand-navy">{article.title}</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-600">{article.excerpt}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

@@ -2,61 +2,33 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SubHero from "@/components/SubHero.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
-import PageSectionNav from "@/components/PageSectionNav.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
+import SubpageGrid from "@/components/SubpageGrid.astro";
 import ProductCard from "@/components/ProductCard.astro";
 import CTASection from "@/components/CTASection.astro";
-import { site } from "@/data/site";
+import { productSubpages } from "@/data/subpages";
 import { products } from "@/data/products";
-
-const productGroups = [
-  {
-    label: "여성 건강",
-    description: "여성 유산균과 이너케어 제품을 중심으로 데일리 건강 루틴을 제안합니다.",
-    count: products.filter((product) => product.category.includes("여성") || product.category.includes("이너")).length
-  },
-  {
-    label: "키즈 건강",
-    description: "아이의 성장기 영양과 섭취 편의성을 고려한 키즈 제품군입니다.",
-    count: products.filter((product) => product.category.includes("키즈")).length
-  },
-  {
-    label: "이너 뷰티",
-    description: "보습, 향, 피부 컨디션을 고려한 생활 밀착형 이너 뷰티 라인입니다.",
-    count: products.filter((product) => product.category.includes("뷰티") || product.category.includes("클렌저")).length
-  }
-];
 ---
 
 <BaseLayout title="제품소개" description="비오랩 홀딩스의 iHEAL 제품 라인업을 소개합니다.">
-  <SubHero title="제품소개" description="여성 유산균, 키즈 유산균, 이너케어, 이너 뷰티까지 iHEAL 제품 라인업을 확인하세요." />
+  <SubHero title="제품소개" description="여성 건강, 키즈 건강, 이너케어, 다이어트 제품군을 각각 별도 페이지로 확인하세요." />
   <Breadcrumb current="제품소개" />
-  <PageSectionNav sections={site.pageSections.products} />
 
-  <section id="category" class="section-band bg-white">
+  <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="PRODUCT CATEGORY" title="제품군별 핵심 포인트" description="제품 상세 정보를 보기 전에 iHEAL 라인업의 큰 구성을 먼저 확인할 수 있습니다." />
-      <div class="grid gap-5 md:grid-cols-3">
-        {productGroups.map((group, index) => (
-          <article class="border border-slate-200 bg-slate-50 p-7">
-            <span class="text-sm font-black text-brand-green">0{index + 1}</span>
-            <h2 class="mt-5 text-2xl font-black text-brand-navy">{group.label}</h2>
-            <p class="mt-4 min-h-20 text-sm leading-7 text-slate-600">{group.description}</p>
-            <strong class="mt-6 block text-sm text-brand-blue">등록 제품 {group.count}개</strong>
-          </article>
-        ))}
-      </div>
+      <SectionTitle eyebrow="PRODUCT CATEGORY" title="제품군별 페이지" description="제품 소개는 제품군별로 분리했습니다. 각 페이지에서 관련 제품과 핵심 성분을 확인할 수 있습니다." />
+      <SubpageGrid items={productSubpages} />
     </div>
   </section>
 
-  <section id="lineup" class="section-band bg-slate-50">
+  <section class="section-band bg-slate-50">
     <div class="container-page">
-      <SectionTitle eyebrow="PRODUCT LINEUP" title="iHEAL 제품 리스트" description="각 제품 상세 페이지로 확장 가능한 정적 데이터 기반 구조입니다." />
+      <SectionTitle eyebrow="ALL PRODUCTS" title="전체 제품" description="개별 제품 상세 페이지는 제품 카드에서 바로 확인할 수 있습니다." />
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => <ProductCard product={product} />)}
       </div>
     </div>
   </section>
 
-  <CTASection id="product-contact" />
+  <CTASection />
 </BaseLayout>

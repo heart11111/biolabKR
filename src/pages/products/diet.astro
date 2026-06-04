@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import ProductCard from "@/components/ProductCard.astro";
+import CTASection from "@/components/CTASection.astro";
+import { products } from "@/data/products";
+
+const dietProducts = products.filter((product) => product.category.includes("다이어트"));
+---
+
+<BaseLayout title="다이어트 제품" description="아이힐 라인엔 유산균을 소개합니다.">
+  <SubHero title="다이어트" description="항비만 활성을 갖는 특허 균주와 가르시니아 추출물을 담은 체지방 관리 라인입니다." />
+  <Breadcrumb parent={{ label: "제품소개", href: "/products/" }} current="다이어트" />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="DIET PROBIOTICS" title="라인엔 유산균" description="MG4231, MG4244 특허 균주와 HCA를 함유한 가르시니아 캄보지아 추출물을 조합한 제품입니다." />
+      <div class="grid gap-6 md:grid-cols-2">
+        {dietProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-slate-50">
+    <div class="container-page grid gap-6 md:grid-cols-3">
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">특허 균주 2종</h2><p class="mt-4 text-sm leading-7 text-slate-600">MG4231, MG4244는 체지방 관리 컨셉의 제품 설계에 활용되는 인체 유래 특허 균주입니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">가르시니아 추출물</h2><p class="mt-4 text-sm leading-7 text-slate-600">HCA 성분을 기반으로 탄수화물의 지방 합성 억제와 체지방 관리 컨셉을 제안합니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">데일리 루틴</h2><p class="mt-4 text-sm leading-7 text-slate-600">바쁜 일상에서도 간편하게 이어갈 수 있는 건강한 관리 루틴을 목표로 합니다.</p></article>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

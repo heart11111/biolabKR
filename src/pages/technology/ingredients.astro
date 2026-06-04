@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import IngredientCard from "@/components/IngredientCard.astro";
+import CTASection from "@/components/CTASection.astro";
+import { ingredients } from "@/data/ingredients";
+---
+
+<BaseLayout title="핵심 원료" description="비오랩 홀딩스의 핵심 원료와 특허 균주를 소개합니다.">
+  <SubHero title="핵심 원료" description="특허 유산균과 이너케어 원료를 제품 목적에 맞춰 설계합니다." />
+  <Breadcrumb parent={{ label: "원료/기술", href: "/technology/" }} current="핵심 원료" />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="INGREDIENT" title="제품 설계의 중심 원료" description="아이힐 브랜드 자료에 기재된 특허 균주와 핵심 부원료를 비오랩 홀딩스 산하 브랜드 원료 정보로 정리했습니다." />
+      <div class="grid gap-6 md:grid-cols-2">
+        {ingredients.map((ingredient) => <IngredientCard ingredient={ingredient} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-slate-50">
+    <div class="container-page grid gap-6 lg:grid-cols-3">
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">여성 특허 균주</h2><p class="mt-4 text-sm leading-7 text-slate-600">MG242, MG901, MG989는 건강한 한국 여성 유래 특허 유산균 3종으로 비너스 유산균과 스틱 제품에 적용됩니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">키즈 특허 균주</h2><p class="mt-4 text-sm leading-7 text-slate-600">L. reuteri MG505와 영유아 유래 특허 유산균 3종을 중심으로 키즈락 유산균을 설계합니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">이너케어 원료</h2><p class="mt-4 text-sm leading-7 text-slate-600">5중 히알루론산, 글루타치온, 판테놀, 식물 유래 성분, 락토바실러스 발효여과물을 활용합니다.</p></article>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

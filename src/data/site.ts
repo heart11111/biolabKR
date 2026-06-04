@@ -56,40 +56,11 @@ export const site = {
       sections: ["공지사항", "FAQ", "문의하기", "연락처"]
     }
   ],
-  pageSections: {
-    company: [
-      { label: "대표 인사말", href: "#greeting", description: "비오랩 홀딩스가 지향하는 건강 브랜드 방향" },
-      { label: "회사 개요", href: "#overview", description: "회사명, 사업 영역, 대표 연락처" },
-      { label: "연혁", href: "#history", description: "브랜드 시작부터 글로벌 채널 확장까지" },
-      { label: "주요 파트너", href: "#partners", description: "국내외 유통 및 협력 채널" },
-      { label: "오시는 길", href: "#location", description: "주소와 대표 연락처" }
-    ],
-    technology: [
-      { label: "핵심 원료", href: "#ingredients", description: "제품 설계에 활용되는 주요 원료" },
-      { label: "연구개발", href: "#research", description: "여성·키즈 건강 중심의 제품화 방향" },
-      { label: "품질관리", href: "#quality", description: "원료 규격, 이력, 표시 문구 관리" }
-    ],
-    products: [
-      { label: "제품 분류", href: "#category", description: "제품군별 핵심 포인트" },
-      { label: "제품 리스트", href: "#lineup", description: "상세 페이지로 이어지는 제품 카드" },
-      { label: "상담 문의", href: "#product-contact", description: "입점·제휴·제품 문의 연결" }
-    ],
-    health: [
-      { label: "건강 칼럼", href: "#articles", description: "정적 데이터로 관리되는 정보 콘텐츠" },
-      { label: "콘텐츠 분류", href: "#topics", description: "여성 건강, 이너케어, 키즈 건강 주제" },
-      { label: "문의 연결", href: "#health-contact", description: "콘텐츠 및 제품 문의 안내" }
-    ],
-    support: [
-      { label: "공지사항/보도자료", href: "#news", description: "브랜드 소식, 입점, 언론보도 게시판" },
-      { label: "FAQ", href: "#faq", description: "자주 묻는 질문" },
-      { label: "문의하기", href: "#contact", description: "연락처, 이메일, 주소" }
-    ]
-  },
   quickLinks: [
-    { label: "대표 인사말", href: "/company/#greeting" },
-    { label: "연혁", href: "/company/#history" },
-    { label: "주요 파트너", href: "/company/#partners" },
-    { label: "오시는 길", href: "/company/#location" }
+    { label: "대표 인사말", href: "/company/greeting/" },
+    { label: "연혁", href: "/company/history/" },
+    { label: "주요 파트너", href: "/company/partners/" },
+    { label: "오시는 길", href: "/company/location/" }
   ],
   stats: [
     { label: "창업", value: "2018.07" },

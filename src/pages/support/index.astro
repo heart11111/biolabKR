@@ -2,61 +2,19 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SubHero from "@/components/SubHero.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
-import PageSectionNav from "@/components/PageSectionNav.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
-import NewsBoard from "@/components/NewsBoard.astro";
-import FAQList from "@/components/FAQList.astro";
-import { news, supportNewsCategories } from "@/data/news";
-import { faqs } from "@/data/faqs";
-import { site } from "@/data/site";
+import SubpageGrid from "@/components/SubpageGrid.astro";
+import { supportSubpages } from "@/data/subpages";
 ---
 
 <BaseLayout title="고객지원" description="비오랩 홀딩스 공지사항, FAQ, 문의 연락처를 안내합니다.">
-  <SubHero title="고객지원" description="공지사항, FAQ, 문의처, 주소 정보를 한 곳에서 확인할 수 있습니다." />
+  <SubHero title="고객지원" description="공지사항, FAQ, 문의하기를 각각 별도 페이지로 확인할 수 있습니다." />
   <Breadcrumb current="고객지원" />
-  <PageSectionNav sections={site.pageSections.support} />
 
-  <section id="news" class="section-band bg-white">
+  <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle
-        eyebrow="NEWS"
-        title="공지사항 / 보도자료"
-        description="RP Bio 레퍼런스처럼 하위 카테고리와 게시판 목록을 분리해 기업 소식을 한눈에 확인할 수 있게 정리했습니다."
-      />
-      <NewsBoard items={news} categories={supportNewsCategories} />
-    </div>
-  </section>
-
-  <section id="faq" class="section-band bg-slate-50">
-    <div class="container-page">
-      <SectionTitle eyebrow="FAQ" title="자주 묻는 질문" />
-      <FAQList items={faqs} />
-    </div>
-  </section>
-
-  <section id="contact" class="section-band bg-white">
-    <div class="container-page">
-      <SectionTitle eyebrow="CONTACT" title="문의하기" />
-      <div class="grid gap-8 lg:grid-cols-2">
-        <table class="table-corporate">
-          <tbody>
-            <tr><th>대표번호</th><td>{site.phone}</td></tr>
-            <tr><th>팩스</th><td>{site.fax}</td></tr>
-            <tr><th>이메일</th><td><a class="text-brand-blue" href={`mailto:${site.email}`}>{site.email}</a></td></tr>
-            <tr><th>주소</th><td>{site.address}</td></tr>
-          </tbody>
-        </table>
-        <form class="border border-slate-200 bg-slate-50 p-7">
-          <p class="mb-5 text-sm leading-7 text-slate-600">정적 사이트이므로 실제 전송 기능은 없습니다. 배포 후 Formspree, Google Forms, 이메일 링크 등으로 교체할 수 있습니다.</p>
-          <label class="mb-2 block text-sm font-bold text-slate-700" for="name">이름</label>
-          <input id="name" class="mb-4 w-full border border-slate-200 px-4 py-3" type="text" placeholder="홍길동" disabled />
-          <label class="mb-2 block text-sm font-bold text-slate-700" for="email">이메일</label>
-          <input id="email" class="mb-4 w-full border border-slate-200 px-4 py-3" type="email" placeholder="name@example.com" disabled />
-          <label class="mb-2 block text-sm font-bold text-slate-700" for="message">문의 내용</label>
-          <textarea id="message" class="h-28 w-full border border-slate-200 px-4 py-3" placeholder="문의 내용을 입력하세요" disabled></textarea>
-          <button class="mt-5 bg-brand-navy px-6 py-3 text-sm font-bold text-white" type="button" disabled>문의 기능 준비중</button>
-        </form>
-      </div>
+      <SectionTitle eyebrow="SUPPORT" title="필요한 고객지원 메뉴를 선택하세요" description="공지사항과 문의 정보를 한 페이지에 몰아넣지 않고, 필요한 내용별로 분리했습니다." />
+      <SubpageGrid items={supportSubpages} />
     </div>
   </section>
 </BaseLayout>

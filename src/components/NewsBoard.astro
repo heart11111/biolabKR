@@ -11,19 +11,18 @@ const { items, categories } = Astro.props;
 ---
 
 <div class="border-t-2 border-brand-navy" data-news-board>
-  <nav class="grid border-b border-slate-200 bg-slate-50 sm:grid-cols-5" aria-label="뉴스 카테고리">
+  <div class="grid border-b border-slate-200 bg-slate-50 sm:grid-cols-5" aria-label="뉴스 카테고리">
     {categories.map((category, index) => (
-      <a
+      <span
         class:list={[
           "border-b border-r border-slate-200 px-5 py-4 text-center text-sm font-extrabold transition hover:bg-white hover:text-brand-blue sm:border-b-0",
           index === 0 ? "bg-brand-navy text-white hover:bg-brand-navy hover:text-white" : "text-slate-700"
         ]}
-        href={category === "전체" ? "#news" : "#news-list"}
       >
         {category}
-      </a>
+      </span>
     ))}
-  </nav>
+  </div>
 
   <div class="flex flex-col gap-3 border-b border-slate-200 bg-white px-4 py-5 md:flex-row md:items-center md:justify-between">
     <p class="text-sm font-semibold text-slate-600">
@@ -41,7 +40,7 @@ const { items, categories } = Astro.props;
     </div>
   </div>
 
-  <div id="news-list" class="hidden md:block">
+  <div class="hidden md:block">
     <div class="grid grid-cols-[80px_120px_1fr_130px_130px_90px] border-b border-slate-200 bg-slate-100 px-4 py-4 text-center text-sm font-extrabold text-brand-navy">
       <span>No</span>
       <span>구분</span>

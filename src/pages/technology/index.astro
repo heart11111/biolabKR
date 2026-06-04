@@ -2,59 +2,24 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SubHero from "@/components/SubHero.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
-import PageSectionNav from "@/components/PageSectionNav.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
-import IngredientCard from "@/components/IngredientCard.astro";
+import SubpageGrid from "@/components/SubpageGrid.astro";
 import CTASection from "@/components/CTASection.astro";
-import { ingredients } from "@/data/ingredients";
-import { site } from "@/data/site";
-import { withBase } from "@/lib/path";
+import { technologySubpages } from "@/data/subpages";
 ---
 
-<BaseLayout title="원료/기술 소개" description="비오랩 홀딩스의 핵심 원료, 특허 균주, 연구개발, 품질관리 방향을 소개합니다.">
+<BaseLayout title="원료/기술 소개" description="비오랩 홀딩스의 핵심 원료, 연구개발, 품질관리 방향을 소개합니다.">
   <SubHero title="원료/기술 소개" description="특허 유산균과 이너케어 원료를 기반으로 제품별 목적에 맞는 포뮬러를 설계합니다." />
   <Breadcrumb current="원료/기술 소개" />
-  <PageSectionNav sections={site.pageSections.technology} />
 
-  <section id="ingredients" class="section-band bg-white">
+  <section class="section-band bg-white">
     <div class="container-page">
       <SectionTitle
-        eyebrow="INGREDIENT"
-        title="핵심 원료 소개"
-        description="제품별 기능과 사용 맥락에 맞춰 원료 조합을 설계하고, 표시사항과 품질 기준에 맞춰 정보를 관리합니다."
+        eyebrow="TECHNOLOGY"
+        title="원료와 기술 정보를 페이지별로 확인하세요"
+        description="핵심 원료, 연구개발, 품질관리 내용을 독립 페이지로 분리해 자료를 더 자세히 정리했습니다."
       />
-      <div class="grid gap-6 md:grid-cols-2">
-        {ingredients.map((ingredient) => <IngredientCard ingredient={ingredient} />)}
-      </div>
-    </div>
-  </section>
-
-  <section id="research" class="section-band bg-slate-50">
-    <div class="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
-      <img class="h-[420px] w-full object-cover shadow-corporate" src={withBase("/images/ingredient-hyaluronic.jpg")} alt="히알루론산 원료 이미지" />
-      <div>
-        <SectionTitle align="left" eyebrow="R&D" title="연구개발 방향" description="여성 건강, 키즈 건강, 이너케어의 생활 루틴을 연구하며 제품 설계와 원료 검토를 체계화합니다." />
-        <ul class="space-y-4 text-slate-700">
-          <li class="border-l-4 border-brand-green bg-white p-5">원료별 문헌, 특허, 사용 경험을 바탕으로 제품 컨셉을 정리합니다.</li>
-          <li class="border-l-4 border-brand-green bg-white p-5">건강기능식품 표현 기준과 표시사항을 고려해 소비자 안내 문구를 관리합니다.</li>
-          <li class="border-l-4 border-brand-green bg-white p-5">국내외 유통 채널별 규격과 고객 피드백을 반영해 제품 라인업을 개선합니다.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="quality" class="section-band bg-white">
-    <div class="container-page">
-      <SectionTitle eyebrow="QUALITY" title="품질관리" />
-      <div class="grid gap-6 md:grid-cols-3">
-        {["원료 규격 확인", "제조/유통 이력 관리", "표시 문구 검토"].map((item, index) => (
-          <article class="border-t-4 border-brand-blue bg-slate-50 p-7">
-            <span class="text-sm font-black text-brand-green">0{index + 1}</span>
-            <h3 class="mt-5 text-xl font-extrabold text-brand-navy">{item}</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-600">제품 신뢰도를 높이기 위해 단계별 확인 기준과 교체 가능한 자료 관리 구조를 둡니다.</p>
-          </article>
-        ))}
-      </div>
+      <SubpageGrid items={technologySubpages} />
     </div>
   </section>
 

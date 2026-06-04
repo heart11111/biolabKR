@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import CTASection from "@/components/CTASection.astro";
+import { withBase } from "@/lib/path";
+---
+
+<BaseLayout title="연구개발" description="비오랩 홀딩스의 연구개발 방향과 제품화 기준을 소개합니다.">
+  <SubHero title="연구개발" description="여성 건강, 키즈 건강, 이너케어 루틴을 중심으로 제품 설계를 체계화합니다." />
+  <Breadcrumb parent={{ label: "원료/기술", href: "/technology/" }} current="연구개발" />
+
+  <section class="section-band bg-white">
+    <div class="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
+      <img class="h-[420px] w-full object-cover shadow-corporate" src={withBase("/images/ingredient-hyaluronic.jpg")} alt="히알루론산 원료 이미지" />
+      <div>
+        <SectionTitle align="left" eyebrow="R&D" title="생활 루틴 기반 제품화" description="제품 자료와 판매 채널 피드백을 바탕으로 소비자가 이해하기 쉬운 기능, 섭취 편의, 원료 조합을 정리합니다." />
+        <ul class="space-y-4 text-slate-700">
+          <li class="border-l-4 border-brand-green bg-slate-50 p-5">여성 유래 특허 균주, 항비만 특허 균주, 키즈 코팅 기술처럼 제품별 핵심 기술을 분명히 구분합니다.</li>
+          <li class="border-l-4 border-brand-green bg-slate-50 p-5">Qoo10, 올리브영 등 국내외 채널에서 확인되는 고객 반응을 제품 설명과 라인업 개선에 반영합니다.</li>
+          <li class="border-l-4 border-brand-green bg-slate-50 p-5">건강기능식품 표현 기준과 표시사항을 고려해 과장 없이 신뢰 가능한 정보 구조를 유지합니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

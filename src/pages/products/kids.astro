@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import ProductCard from "@/components/ProductCard.astro";
+import CTASection from "@/components/CTASection.astro";
+import { products } from "@/data/products";
+
+const kidsProducts = products.filter((product) => product.category.includes("키즈"));
+---
+
+<BaseLayout title="키즈 건강 제품" description="아이힐 키즈락 유산균을 소개합니다.">
+  <SubHero title="키즈 건강" description="아이의 성장기 영양과 섭취 편의를 고려한 올인원 키즈 유산균 라인입니다." />
+  <Breadcrumb parent={{ label: "제품소개", href: "/products/" }} current="키즈 건강" />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="KIDS PROBIOTICS" title="키즈락 유산균" description="모유 유래 유산균, 영유아 유래 특허 유산균, 아연, 비타민D, 칼슘, 식이섬유를 함께 설계합니다." />
+      <div class="grid gap-6 md:grid-cols-2">
+        {kidsProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-slate-50">
+    <div class="container-page grid gap-6 md:grid-cols-3">
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">10억 보장 유산균</h2><p class="mt-4 text-sm leading-7 text-slate-600">키즈락 유산균은 보장균수와 아이 섭취 편의를 함께 고려한 제품입니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">특허 코팅 기술</h2><p class="mt-4 text-sm leading-7 text-slate-600">호박분말 동결건조 SP 복합 코팅으로 유산균 생존율을 고려한 컨셉을 적용합니다.</p></article>
+      <article class="border border-slate-200 bg-white p-7"><h2 class="text-xl font-black text-brand-navy">성장기 영양</h2><p class="mt-4 text-sm leading-7 text-slate-600">정상적인 면역기능을 위한 아연, 비타민D, 칼슘, 치커리 식이섬유를 함께 배합합니다.</p></article>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>
