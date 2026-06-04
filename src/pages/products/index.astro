@@ -11,19 +11,19 @@ import { products } from "@/data/products";
 ---
 
 <BaseLayout title="제품소개" description="비오랩 홀딩스의 iHEAL 제품 라인업을 소개합니다.">
-  <SubHero title="제품소개" description="여성 건강, 키즈 건강, 이너케어, 다이어트 제품군을 각각 별도 페이지로 확인하세요." />
+  <SubHero title="제품소개" description="여성 건강, 키즈 건강, 이너케어, 다이어트까지 iHEAL 제품군의 구성과 특징을 소개합니다." />
   <Breadcrumb current="제품소개" />
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="PRODUCT CATEGORY" title="제품군별 페이지" description="제품 소개는 제품군별로 분리했습니다. 각 페이지에서 관련 제품과 핵심 성분을 확인할 수 있습니다." />
+      <SectionTitle eyebrow="PRODUCT CATEGORY" title="제품군별 라인업" description="소비자 니즈에 맞춰 설계한 제품군과 주요 성분, 섭취 안내를 제품별로 정리했습니다." />
       <SubpageGrid items={productSubpages} />
     </div>
   </section>
 
   <section class="section-band bg-slate-50">
     <div class="container-page">
-      <SectionTitle eyebrow="ALL PRODUCTS" title="전체 제품" description="개별 제품 상세 페이지는 제품 카드에서 바로 확인할 수 있습니다." />
+      <SectionTitle eyebrow="ALL PRODUCTS" title="전체 제품" description="각 제품의 성분, 특징, 섭취 방법, 인증 정보를 함께 안내합니다." />
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => <ProductCard product={product} />)}
       </div>

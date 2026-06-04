@@ -97,7 +97,38 @@ const requiredContent = [
   ["componentized product cards", homePage.includes("ProductCard")]
 ];
 
+const visitorCopyForbiddenPhrases = [
+  "페이지별로 확인하세요",
+  "독립 페이지",
+  "별도 페이지로 확인하세요",
+  "더 깊게 확인하세요",
+  "제품소개에서 자세히 확인하세요",
+  "필요한 정보를 카테고리별로 확인하세요",
+  "페이지 보기",
+  "제품군별 페이지",
+  "분리했습니다",
+  "정적 데이터",
+  "정적 게시글",
+  "별도 페이지",
+  "주제별 페이지",
+  "src/data",
+  "더미값",
+  "지도 영역",
+  "교체할 수 있습니다",
+  "정적 사이트",
+  "문의 기능 준비중"
+];
+const visitorCopyFailures = visitorCopyForbiddenPhrases.filter((phrase) =>
+  sourceFiles.some((file) => file.includes(phrase))
+);
+
 const failed = requiredContent.filter(([, ok]) => !ok).map(([label]) => label);
+
+if (visitorCopyFailures.length) {
+  failed.push(
+    ...visitorCopyFailures.map((phrase) => `visitor-facing copy should not say "${phrase}"`)
+  );
+}
 
 if (failed.length) {
   console.error(`Required content checks failed:\n${failed.map((label) => `- ${label}`).join("\n")}`);

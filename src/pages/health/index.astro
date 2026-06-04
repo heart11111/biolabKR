@@ -8,13 +8,13 @@ import CTASection from "@/components/CTASection.astro";
 import { healthSubpages } from "@/data/subpages";
 ---
 
-<BaseLayout title="건강정보" description="여성 건강, 이너케어, 키즈 건강 관련 정보를 정적 게시글로 제공합니다.">
-  <SubHero title="건강정보" description="여성 건강, 이너케어, 키즈 건강 정보를 주제별 페이지로 나누어 제공합니다." />
+<BaseLayout title="건강정보" description="여성 건강, 이너케어, 키즈 건강 관련 정보를 제공합니다.">
+  <SubHero title="건강정보" description="여성 건강, 이너케어, 키즈 건강을 위한 생활 관리 정보를 전합니다." />
   <Breadcrumb current="건강정보" />
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="HEALTH TOPICS" title="건강정보 주제" description="DB 없이 정적 데이터로 관리되는 건강정보를 주제별 페이지와 상세 글로 분리했습니다." />
+      <SectionTitle eyebrow="HEALTH TOPICS" title="건강한 일상을 위한 정보" description="제품 선택과 생활 관리에 도움이 되는 여성 건강, 이너케어, 키즈 건강 콘텐츠를 제공합니다." />
       <SubpageGrid items={healthSubpages} />
     </div>
   </section>

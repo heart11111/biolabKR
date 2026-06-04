@@ -112,13 +112,13 @@ export const supportSubpages: SubpageItem[] = [
     label: "공지사항 / 보도자료",
     href: "/support/news/",
     eyebrow: "NEWS",
-    summary: "브랜드 소식, 입점, 수상, 언론보도를 기업 게시판 형식으로 확인할 수 있습니다."
+    summary: "브랜드 소식, 입점, 수상, 보도자료를 안내합니다."
   },
   {
     label: "FAQ",
     href: "/support/faq/",
     eyebrow: "FAQ",
-    summary: "제품, 입점, 정적 사이트 운영 방식에 대한 자주 묻는 질문입니다."
+    summary: "제품, 입점, 제휴 문의와 관련해 자주 묻는 내용을 안내합니다."
   },
   {
     label: "문의하기",
