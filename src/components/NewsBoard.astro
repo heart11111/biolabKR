@@ -53,8 +53,6 @@ const { items, categories } = Astro.props;
       <a
         class="grid grid-cols-[80px_120px_1fr_130px_130px_90px] border-b border-slate-200 px-4 py-5 text-center text-sm text-slate-600 hover:bg-slate-50"
         href={withBase(item.href)}
-        target={item.href.startsWith("http") ? "_blank" : undefined}
-        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
       >
         <span class="font-semibold">{items.length - index}</span>
         <span class="font-bold text-brand-green">{item.category}</span>
@@ -71,8 +69,6 @@ const { items, categories } = Astro.props;
       <a
         class="block px-4 py-5 hover:bg-slate-50"
         href={withBase(item.href)}
-        target={item.href.startsWith("http") ? "_blank" : undefined}
-        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
       >
         <div class="mb-3 flex flex-wrap items-center gap-2 text-xs font-bold">
           <span class="bg-brand-mint px-3 py-1 text-brand-green">{item.category}</span>

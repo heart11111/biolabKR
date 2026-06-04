@@ -39,6 +39,7 @@ const requiredFiles = [
   "src/pages/health/[slug].astro",
   "src/pages/support/index.astro",
   "src/pages/support/news.astro",
+  "src/pages/support/news/[slug].astro",
   "src/pages/support/faq.astro",
   "src/pages/support/contact.astro",
   "src/data/site.ts",
@@ -71,6 +72,7 @@ const sourceFiles = requiredFiles
   .filter((file) => file.startsWith("src/"))
   .map((file) => readFileSync(join(process.cwd(), file), "utf8"));
 const supportNewsPage = readFileSync(join(process.cwd(), "src/pages/support/news.astro"), "utf8");
+const supportNewsDetailPage = readFileSync(join(process.cwd(), "src/pages/support/news/[slug].astro"), "utf8");
 const newsData = readFileSync(join(process.cwd(), "src/data/news.ts"), "utf8");
 const ingredientCard = readFileSync(join(process.cwd(), "src/components/IngredientCard.astro"), "utf8");
 const categoryPages = [
@@ -94,7 +96,9 @@ const requiredContent = [
   ["legacy page guide removed", sourceFiles.every((file) => !file.includes("이 페이지에서 확인할 내용") && !file.includes("PageSectionNav"))],
   ["hash shortcut links removed", sourceFiles.every((file) => !file.includes("/support/#") && !file.includes("#greeting") && !file.includes("#ingredients") && !file.includes("#category") && !file.includes("#articles") && !file.includes("#news"))],
   ["RP Bio style news categories", newsData.includes("supportNewsCategories")],
-  ["external press links", newsData.includes("article-university.qoo10.jp/entry/case_iheal_kor") && newsData.includes("qoo10.jp/gmkt.inc/Special/Special.aspx?sid=209752") && newsData.includes("oliveyoung.co.kr")],
+  ["external press source metadata", newsData.includes("sourceUrl") && newsData.includes("article-university.qoo10.jp/entry/case_iheal_kor") && newsData.includes("qoo10.jp/gmkt.inc/Special/Special.aspx?sid=209752") && newsData.includes("oliveyoung.co.kr")],
+  ["news list links stay internal", !/href:\s*"https?:\/\//.test(newsData) && newsData.includes('/support/news/qoo10-iheal-case/')],
+  ["news detail static route", supportNewsDetailPage.includes("getStaticPaths") && supportNewsDetailPage.includes("sourceUrl") && supportNewsDetailPage.includes('withBase("/support/news/")')],
   ["support news board split page", supportNewsPage.includes("NewsBoard")],
   ["componentized product cards", homePage.includes("ProductCard")],
   ["category cards use icons", sourceFiles.some((file) => file.includes("categoryGateway") && file.includes("<Icon"))],

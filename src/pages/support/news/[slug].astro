@@ -1,0 +1,84 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import CTASection from "@/components/CTASection.astro";
+import { news, type NewsItem } from "@/data/news";
+import { withBase } from "@/lib/path";
+
+export function getStaticPaths() {
+  return news.map((item) => ({
+    params: { slug: item.slug },
+    props: { item }
+  }));
+}
+
+type Props = {
+  item: NewsItem;
+};
+
+const { item } = Astro.props;
+---
+
+<BaseLayout title={item.title} description={item.summary}>
+  <SubHero title="공지사항 / 보도자료" description="비오랩 홀딩스와 iHEAL 브랜드의 주요 소식을 전합니다." />
+  <Breadcrumb parent={{ label: "공지사항 / 보도자료", href: "/support/news/" }} current={item.title} />
+
+  <article class="section-band bg-white">
+    <div class="container-page max-w-5xl">
+      <div class="border-t-2 border-brand-navy">
+        <header class="border-b border-slate-200 bg-white px-5 py-8 md:px-8">
+          <div class="mb-4 flex flex-wrap items-center gap-2 text-sm font-bold">
+            <span class="bg-brand-mint px-3 py-1 text-brand-green">{item.category}</span>
+            <span class="text-slate-500">비오랩 홀딩스 게시판</span>
+          </div>
+          <h1 class="text-3xl font-black leading-tight text-brand-navy md:text-4xl">{item.title}</h1>
+        </header>
+
+        <div class="grid border-b border-slate-200 bg-slate-50 text-sm text-slate-600 md:grid-cols-4">
+          <div class="border-b border-slate-200 px-5 py-4 md:border-b-0 md:border-r">
+            <strong class="mr-3 text-brand-navy">작성자</strong>{item.author ?? "비오랩 홀딩스"}
+          </div>
+          <div class="border-b border-slate-200 px-5 py-4 md:border-b-0 md:border-r">
+            <strong class="mr-3 text-brand-navy">작성일</strong>{item.date}
+          </div>
+          <div class="border-b border-slate-200 px-5 py-4 md:border-b-0 md:border-r">
+            <strong class="mr-3 text-brand-navy">구분</strong>{item.category}
+          </div>
+          <div class="px-5 py-4">
+            <strong class="mr-3 text-brand-navy">조회수</strong>{item.views ?? "-"}
+          </div>
+        </div>
+
+        <div class="border-b border-slate-200 px-5 py-10 md:px-8">
+          <p class="mb-8 border-l-4 border-brand-green bg-slate-50 p-5 text-base font-semibold leading-8 text-slate-700">
+            {item.summary}
+          </p>
+          <div class="space-y-6 text-base leading-8 text-slate-700">
+            {item.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+
+          {
+            item.sourceUrl && (
+              <div class="mt-10 border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-600">
+                <strong class="text-brand-navy">원문 출처</strong>
+                <span class="mx-2 text-slate-300">|</span>
+                <a class="font-bold text-brand-blue underline-offset-4 hover:underline" href={item.sourceUrl} target="_blank" rel="noreferrer">
+                  {item.sourceName ?? "외부 자료"}
+                </a>
+              </div>
+            )
+          }
+        </div>
+
+        <div class="flex justify-end border-b border-slate-200 bg-white px-5 py-6 md:px-8">
+          <a class="border border-brand-navy px-6 py-3 text-sm font-bold text-brand-navy hover:bg-brand-navy hover:text-white" href={withBase("/support/news/")}>
+            목록
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTASection />
+</BaseLayout>
