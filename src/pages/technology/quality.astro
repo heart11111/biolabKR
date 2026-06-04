@@ -3,7 +3,26 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import SubHero from "@/components/SubHero.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
+import Icon from "@/components/Icon.astro";
 import CTASection from "@/components/CTASection.astro";
+
+const qualityItems = [
+  {
+    title: "원료 규격 확인",
+    icon: "checkCircle",
+    body: "원료별 규격, 적용 목적, 표시 기준을 제품 기획 단계에서 함께 점검합니다."
+  },
+  {
+    title: "제조/유통 이력 관리",
+    icon: "network",
+    body: "제조, 물류, 판매 채널별 제품 정보가 일관되게 유지되도록 관리 기준을 세웁니다."
+  },
+  {
+    title: "표시 문구 검토",
+    icon: "shield",
+    body: "건강기능식품 표현 기준을 고려해 소비자가 오해 없이 이해할 수 있는 정보를 제공합니다."
+  }
+];
 ---
 
 <BaseLayout title="품질관리" description="비오랩 홀딩스의 원료 규격, 표시사항, 제조·유통 관리 방향을 소개합니다.">
@@ -14,11 +33,16 @@ import CTASection from "@/components/CTASection.astro";
     <div class="container-page">
       <SectionTitle eyebrow="QUALITY" title="신뢰를 위한 품질관리 체계" description="건강기능식품과 이너케어 제품은 반복 구매와 장기 신뢰가 중요하므로, 자료 관리와 표시 기준을 함께 관리합니다." />
       <div class="grid gap-6 md:grid-cols-3">
-        {["원료 규격 확인", "제조/유통 이력 관리", "표시 문구 검토"].map((item, index) => (
+        {qualityItems.map((item, index) => (
           <article class="border-t-4 border-brand-blue bg-slate-50 p-7">
-            <span class="text-sm font-black text-brand-green">0{index + 1}</span>
-            <h2 class="mt-5 text-xl font-extrabold text-brand-navy">{item}</h2>
-            <p class="mt-4 text-sm leading-7 text-slate-600">제품 신뢰도를 높이기 위해 단계별 확인 기준과 교체 가능한 자료 관리 구조를 둡니다.</p>
+            <div class="flex items-start justify-between gap-4">
+              <span class="text-sm font-black text-brand-green">0{index + 1}</span>
+              <span class="flex h-12 w-12 items-center justify-center border border-brand-blue/20 bg-white text-brand-blue">
+                <Icon name={item.icon} class="h-6 w-6" />
+              </span>
+            </div>
+            <h2 class="mt-5 text-xl font-extrabold text-brand-navy">{item.title}</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-600">{item.body}</p>
           </article>
         ))}
       </div>
@@ -29,8 +53,8 @@ import CTASection from "@/components/CTASection.astro";
     <div class="container-page">
       <table class="table-corporate">
         <tbody>
-          <tr><th>원료 관리</th><td>특허 균주, 보장균수, 부원료, 외용 원료별 규격과 적용 목적을 제품 데이터에 분리해 관리합니다.</td></tr>
-          <tr><th>표시 관리</th><td>건강기능식품 표현 기준을 고려해 제품 특징, 섭취 방법, 주의 문구를 추후 교체하기 쉽게 구성합니다.</td></tr>
+          <tr><th>원료 관리</th><td>특허 균주, 보장균수, 부원료, 외용 원료별 규격과 적용 목적을 제품별 기준에 맞춰 관리합니다.</td></tr>
+          <tr><th>표시 관리</th><td>건강기능식품 표현 기준을 고려해 제품 특징, 섭취 방법, 주의 문구를 신중하게 검토합니다.</td></tr>
           <tr><th>채널 관리</th><td>국내외 온오프라인 채널별 소개 자료와 제품 설명을 일관된 기준으로 정리합니다.</td></tr>
         </tbody>
       </table>

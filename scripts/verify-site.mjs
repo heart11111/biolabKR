@@ -9,6 +9,7 @@ const requiredFiles = [
   "src/components/Footer.astro",
   "src/components/Hero.astro",
   "src/components/CategoryGateway.astro",
+  "src/components/Icon.astro",
   "src/components/SubpageGrid.astro",
   "src/components/ProductCard.astro",
   "src/components/NewsCard.astro",
@@ -71,6 +72,7 @@ const sourceFiles = requiredFiles
   .map((file) => readFileSync(join(process.cwd(), file), "utf8"));
 const supportNewsPage = readFileSync(join(process.cwd(), "src/pages/support/news.astro"), "utf8");
 const newsData = readFileSync(join(process.cwd(), "src/data/news.ts"), "utf8");
+const ingredientCard = readFileSync(join(process.cwd(), "src/components/IngredientCard.astro"), "utf8");
 const categoryPages = [
   "src/pages/company/index.astro",
   "src/pages/technology/index.astro",
@@ -94,7 +96,11 @@ const requiredContent = [
   ["RP Bio style news categories", newsData.includes("supportNewsCategories")],
   ["external press links", newsData.includes("article-university.qoo10.jp/entry/case_iheal_kor") && newsData.includes("qoo10.jp/gmkt.inc/Special/Special.aspx?sid=209752") && newsData.includes("oliveyoung.co.kr")],
   ["support news board split page", supportNewsPage.includes("NewsBoard")],
-  ["componentized product cards", homePage.includes("ProductCard")]
+  ["componentized product cards", homePage.includes("ProductCard")],
+  ["category cards use icons", sourceFiles.some((file) => file.includes("categoryGateway") && file.includes("<Icon"))],
+  ["subpage cards use icons", sourceFiles.some((file) => file.includes("data-subpage-grid") && file.includes("<Icon"))],
+  ["strength cards use icons", homePage.includes("strengthIcons") && homePage.includes("<Icon")],
+  ["ingredient cards use icons", ingredientCard.includes("<Icon")]
 ];
 
 const visitorCopyForbiddenPhrases = [
@@ -116,7 +122,9 @@ const visitorCopyForbiddenPhrases = [
   "지도 영역",
   "교체할 수 있습니다",
   "정적 사이트",
-  "문의 기능 준비중"
+  "문의 기능 준비중",
+  "교체 가능한",
+  "추후 교체"
 ];
 const visitorCopyFailures = visitorCopyForbiddenPhrases.filter((phrase) =>
   sourceFiles.some((file) => file.includes(phrase))

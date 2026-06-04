@@ -1,5 +1,6 @@
 ---
 import type { Ingredient } from "@/data/ingredients";
+import Icon from "@/components/Icon.astro";
 
 type Props = {
   ingredient: Ingredient;
@@ -9,6 +10,9 @@ const { ingredient } = Astro.props;
 ---
 
 <article class="h-full border border-slate-200 bg-white p-7 shadow-sm">
+  <div class="mb-5 flex h-12 w-12 items-center justify-center border border-brand-green/20 bg-brand-mint text-brand-green">
+    <Icon name={ingredient.icon} class="h-6 w-6" />
+  </div>
   <p class="mb-3 text-sm font-bold text-brand-green">{ingredient.subtitle}</p>
   <h3 class="text-xl font-extrabold text-brand-navy">{ingredient.title}</h3>
   <p class="mt-4 text-sm leading-7 text-slate-600">{ingredient.body}</p>
@@ -18,4 +22,3 @@ const { ingredient } = Astro.props;
     ))}
   </div>
 </article>
-
