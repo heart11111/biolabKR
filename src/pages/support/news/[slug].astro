@@ -54,16 +54,31 @@ const { item } = Astro.props;
           <p class="mb-8 border-l-4 border-brand-green bg-slate-50 p-5 text-base font-semibold leading-8 text-slate-700">
             {item.summary}
           </p>
+
+          <figure class="mb-10 overflow-hidden border border-slate-200 bg-slate-50">
+            <a href={withBase(item.imageSourceUrl)} target="_blank" rel="noreferrer" aria-label={`${item.imageCredit} 보기`}>
+              <img class="max-h-[520px] w-full object-contain" src={withBase(item.image)} alt={item.imageAlt} />
+            </a>
+            <figcaption class="border-t border-slate-200 px-5 py-3 text-xs leading-6 text-slate-500">
+              <a class="font-semibold text-slate-600 underline-offset-4 hover:text-brand-blue hover:underline" href={withBase(item.imageSourceUrl)} target="_blank" rel="noreferrer">
+                {item.imageCredit}
+              </a>
+            </figcaption>
+          </figure>
+
           <div class="space-y-6 text-base leading-8 text-slate-700">
             {item.body.map((paragraph) => <p>{paragraph}</p>)}
           </div>
 
           {
             item.sourceUrl && (
-              <div class="mt-10 border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-600">
-                <strong class="text-brand-navy">원문 출처</strong>
-                <span class="mx-2 text-slate-300">|</span>
-                <a class="font-bold text-brand-blue underline-offset-4 hover:underline" href={item.sourceUrl} target="_blank" rel="noreferrer">
+              <div class="mt-10 flex flex-col gap-3 border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-600 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <strong class="text-brand-navy">기사 출처</strong>
+                  <span class="mx-2 text-slate-300">|</span>
+                  <span>{item.sourceName ?? "외부 자료"}</span>
+                </div>
+                <a class="inline-flex w-fit border border-brand-blue px-4 py-2 font-bold text-brand-blue underline-offset-4 hover:bg-brand-blue hover:text-white" href={item.sourceUrl} target="_blank" rel="noreferrer">
                   {item.sourceName ?? "외부 자료"}
                 </a>
               </div>
