@@ -80,7 +80,7 @@ export const site = {
       { label: "문의 연결", href: "#health-contact", description: "콘텐츠 및 제품 문의 안내" }
     ],
     support: [
-      { label: "공지사항", href: "#news", description: "브랜드 소식과 언론보도" },
+      { label: "공지사항/보도자료", href: "#news", description: "브랜드 소식, 입점, 언론보도 게시판" },
       { label: "FAQ", href: "#faq", description: "자주 묻는 질문" },
       { label: "문의하기", href: "#contact", description: "연락처, 이메일, 주소" }
     ]

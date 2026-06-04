@@ -4,9 +4,9 @@ import SubHero from "@/components/SubHero.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import PageSectionNav from "@/components/PageSectionNav.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
-import NewsCard from "@/components/NewsCard.astro";
+import NewsBoard from "@/components/NewsBoard.astro";
 import FAQList from "@/components/FAQList.astro";
-import { news } from "@/data/news";
+import { news, supportNewsCategories } from "@/data/news";
 import { faqs } from "@/data/faqs";
 import { site } from "@/data/site";
 ---
@@ -17,9 +17,13 @@ import { site } from "@/data/site";
   <PageSectionNav sections={site.pageSections.support} />
 
   <section id="news" class="section-band bg-white">
-    <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-      <SectionTitle align="left" eyebrow="NOTICE" title="공지사항 / 언론보도" description="정적 데이터로 운영되는 공지 영역입니다." />
-      <div>{news.map((item) => <NewsCard item={item} />)}</div>
+    <div class="container-page">
+      <SectionTitle
+        eyebrow="NEWS"
+        title="공지사항 / 보도자료"
+        description="RP Bio 레퍼런스처럼 하위 카테고리와 게시판 목록을 분리해 기업 소식을 한눈에 확인할 수 있게 정리했습니다."
+      />
+      <NewsBoard items={news} categories={supportNewsCategories} />
     </div>
   </section>
 

@@ -12,6 +12,7 @@ const requiredFiles = [
   "src/components/PageSectionNav.astro",
   "src/components/ProductCard.astro",
   "src/components/NewsCard.astro",
+  "src/components/NewsBoard.astro",
   "src/components/SectionTitle.astro",
   "src/pages/index.astro",
   "src/pages/company/index.astro",
@@ -40,6 +41,8 @@ if (missing.length) {
 
 const siteData = readFileSync(join(process.cwd(), "src/data/site.ts"), "utf8");
 const homePage = readFileSync(join(process.cwd(), "src/pages/index.astro"), "utf8");
+const supportPage = readFileSync(join(process.cwd(), "src/pages/support/index.astro"), "utf8");
+const newsData = readFileSync(join(process.cwd(), "src/data/news.ts"), "utf8");
 const categoryPages = [
   "src/pages/company/index.astro",
   "src/pages/technology/index.astro",
@@ -58,6 +61,8 @@ const requiredContent = [
   ["category gateway data", siteData.includes("categoryGateway")],
   ["home category gateway", homePage.includes("CategoryGateway")],
   ["category page section navigation", categoryPages.every((page) => page.includes("PageSectionNav"))],
+  ["RP Bio style news categories", newsData.includes("supportNewsCategories")],
+  ["support news board", supportPage.includes("NewsBoard")],
   ["componentized product cards", homePage.includes("ProductCard")]
 ];
 
