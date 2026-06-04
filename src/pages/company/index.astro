@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SubHero from "@/components/SubHero.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import PageSectionNav from "@/components/PageSectionNav.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 import Timeline from "@/components/Timeline.astro";
 import CTASection from "@/components/CTASection.astro";
@@ -11,6 +12,7 @@ import { site } from "@/data/site";
 <BaseLayout title="회사소개" description="비오랩 홀딩스의 비전, 연혁, 주요 파트너, 오시는 길을 소개합니다.">
   <SubHero title="회사소개" description="여성과 아이의 건강을 위한 브랜드와 제품을 연구하며 글로벌 헬스케어 기업으로 성장합니다." />
   <Breadcrumb current="회사소개" />
+  <PageSectionNav sections={site.pageSections.company} />
 
   <section id="greeting" class="section-band bg-white">
     <div class="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -30,7 +32,7 @@ import { site } from "@/data/site";
     </div>
   </section>
 
-  <section class="section-band bg-slate-50">
+  <section id="overview" class="section-band bg-slate-50">
     <div class="container-page">
       <SectionTitle eyebrow="OVERVIEW" title="회사 개요" />
       <table class="table-corporate">
@@ -82,4 +84,3 @@ import { site } from "@/data/site";
 
   <CTASection />
 </BaseLayout>
-

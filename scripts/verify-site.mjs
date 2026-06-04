@@ -8,6 +8,8 @@ const requiredFiles = [
   "src/components/Header.astro",
   "src/components/Footer.astro",
   "src/components/Hero.astro",
+  "src/components/CategoryGateway.astro",
+  "src/components/PageSectionNav.astro",
   "src/components/ProductCard.astro",
   "src/components/NewsCard.astro",
   "src/components/SectionTitle.astro",
@@ -38,6 +40,13 @@ if (missing.length) {
 
 const siteData = readFileSync(join(process.cwd(), "src/data/site.ts"), "utf8");
 const homePage = readFileSync(join(process.cwd(), "src/pages/index.astro"), "utf8");
+const categoryPages = [
+  "src/pages/company/index.astro",
+  "src/pages/technology/index.astro",
+  "src/pages/products/index.astro",
+  "src/pages/health/index.astro",
+  "src/pages/support/index.astro"
+].map((file) => readFileSync(join(process.cwd(), file), "utf8"));
 const astroConfig = readFileSync(join(process.cwd(), "astro.config.mjs"), "utf8");
 
 const requiredContent = [
@@ -46,6 +55,9 @@ const requiredContent = [
   ["GitHub Pages site", astroConfig.includes("https://heart11111.github.io")],
   ["GitHub Pages base", astroConfig.includes("/biolabKR")],
   ["home hero", homePage.includes("비오랩 홀딩스")],
+  ["category gateway data", siteData.includes("categoryGateway")],
+  ["home category gateway", homePage.includes("CategoryGateway")],
+  ["category page section navigation", categoryPages.every((page) => page.includes("PageSectionNav"))],
   ["componentized product cards", homePage.includes("ProductCard")]
 ];
 

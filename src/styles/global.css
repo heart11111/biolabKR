@@ -43,6 +43,10 @@ img {
   max-width: 100%;
 }
 
+[id] {
+  scroll-margin-top: 120px;
+}
+
 .container-page {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -101,4 +105,3 @@ img {
     padding: 14px 16px;
   }
 }
-

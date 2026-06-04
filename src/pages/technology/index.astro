@@ -2,18 +2,21 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SubHero from "@/components/SubHero.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import PageSectionNav from "@/components/PageSectionNav.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 import IngredientCard from "@/components/IngredientCard.astro";
 import CTASection from "@/components/CTASection.astro";
 import { ingredients } from "@/data/ingredients";
+import { site } from "@/data/site";
 import { withBase } from "@/lib/path";
 ---
 
 <BaseLayout title="원료/기술 소개" description="비오랩 홀딩스의 핵심 원료, 특허 균주, 연구개발, 품질관리 방향을 소개합니다.">
   <SubHero title="원료/기술 소개" description="특허 유산균과 이너케어 원료를 기반으로 제품별 목적에 맞는 포뮬러를 설계합니다." />
   <Breadcrumb current="원료/기술 소개" />
+  <PageSectionNav sections={site.pageSections.technology} />
 
-  <section class="section-band bg-white">
+  <section id="ingredients" class="section-band bg-white">
     <div class="container-page">
       <SectionTitle
         eyebrow="INGREDIENT"
@@ -26,7 +29,7 @@ import { withBase } from "@/lib/path";
     </div>
   </section>
 
-  <section class="section-band bg-slate-50">
+  <section id="research" class="section-band bg-slate-50">
     <div class="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
       <img class="h-[420px] w-full object-cover shadow-corporate" src={withBase("/images/ingredient-hyaluronic.jpg")} alt="히알루론산 원료 이미지" />
       <div>
@@ -40,7 +43,7 @@ import { withBase } from "@/lib/path";
     </div>
   </section>
 
-  <section class="section-band bg-white">
+  <section id="quality" class="section-band bg-white">
     <div class="container-page">
       <SectionTitle eyebrow="QUALITY" title="품질관리" />
       <div class="grid gap-6 md:grid-cols-3">
@@ -57,4 +60,3 @@ import { withBase } from "@/lib/path";
 
   <CTASection />
 </BaseLayout>
-

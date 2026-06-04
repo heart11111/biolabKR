@@ -1,0 +1,36 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import { site } from "@/data/site";
+import { withBase } from "@/lib/path";
+---
+
+<section class="section-band bg-white" data-category-gateway>
+  <div class="container-page">
+    <SectionTitle
+      eyebrow="SITE MENU"
+      title="필요한 정보를 카테고리별로 확인하세요"
+      description="비오랩 홀딩스 홈페이지는 회사, 기술, 제품, 건강정보, 고객지원 영역을 각각의 페이지로 나누어 구성했습니다."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-5">
+      {site.categoryGateway.map((item) => (
+        <a
+          class="group flex min-h-[260px] flex-col border border-slate-200 bg-white p-7 transition hover:border-brand-blue hover:bg-slate-50 hover:shadow-corporate"
+          href={withBase(item.href)}
+        >
+          <span class="text-xs font-black tracking-[0.22em] text-brand-green">{item.eyebrow}</span>
+          <strong class="mt-5 block text-2xl font-black text-brand-navy">{item.label}</strong>
+          <p class="mt-4 flex-1 text-sm leading-7 text-slate-600">{item.summary}</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            {item.sections.slice(0, 4).map((section) => (
+              <span class="border border-slate-200 bg-white px-3 py-1 text-xs font-bold text-slate-600">{section}</span>
+            ))}
+          </div>
+          <span class="mt-7 inline-flex items-center text-sm font-extrabold text-brand-blue">
+            페이지 보기 <span class="ml-2 transition group-hover:translate-x-1" aria-hidden="true">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

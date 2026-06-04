@@ -19,6 +19,72 @@ export const site = {
     { label: "건강정보", href: "/health/" },
     { label: "고객지원", href: "/support/" }
   ],
+  categoryGateway: [
+    {
+      label: "회사소개",
+      href: "/company/",
+      eyebrow: "COMPANY",
+      summary: "비오랩 홀딩스의 기업 철학, 성장 이력, 파트너 네트워크를 확인합니다.",
+      sections: ["대표 인사말", "회사 개요", "연혁", "오시는 길"]
+    },
+    {
+      label: "원료/기술",
+      href: "/technology/",
+      eyebrow: "R&D",
+      summary: "특허 유산균, 핵심 원료, 연구개발 방향과 품질관리 체계를 소개합니다.",
+      sections: ["핵심 원료", "연구개발", "품질관리"]
+    },
+    {
+      label: "제품소개",
+      href: "/products/",
+      eyebrow: "PRODUCT",
+      summary: "iHEAL 대표 제품을 리스트와 상세 페이지 구조로 확인할 수 있습니다.",
+      sections: ["여성 건강", "키즈 건강", "이너케어", "제품 상세"]
+    },
+    {
+      label: "건강정보",
+      href: "/health/",
+      eyebrow: "HEALTH",
+      summary: "여성 건강, 이너케어, 키즈 건강 관련 정보형 콘텐츠를 제공합니다.",
+      sections: ["건강 칼럼", "성분 정보", "생활 루틴"]
+    },
+    {
+      label: "고객지원",
+      href: "/support/",
+      eyebrow: "SUPPORT",
+      summary: "공지사항, FAQ, 문의 연락처와 주소 정보를 한 곳에서 안내합니다.",
+      sections: ["공지사항", "FAQ", "문의하기", "연락처"]
+    }
+  ],
+  pageSections: {
+    company: [
+      { label: "대표 인사말", href: "#greeting", description: "비오랩 홀딩스가 지향하는 건강 브랜드 방향" },
+      { label: "회사 개요", href: "#overview", description: "회사명, 사업 영역, 대표 연락처" },
+      { label: "연혁", href: "#history", description: "브랜드 시작부터 글로벌 채널 확장까지" },
+      { label: "주요 파트너", href: "#partners", description: "국내외 유통 및 협력 채널" },
+      { label: "오시는 길", href: "#location", description: "주소와 대표 연락처" }
+    ],
+    technology: [
+      { label: "핵심 원료", href: "#ingredients", description: "제품 설계에 활용되는 주요 원료" },
+      { label: "연구개발", href: "#research", description: "여성·키즈 건강 중심의 제품화 방향" },
+      { label: "품질관리", href: "#quality", description: "원료 규격, 이력, 표시 문구 관리" }
+    ],
+    products: [
+      { label: "제품 분류", href: "#category", description: "제품군별 핵심 포인트" },
+      { label: "제품 리스트", href: "#lineup", description: "상세 페이지로 이어지는 제품 카드" },
+      { label: "상담 문의", href: "#product-contact", description: "입점·제휴·제품 문의 연결" }
+    ],
+    health: [
+      { label: "건강 칼럼", href: "#articles", description: "정적 데이터로 관리되는 정보 콘텐츠" },
+      { label: "콘텐츠 분류", href: "#topics", description: "여성 건강, 이너케어, 키즈 건강 주제" },
+      { label: "문의 연결", href: "#health-contact", description: "콘텐츠 및 제품 문의 안내" }
+    ],
+    support: [
+      { label: "공지사항", href: "#news", description: "브랜드 소식과 언론보도" },
+      { label: "FAQ", href: "#faq", description: "자주 묻는 질문" },
+      { label: "문의하기", href: "#contact", description: "연락처, 이메일, 주소" }
+    ]
+  },
   quickLinks: [
     { label: "대표 인사말", href: "/company/#greeting" },
     { label: "연혁", href: "/company/#history" },
@@ -68,4 +134,3 @@ export const site = {
     "Sugi Pharmacy"
   ]
 };
-

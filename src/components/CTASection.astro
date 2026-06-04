@@ -1,9 +1,15 @@
 ---
 import { site } from "@/data/site";
 import { withBase } from "@/lib/path";
+
+type Props = {
+  id?: string;
+};
+
+const { id } = Astro.props;
 ---
 
-<section class="bg-brand-navy py-16 text-white">
+<section id={id} class="bg-brand-navy py-16 text-white">
   <div class="container-page flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
     <div>
       <p class="mb-3 text-sm font-bold tracking-[0.24em] text-emerald-200">CONTACT</p>
@@ -18,4 +24,3 @@ import { withBase } from "@/lib/path";
     </div>
   </div>
 </section>
-
