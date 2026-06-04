@@ -8,7 +8,7 @@ export const site = {
   email: "contact@biolab-holdings.co.kr",
   phone: "02-0000-0000",
   fax: "02-0000-0001",
-  address: "서울특별시 강남구 테헤란로 000, 비오랩 홀딩스",
+  address: "경기 성남시 분당구 쇳골북로 10 (궁내동) 2층",
   registrationNumber: "000-00-00000",
   ceo: "대표자명",
   japanUrl: "#",

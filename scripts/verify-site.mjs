@@ -88,6 +88,7 @@ const astroConfig = readFileSync(join(process.cwd(), "astro.config.mjs"), "utf8"
 const requiredContent = [
   ["company name", siteData.includes("비오랩 홀딩스")],
   ["brand content", siteData.includes("iHEAL")],
+  ["company address", siteData.includes("경기 성남시 분당구 쇳골북로 10 (궁내동) 2층")],
   ["GitHub Pages site", astroConfig.includes("https://heart11111.github.io")],
   ["GitHub Pages base", astroConfig.includes("/biolabKR")],
   ["home hero", homePage.includes("비오랩 홀딩스")],
