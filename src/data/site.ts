@@ -19,48 +19,6 @@ export const site = {
     { label: "건강정보", href: "/health/" },
     { label: "고객지원", href: "/support/" }
   ],
-  categoryGateway: [
-    {
-      label: "회사소개",
-      href: "/company/",
-      eyebrow: "COMPANY",
-      summary: "비오랩 홀딩스의 기업 철학, 성장 이력, 파트너 네트워크를 확인합니다.",
-      sections: ["대표 인사말", "회사 개요", "연혁", "오시는 길"],
-      icon: "building"
-    },
-    {
-      label: "원료/기술",
-      href: "/technology/",
-      eyebrow: "R&D",
-      summary: "특허 유산균, 핵심 원료, 연구개발 방향과 품질관리 체계를 소개합니다.",
-      sections: ["핵심 원료", "연구개발", "품질관리"],
-      icon: "flask"
-    },
-    {
-      label: "제품소개",
-      href: "/products/",
-      eyebrow: "PRODUCT",
-      summary: "iHEAL 대표 제품의 성분, 특징, 섭취 안내와 제품군별 구성을 소개합니다.",
-      sections: ["여성 건강", "키즈 건강", "이너케어", "제품 상세"],
-      icon: "package"
-    },
-    {
-      label: "건강정보",
-      href: "/health/",
-      eyebrow: "HEALTH",
-      summary: "여성 건강, 이너케어, 키즈 건강 관련 정보형 콘텐츠를 제공합니다.",
-      sections: ["건강 칼럼", "성분 정보", "생활 루틴"],
-      icon: "heartPulse"
-    },
-    {
-      label: "고객지원",
-      href: "/support/",
-      eyebrow: "SUPPORT",
-      summary: "공지사항, FAQ, 문의 연락처와 주소 정보를 한 곳에서 안내합니다.",
-      sections: ["공지사항", "FAQ", "문의하기", "연락처"],
-      icon: "headset"
-    }
-  ],
   quickLinks: [
     { label: "대표 인사말", href: "/company/greeting/" },
     { label: "연혁", href: "/company/history/" },

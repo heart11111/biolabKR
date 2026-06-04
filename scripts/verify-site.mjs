@@ -8,7 +8,6 @@ const requiredFiles = [
   "src/components/Header.astro",
   "src/components/Footer.astro",
   "src/components/Hero.astro",
-  "src/components/CategoryGateway.astro",
   "src/components/Icon.astro",
   "src/components/SubpageGrid.astro",
   "src/components/ProductCard.astro",
@@ -54,7 +53,7 @@ const requiredFiles = [
 ];
 
 const missing = requiredFiles.filter((file) => !existsSync(join(process.cwd(), file)));
-const removedFiles = ["src/components/PageSectionNav.astro"].filter((file) => existsSync(join(process.cwd(), file)));
+const removedFiles = ["src/components/PageSectionNav.astro", "src/components/CategoryGateway.astro"].filter((file) => existsSync(join(process.cwd(), file)));
 
 if (missing.length) {
   console.error(`Missing required files:\n${missing.map((file) => `- ${file}`).join("\n")}`);
@@ -91,8 +90,7 @@ const requiredContent = [
   ["GitHub Pages site", astroConfig.includes("https://heart11111.github.io")],
   ["GitHub Pages base", astroConfig.includes("/biolabKR")],
   ["home hero", homePage.includes("비오랩 홀딩스")],
-  ["category gateway data", siteData.includes("categoryGateway")],
-  ["home category gateway", homePage.includes("CategoryGateway")],
+  ["home site menu gateway removed", !siteData.includes("categoryGateway") && !homePage.includes("CategoryGateway") && !homePage.includes("SITE MENU") && !homePage.includes("비오랩 홀딩스 주요 정보")],
   ["subpage grid on category pages", categoryPages.every((page) => page.includes("SubpageGrid"))],
   ["desktop hover dropdown menu", headerComponent.includes("data-desktop-menu-group") && headerComponent.includes("data-desktop-dropdown") && headerComponent.includes("group-hover:visible") && headerComponent.includes("companySubpages")],
   ["mobile submenu menu", headerComponent.includes("data-mobile-submenu") && headerComponent.includes("aria-expanded") && headerComponent.includes("mobileMenuGroups")],
@@ -107,7 +105,6 @@ const requiredContent = [
   ["news detail renders image and source", supportNewsDetailPage.includes("<figure") && supportNewsDetailPage.includes("imageCredit") && supportNewsDetailPage.includes("기사 출처")],
   ["support news board split page", supportNewsPage.includes("NewsBoard")],
   ["componentized product cards", homePage.includes("ProductCard")],
-  ["category cards use icons", sourceFiles.some((file) => file.includes("categoryGateway") && file.includes("<Icon"))],
   ["subpage cards use icons", sourceFiles.some((file) => file.includes("data-subpage-grid") && file.includes("<Icon"))],
   ["strength cards use icons", homePage.includes("strengthIcons") && homePage.includes("<Icon")],
   ["ingredient cards use icons", ingredientCard.includes("<Icon")]

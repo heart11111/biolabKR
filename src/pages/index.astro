@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Hero from "@/components/Hero.astro";
-import CategoryGateway from "@/components/CategoryGateway.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 import Icon from "@/components/Icon.astro";
 import ProductCard from "@/components/ProductCard.astro";
@@ -17,8 +16,6 @@ const strengthIcons = ["dna", "network", "shield", "heartPulse"];
 
 <BaseLayout title="비오랩 홀딩스" description={site.description}>
   <Hero />
-
-  <CategoryGateway />
 
   <section class="section-band bg-slate-50">
     <div class="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
