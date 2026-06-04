@@ -92,6 +92,7 @@ const requiredContent = [
   ["legacy page guide removed", sourceFiles.every((file) => !file.includes("이 페이지에서 확인할 내용") && !file.includes("PageSectionNav"))],
   ["hash shortcut links removed", sourceFiles.every((file) => !file.includes("/support/#") && !file.includes("#greeting") && !file.includes("#ingredients") && !file.includes("#category") && !file.includes("#articles") && !file.includes("#news"))],
   ["RP Bio style news categories", newsData.includes("supportNewsCategories")],
+  ["external press links", newsData.includes("article-university.qoo10.jp/entry/case_iheal_kor") && newsData.includes("qoo10.jp/gmkt.inc/Special/Special.aspx?sid=209752") && newsData.includes("oliveyoung.co.kr")],
   ["support news board split page", supportNewsPage.includes("NewsBoard")],
   ["componentized product cards", homePage.includes("ProductCard")]
 ];

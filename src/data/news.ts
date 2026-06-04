@@ -10,40 +10,40 @@ export type NewsItem = {
 
 export const news: NewsItem[] = [
   {
-    title: "비오랩 홀딩스, iHEAL 브랜드 일본 오프라인 채널 전개 준비",
-    category: "언론보도",
-    date: "2026.01.15",
-    summary: "웰시아, 이토요카도 등 일본 주요 유통 채널을 중심으로 브랜드 접점을 확대할 예정입니다.",
-    href: "/support/news/",
-    author: "비오랩 홀딩스",
-    views: 128
+    title: "Qoo10 대학, iHEAL 일본 시장 성공사례 인터뷰 공개",
+    category: "보도자료",
+    date: "2025.06.13",
+    summary: "Qoo10 Japan을 기반으로 일본 2030 여성 고객에게 브랜드 인지도를 넓힌 iHEAL의 현지화 전략이 소개되었습니다.",
+    href: "https://article-university.qoo10.jp/entry/case_iheal_kor",
+    author: "Qoo10 대학",
+    views: 512
   },
   {
-    title: "iHEAL, Qoo10 식품 부문 베스트 수상 확정",
+    title: "iHEAL, Qoo10 AWARDS 2025 식품 부문 베스트샵 선정",
     category: "수상/입점",
-    date: "2025.12.20",
-    summary: "온라인 채널 성장과 고객 반응을 바탕으로 2년 연속 Qoo10 성과를 이어갑니다.",
-    href: "/support/news/",
-    author: "브랜드전략팀",
-    views: 246
+    date: "2025",
+    summary: "Qoo10 AWARDS 2025에서 식품 부문 주요 베스트샵으로 iHEAL이 소개되었습니다.",
+    href: "https://www.qoo10.jp/gmkt.inc/Special/Special.aspx?sid=209752",
+    author: "Qoo10 AWARDS",
+    views: 438
   },
   {
-    title: "올리브영 건강기능식품 카테고리 입점 확대",
-    category: "공지사항",
-    date: "2025.01.31",
-    summary: "온라인 및 전국 주요 오프라인 매장에서 iHEAL 제품을 만날 수 있도록 유통망을 넓혔습니다.",
-    href: "/support/news/",
-    author: "영업본부",
-    views: 312
+    title: "올리브영, iHEAL 비너스 유산균 공식 판매",
+    category: "수상/입점",
+    date: "2026.06.04",
+    summary: "올리브영 공식몰에서 iHEAL 비너스 유산균 제품 정보와 판매 채널을 확인할 수 있습니다.",
+    href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000217101",
+    author: "올리브영",
+    views: 326
   },
   {
-    title: "아이힐 비너스 유산균 누적 출고 100만 돌파",
-    category: "언론보도",
-    date: "2024.12.05",
-    summary: "대표 여성 유산균 라인의 지속적인 고객 반응과 재구매 흐름을 바탕으로 누적 출고 성과를 달성했습니다.",
-    href: "/support/news/",
-    author: "비오랩 홀딩스",
-    views: 419
+    title: "iHEAL 공식샵, Qoo10 Japan Awards Shop 노출",
+    category: "수상/입점",
+    date: "2026.03.26",
+    summary: "Qoo10 Japan iHEAL 공식샵에서 AWARDS Shop 배지와 주요 제품 라인업을 확인할 수 있습니다.",
+    href: "https://www.qoo10.jp/gmkt.inc/Mobile/MiniShop/Default.aspx?shopdomain=iHEAL",
+    author: "Qoo10 Japan",
+    views: 301
   },
   {
     title: "키즈락 유산균 제품 정보 업데이트 안내",
@@ -68,7 +68,7 @@ export const news: NewsItem[] = [
 export const supportNewsCategories = [
   "전체",
   "공지사항",
-  "언론보도",
+  "보도자료",
   "수상/입점",
   "제품/브랜드"
 ];
