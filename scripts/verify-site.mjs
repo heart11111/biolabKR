@@ -73,6 +73,7 @@ const sourceFiles = requiredFiles
   .map((file) => readFileSync(join(process.cwd(), file), "utf8"));
 const supportNewsPage = readFileSync(join(process.cwd(), "src/pages/support/news.astro"), "utf8");
 const supportNewsDetailPage = readFileSync(join(process.cwd(), "src/pages/support/news/[slug].astro"), "utf8");
+const headerComponent = readFileSync(join(process.cwd(), "src/components/Header.astro"), "utf8");
 const newsData = readFileSync(join(process.cwd(), "src/data/news.ts"), "utf8");
 const ingredientCard = readFileSync(join(process.cwd(), "src/components/IngredientCard.astro"), "utf8");
 const categoryPages = [
@@ -93,6 +94,9 @@ const requiredContent = [
   ["category gateway data", siteData.includes("categoryGateway")],
   ["home category gateway", homePage.includes("CategoryGateway")],
   ["subpage grid on category pages", categoryPages.every((page) => page.includes("SubpageGrid"))],
+  ["desktop hover dropdown menu", headerComponent.includes("data-desktop-menu-group") && headerComponent.includes("data-desktop-dropdown") && headerComponent.includes("group-hover:visible") && headerComponent.includes("companySubpages")],
+  ["mobile submenu menu", headerComponent.includes("data-mobile-submenu") && headerComponent.includes("aria-expanded") && headerComponent.includes("mobileMenuGroups")],
+  ["top nav uses dropdown triggers", headerComponent.includes("data-desktop-menu-trigger") && !headerComponent.includes("{item.label} 메인")],
   ["legacy page guide removed", sourceFiles.every((file) => !file.includes("이 페이지에서 확인할 내용") && !file.includes("PageSectionNav"))],
   ["hash shortcut links removed", sourceFiles.every((file) => !file.includes("/support/#") && !file.includes("#greeting") && !file.includes("#ingredients") && !file.includes("#category") && !file.includes("#articles") && !file.includes("#news"))],
   ["RP Bio style news categories", newsData.includes("supportNewsCategories")],

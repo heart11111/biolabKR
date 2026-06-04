@@ -1,8 +1,27 @@
 ---
 import { site } from "@/data/site";
+import {
+  companySubpages,
+  healthSubpages,
+  productSubpages,
+  supportSubpages,
+  technologySubpages
+} from "@/data/subpages";
 import { withBase } from "@/lib/path";
 
 const nav = site.navigation;
+const navChildren = {
+  "/company/": companySubpages,
+  "/technology/": technologySubpages,
+  "/products/": productSubpages,
+  "/health/": healthSubpages,
+  "/support/": supportSubpages
+};
+const navGroups = nav.map((item) => ({
+  ...item,
+  children: navChildren[item.href as keyof typeof navChildren] ?? []
+}));
+const mobileMenuGroups = navGroups;
 const basePath = import.meta.env.BASE_URL || "/";
 const currentPath = Astro.url.pathname;
 const pathWithoutBase = basePath !== "/" && currentPath.startsWith(basePath)
@@ -29,18 +48,38 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
       </span>
     </a>
 
-    <nav class="hidden items-center gap-10 lg:flex" aria-label="주요 메뉴">
-      {nav.map((item) => (
-        <a
-          class:list={[
-            "relative py-7 text-[17px] font-semibold hover:text-brand-blue",
-            isActive(item.href) ? "text-brand-blue after:absolute after:inset-x-0 after:bottom-0 after:h-[3px] after:bg-brand-blue" : "text-slate-800"
-          ]}
-          href={withBase(item.href)}
-          aria-current={isActive(item.href) ? "page" : undefined}
-        >
-          {item.label}
-        </a>
+    <nav class="hidden h-full items-stretch lg:flex" aria-label="주요 메뉴">
+      {navGroups.map((item) => (
+        <div class="group relative flex items-center" data-desktop-menu-group>
+          <button
+            class:list={[
+              "relative flex h-full items-center px-7 text-[17px] font-semibold hover:text-brand-blue",
+              isActive(item.href) ? "text-brand-blue after:absolute after:inset-x-7 after:bottom-0 after:h-[3px] after:bg-brand-blue" : "text-slate-800"
+            ]}
+            type="button"
+            data-desktop-menu-trigger
+            aria-expanded="false"
+          >
+            {item.label}
+          </button>
+          <div class="invisible absolute left-1/2 top-full w-[248px] -translate-x-1/2 border-t-2 border-brand-blue bg-white py-3 opacity-0 shadow-[0_20px_45px_rgba(15,23,42,0.16)] ring-1 ring-slate-200 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100" data-desktop-dropdown>
+            <ul>
+              {item.children.map((child) => (
+                <li>
+                  <a
+                    class:list={[
+                      "block px-6 py-3 text-[15px] font-semibold hover:bg-slate-50 hover:text-brand-blue",
+                      isActive(child.href) ? "text-brand-blue" : "text-slate-700"
+                    ]}
+                    href={withBase(child.href)}
+                  >
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       ))}
     </nav>
 
@@ -95,19 +134,40 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
     </button>
   </div>
   <nav class="container-page py-7" aria-label="전체 메뉴">
-    <ul class="space-y-2">
-      {nav.map((item) => (
-        <li>
-          <a
+    <ul class="space-y-3">
+      {mobileMenuGroups.map((item) => (
+        <li class="border-b border-slate-100 pb-3">
+          <button
             class:list={[
-              "block border-b border-slate-100 py-4 text-lg font-semibold",
+              "flex w-full items-center justify-between py-3 text-left text-lg font-semibold",
               isActive(item.href) ? "text-brand-blue" : "text-slate-900"
             ]}
-            href={withBase(item.href)}
-            aria-current={isActive(item.href) ? "page" : undefined}
+            type="button"
+            data-mobile-submenu
+            aria-expanded="false"
           >
-            {item.label}
-          </a>
+            <span>{item.label}</span>
+            <svg aria-hidden="true" class="h-5 w-5 transition duration-150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </button>
+          <div class="grid grid-rows-[0fr] overflow-hidden transition-all duration-200" data-mobile-submenu-panel>
+            <ul class="min-h-0 space-y-1 pb-2">
+              {item.children.map((child) => (
+                <li>
+                  <a
+                    class:list={[
+                      "block px-4 py-3 text-sm font-semibold",
+                      isActive(child.href) ? "text-brand-blue" : "text-slate-700"
+                    ]}
+                    href={withBase(child.href)}
+                  >
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </li>
       ))}
     </ul>
@@ -122,6 +182,8 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
   const toggles = document.querySelectorAll("[data-mobile-toggle]");
   const panel = document.querySelector("[data-mobile-panel]");
   const close = document.querySelector("[data-mobile-close]");
+  const desktopGroups = document.querySelectorAll("[data-desktop-menu-group]");
+  const submenuButtons = document.querySelectorAll("[data-mobile-submenu]");
 
   const openPanel = () => {
     panel?.classList.remove("hidden");
@@ -132,6 +194,32 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
     panel?.classList.add("hidden");
     document.body.classList.remove("mobile-menu-open");
   };
+
+  desktopGroups.forEach((group) => {
+    const trigger = group.querySelector("[data-desktop-menu-trigger]");
+    const setExpanded = (expanded: boolean) => trigger?.setAttribute("aria-expanded", String(expanded));
+
+    group.addEventListener("mouseenter", () => setExpanded(true));
+    group.addEventListener("mouseleave", () => setExpanded(false));
+    group.addEventListener("focusin", () => setExpanded(true));
+    group.addEventListener("focusout", (event) => {
+      const relatedTarget = event instanceof FocusEvent ? event.relatedTarget : null;
+      if (!relatedTarget || !group.contains(relatedTarget as Node)) {
+        setExpanded(false);
+      }
+    });
+  });
+
+  submenuButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const submenuPanel = button.parentElement?.querySelector("[data-mobile-submenu-panel]");
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!isOpen));
+      button.querySelector("svg")?.classList.toggle("rotate-180", !isOpen);
+      submenuPanel?.classList.toggle("grid-rows-[0fr]", isOpen);
+      submenuPanel?.classList.toggle("grid-rows-[1fr]", !isOpen);
+    });
+  });
 
   toggles.forEach((button) => button.addEventListener("click", openPanel));
   close?.addEventListener("click", closePanel);
