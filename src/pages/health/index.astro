@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import CTASection from "@/components/CTASection.astro";
+import { articles } from "@/data/articles";
+import { withBase } from "@/lib/path";
+---
+
+<BaseLayout title="건강정보" description="여성 건강, 이너케어, 키즈 건강 관련 정보를 정적 게시글로 제공합니다.">
+  <SubHero title="건강정보" description="DB 없이 정적 데이터로 관리되는 건강 칼럼과 정보형 콘텐츠입니다." />
+  <Breadcrumb current="건강정보" />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="HEALTH COLUMN" title="건강정보 카드" />
+      <div class="grid gap-6 md:grid-cols-3">
+        {articles.map((article) => (
+          <article class="overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-corporate">
+            <a href={withBase(`/health/${article.slug}/`)}>
+              <img class="h-52 w-full object-cover" src={withBase(article.image)} alt={article.title} />
+              <div class="p-6">
+                <div class="mb-3 flex items-center gap-3 text-sm">
+                  <span class="font-bold text-brand-green">{article.category}</span>
+                  <time class="text-slate-500">{article.date}</time>
+                </div>
+                <h2 class="text-xl font-extrabold text-brand-navy">{article.title}</h2>
+                <p class="mt-4 text-sm leading-7 text-slate-600">{article.excerpt}</p>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>
+

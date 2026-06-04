@@ -1,0 +1,101 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import ProductCard from "@/components/ProductCard.astro";
+import NewsCard from "@/components/NewsCard.astro";
+import CTASection from "@/components/CTASection.astro";
+import { site } from "@/data/site";
+import { products } from "@/data/products";
+import { news } from "@/data/news";
+import { withBase } from "@/lib/path";
+---
+
+<BaseLayout title="비오랩 홀딩스" description={site.description}>
+  <Hero />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle
+        eyebrow="ABOUT BIOLAB"
+        title="건강한 삶을 위한 기능성 소재와 브랜드를 만듭니다"
+        description="비오랩 홀딩스는 iHEAL 브랜드를 중심으로 여성과 아이의 건강을 위한 건강기능식품, 이너케어, 뷰티 솔루션을 연구하고 전개합니다."
+      />
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {site.quickLinks.map((item) => (
+          <a class="border border-slate-200 bg-slate-50 px-6 py-8 text-center hover:border-brand-blue hover:bg-white hover:shadow-corporate" href={withBase(item.href)}>
+            <span class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-white text-2xl text-brand-green shadow-sm">＋</span>
+            <strong class="text-lg text-brand-navy">{item.label}</strong>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-slate-50">
+    <div class="container-page">
+      <SectionTitle
+        eyebrow="PRODUCT"
+        title="대표 제품 라인업"
+        description="여성 유산균, 키즈 유산균, 이너케어 제품까지 세대와 생활 루틴에 맞춘 포트폴리오를 전개합니다."
+      />
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {products.slice(0, 6).map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="COMPETENCE" title="비오랩 홀딩스의 핵심 경쟁력" />
+      <div class="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 md:grid-cols-2 lg:grid-cols-4">
+        {site.strengths.map((item, index) => (
+          <article class="bg-white p-8">
+            <span class="mb-8 block text-sm font-black text-brand-green">0{index + 1}</span>
+            <h3 class="text-xl font-extrabold text-brand-navy">{item.title}</h3>
+            <p class="mt-4 text-sm leading-7 text-slate-600">{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-brand-mint">
+    <div class="container-page">
+      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div>
+          <SectionTitle
+            align="left"
+            eyebrow="GLOBAL NETWORK"
+            title="국내외 채널에서 검증되는 브랜드 성장"
+            description="올리브영, Qoo10, 라쿠텐, 아마존, 일본 주요 오프라인 채널 등 온오프라인 유통망을 통해 iHEAL 브랜드 접점을 넓히고 있습니다."
+          />
+          <div class="grid grid-cols-2 gap-4">
+            {site.stats.map((stat) => (
+              <div class="bg-white p-6 shadow-sm">
+                <strong class="block text-3xl font-black text-brand-blue">{stat.value}</strong>
+                <span class="mt-2 block text-sm font-semibold text-slate-600">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <img class="h-full min-h-[360px] w-full object-cover shadow-corporate" src={withBase("/images/product-lineup.jpg")} alt="iHEAL 브랜드 제품 이미지" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-white">
+    <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <SectionTitle align="left" eyebrow="NOTICE" title="공지사항 / 언론보도" description="비오랩 홀딩스의 최신 소식과 브랜드 성장 소식을 전합니다." />
+        <a class="inline-flex border border-brand-blue px-5 py-3 text-sm font-bold text-brand-blue" href={withBase("/support/#news")}>전체 보기</a>
+      </div>
+      <div>
+        {news.map((item) => <NewsCard item={item} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>
+

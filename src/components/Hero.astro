@@ -1,0 +1,28 @@
+---
+import { site } from "@/data/site";
+import { withBase } from "@/lib/path";
+---
+
+<section class="relative overflow-hidden bg-brand-navy">
+  <div class="absolute inset-0">
+    <img class="h-full w-full object-cover opacity-55" src={withBase("/images/hero-products.jpg")} alt="iHEAL 제품 라인업" />
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/75 to-brand-green/20"></div>
+  </div>
+  <div class="container-page relative flex min-h-[520px] items-center py-20 text-white">
+    <div class="max-w-3xl">
+      <p class="mb-5 text-sm font-bold tracking-[0.28em] text-emerald-200">{site.englishName}</p>
+      <h1 class="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+        여성과 아이의 건강을 연구하는<br class="hidden sm:block" />
+        비오랩 홀딩스
+      </h1>
+      <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-100">
+        {site.brandName} 브랜드를 중심으로 특허 유산균, 이너케어, 키즈 건강 솔루션을 개발하고 국내외 유통 채널로 확장합니다.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a class="bg-white px-7 py-4 text-sm font-bold text-brand-navy" href={withBase("/company/")}>회사소개</a>
+        <a class="border border-white/60 px-7 py-4 text-sm font-bold text-white" href={withBase("/products/")}>제품소개</a>
+      </div>
+    </div>
+  </div>
+</section>
+

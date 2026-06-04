@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-navy: #0f2f57;
+  --brand-blue: #2567a9;
+  --brand-green: #1f9a7a;
+  --brand-ink: #172033;
+  --brand-muted: #64748b;
+  --line: #d9e2ec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--brand-ink);
+  font-family:
+    "Pretendard",
+    "Noto Sans KR",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    system-ui,
+    sans-serif;
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container-page {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.section-band {
+  padding: 88px 0;
+}
+
+.section-band-sm {
+  padding: 64px 0;
+}
+
+.table-corporate {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid var(--brand-navy);
+}
+
+.table-corporate th,
+.table-corporate td {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table-corporate th {
+  width: 170px;
+  background: #f5f8fb;
+  color: var(--brand-navy);
+  font-weight: 700;
+}
+
+.mobile-menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .container-page {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .section-band {
+    padding: 58px 0;
+  }
+
+  .section-band-sm {
+    padding: 44px 0;
+  }
+
+  .table-corporate th,
+  .table-corporate td {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+  }
+}
+

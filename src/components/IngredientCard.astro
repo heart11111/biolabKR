@@ -1,0 +1,21 @@
+---
+import type { Ingredient } from "@/data/ingredients";
+
+type Props = {
+  ingredient: Ingredient;
+};
+
+const { ingredient } = Astro.props;
+---
+
+<article class="h-full border border-slate-200 bg-white p-7 shadow-sm">
+  <p class="mb-3 text-sm font-bold text-brand-green">{ingredient.subtitle}</p>
+  <h3 class="text-xl font-extrabold text-brand-navy">{ingredient.title}</h3>
+  <p class="mt-4 text-sm leading-7 text-slate-600">{ingredient.body}</p>
+  <div class="mt-6 flex flex-wrap gap-2">
+    {ingredient.tags.map((tag) => (
+      <span class="bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">{tag}</span>
+    ))}
+  </div>
+</article>
+

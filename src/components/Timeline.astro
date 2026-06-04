@@ -1,0 +1,29 @@
+---
+type Item = {
+  year: string;
+  items: string[];
+};
+
+type Props = {
+  items: Item[];
+};
+
+const { items } = Astro.props;
+---
+
+<ol class="border-t-2 border-brand-navy">
+  {items.map((entry) => (
+    <li class="grid gap-4 border-b border-slate-200 py-7 md:grid-cols-[160px_1fr]">
+      <strong class="text-2xl font-black text-brand-blue">{entry.year}</strong>
+      <ul class="space-y-2 text-slate-700">
+        {entry.items.map((item) => (
+          <li class="flex gap-3">
+            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-green"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </li>
+  ))}
+</ol>
+

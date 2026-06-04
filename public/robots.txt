@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://heart11111.github.io/biolabKR/sitemap-index.xml
+
