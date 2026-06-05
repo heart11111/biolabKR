@@ -26,7 +26,7 @@ const { product } = Astro.props;
 
   <section class="section-band bg-white">
     <div class="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-      <img class="h-[480px] w-full object-cover shadow-corporate" src={withBase(product.image)} alt={product.name} />
+      <img class="h-[480px] w-full bg-slate-50 object-contain shadow-corporate" src={withBase(product.image)} alt={product.name} />
       <div>
         <span class="bg-brand-mint px-4 py-2 text-sm font-bold text-brand-green">{product.category}</span>
         <h1 class="mt-6 text-4xl font-black text-brand-navy">{product.name}</h1>
@@ -72,4 +72,3 @@ const { product } = Astro.props;
 
   <CTASection />
 </BaseLayout>
-

@@ -20,7 +20,7 @@ const iconName = product.category.includes("키즈")
 
 <article class="group flex h-full flex-col overflow-hidden border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-corporate">
   <a href={withBase(`/products/${product.slug}/`)} aria-label={`${product.name} 상세 보기`}>
-    <img class="h-56 w-full object-cover" src={withBase(product.image)} alt={product.name} />
+    <img class="h-56 w-full bg-slate-50 object-contain" src={withBase(product.image)} alt={product.name} />
   </a>
   <div class="flex flex-1 flex-col p-6">
     <div class="mb-4 flex items-center justify-between gap-3">

@@ -53,6 +53,12 @@ const requiredFiles = [
   "public/images/competence-global.jpg",
   "public/images/competence-quality.jpg",
   "public/images/competence-family.jpg",
+  "public/images/product-venus-probiotics-actual.jpg",
+  "public/images/product-venus-stick-actual.jpg",
+  "public/images/product-kids-lac-actual.jpg",
+  "public/images/product-line-n-actual.jpg",
+  "public/images/product-inner-clean-v-actual.jpg",
+  "public/images/product-venus-inner-perfume-actual.jpg",
   ".github/workflows/deploy.yml"
 ];
 
@@ -121,6 +127,7 @@ const requiredContent = [
   ["subpage cards use icons", sourceFiles.some((file) => file.includes("data-subpage-grid") && file.includes("<Icon"))],
   ["strength cards use icons", homePage.includes("strengthIcons") && homePage.includes("<Icon")],
   ["strength cards use generated images", siteData.includes("competence-research.jpg") && siteData.includes("competence-global.jpg") && siteData.includes("competence-quality.jpg") && siteData.includes("competence-family.jpg") && homePage.includes("<img") && homePage.includes("item.imageAlt")],
+  ["products use actual product photos", sourceFiles.some((file) => file.includes("product-venus-probiotics-actual.jpg")) && sourceFiles.some((file) => file.includes("product-venus-stick-actual.jpg")) && sourceFiles.some((file) => file.includes("product-kids-lac-actual.jpg")) && sourceFiles.some((file) => file.includes("product-line-n-actual.jpg")) && sourceFiles.some((file) => file.includes("product-inner-clean-v-actual.jpg")) && sourceFiles.some((file) => file.includes("product-venus-inner-perfume-actual.jpg"))],
   ["ingredient cards use icons", ingredientCard.includes("<Icon")]
 ];
 
