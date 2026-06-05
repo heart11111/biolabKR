@@ -16,7 +16,6 @@ export const site = {
     { label: "회사소개", href: "/company/" },
     { label: "원료/기술", href: "/technology/" },
     { label: "제품소개", href: "/products/" },
-    { label: "건강정보", href: "/health/" },
     { label: "고객지원", href: "/support/" }
   ],
   quickLinks: [

@@ -2,8 +2,7 @@
 import { site } from "@/data/site";
 import {
   companySubpages,
-  healthSubpages,
-  productSubpages,
+  productMenuSubpages,
   supportSubpages,
   technologySubpages
 } from "@/data/subpages";
@@ -13,8 +12,7 @@ const nav = site.navigation;
 const navChildren = {
   "/company/": companySubpages,
   "/technology/": technologySubpages,
-  "/products/": productSubpages,
-  "/health/": healthSubpages,
+  "/products/": productMenuSubpages,
   "/support/": supportSubpages
 };
 const navGroups = nav.map((item) => ({
@@ -86,8 +84,8 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
     <div class="hidden items-center gap-2 lg:flex">
       <a
         class="flex h-11 w-11 items-center justify-center border border-slate-200 text-slate-700 hover:border-brand-blue hover:text-brand-blue"
-        href={withBase("/health/")}
-        aria-label="건강정보 검색"
+        href={withBase("/products/guide/")}
+        aria-label="제품 정보 검색"
       >
         <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="7"></circle>

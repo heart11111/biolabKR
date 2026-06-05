@@ -18,7 +18,7 @@ npm run preview
 - 제품 정보: `src/data/products.ts`
 - 원료/기술: `src/data/ingredients.ts`
 - 공지/언론: `src/data/news.ts`
-- 건강정보: `src/data/articles.ts`
+- 제품 선택 가이드: `src/data/articles.ts`
 - FAQ: `src/data/faqs.ts`
 
 ## 배포

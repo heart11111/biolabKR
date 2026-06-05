@@ -8,6 +8,8 @@ import ProductCard from "@/components/ProductCard.astro";
 import CTASection from "@/components/CTASection.astro";
 import { productSubpages } from "@/data/subpages";
 import { products } from "@/data/products";
+import { articles } from "@/data/articles";
+import { withBase } from "@/lib/path";
 ---
 
 <BaseLayout title="제품소개" description="비오랩의 iHEAL 제품 라인업을 소개합니다.">
@@ -26,6 +28,37 @@ import { products } from "@/data/products";
       <SectionTitle eyebrow="ALL PRODUCTS" title="전체 제품" description="각 제품의 성분, 특징, 섭취 방법, 인증 정보를 함께 안내합니다." />
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <div class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+        <div>
+          <SectionTitle
+            align="left"
+            eyebrow="PRODUCT GUIDE"
+            title="제품 선택 가이드"
+            description="여성 유산균, 이너케어, 키즈 제품을 고를 때 확인하면 좋은 기준을 제품소개 안에서 함께 안내합니다."
+          />
+          <a class="inline-flex border border-brand-blue px-5 py-3 text-sm font-bold text-brand-blue" href={withBase("/products/guide/")}>가이드 전체 보기</a>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          {articles.map((article) => (
+            <a class="group overflow-hidden border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-corporate" href={withBase(`/products/guide/${article.slug}/`)}>
+              <img class="h-40 w-full bg-slate-50 object-contain" src={withBase(article.image)} alt={article.title} loading="lazy" decoding="async" />
+              <div class="p-6">
+                <span class="text-xs font-black tracking-[0.18em] text-brand-green">{article.category}</span>
+                <h3 class="mt-4 text-lg font-black leading-7 text-brand-navy">{article.title}</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-600">{article.excerpt}</p>
+                <span class="mt-5 inline-flex text-sm font-extrabold text-brand-blue">
+                  자세히 보기 <span class="ml-2 transition group-hover:translate-x-1" aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </section>

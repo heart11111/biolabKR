@@ -99,28 +99,17 @@ export const productSubpages: SubpageItem[] = [
   }
 ];
 
-export const healthSubpages: SubpageItem[] = [
-  {
-    label: "여성 건강",
-    href: "/health/women/",
-    eyebrow: "WOMEN HEALTH",
-    summary: "여성 유산균, 특허 균주, 데일리 섭취 루틴 관련 건강정보입니다.",
-    icon: "heartPulse"
-  },
-  {
-    label: "이너케어",
-    href: "/health/inner-care/",
-    eyebrow: "INNER CARE",
-    summary: "pH 밸런스, 보습, 순한 세정 루틴을 중심으로 한 정보 콘텐츠입니다.",
-    icon: "droplet"
-  },
-  {
-    label: "키즈 건강",
-    href: "/health/kids/",
-    eyebrow: "KIDS HEALTH",
-    summary: "키즈 유산균, 성장기 영양, 보호자 확인 사항을 정리했습니다.",
-    icon: "baby"
-  }
+export const productGuideSubpage: SubpageItem = {
+  label: "제품 선택 가이드",
+  href: "/products/guide/",
+  eyebrow: "GUIDE",
+  summary: "여성 유산균, 이너케어, 키즈 제품 선택 기준과 생활 관리 정보를 함께 안내합니다.",
+  icon: "newspaper"
+};
+
+export const productMenuSubpages: SubpageItem[] = [
+  ...productSubpages,
+  productGuideSubpage
 ];
 
 export const supportSubpages: SubpageItem[] = [

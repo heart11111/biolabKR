@@ -31,11 +31,8 @@ const requiredFiles = [
   "src/pages/products/inner-care.astro",
   "src/pages/products/diet.astro",
   "src/pages/products/[slug].astro",
-  "src/pages/health/index.astro",
-  "src/pages/health/women.astro",
-  "src/pages/health/inner-care.astro",
-  "src/pages/health/kids.astro",
-  "src/pages/health/[slug].astro",
+  "src/pages/products/guide/index.astro",
+  "src/pages/products/guide/[slug].astro",
   "src/pages/support/index.astro",
   "src/pages/support/news.astro",
   "src/pages/support/news/[slug].astro",
@@ -63,7 +60,15 @@ const requiredFiles = [
 ];
 
 const missing = requiredFiles.filter((file) => !existsSync(join(process.cwd(), file)));
-const removedFiles = ["src/components/PageSectionNav.astro", "src/components/CategoryGateway.astro"].filter((file) => existsSync(join(process.cwd(), file)));
+const removedFiles = [
+  "src/components/PageSectionNav.astro",
+  "src/components/CategoryGateway.astro",
+  "src/pages/health/index.astro",
+  "src/pages/health/women.astro",
+  "src/pages/health/inner-care.astro",
+  "src/pages/health/kids.astro",
+  "src/pages/health/[slug].astro"
+].filter((file) => existsSync(join(process.cwd(), file)));
 
 if (missing.length) {
   console.error(`Missing required files:\n${missing.map((file) => `- ${file}`).join("\n")}`);
@@ -92,7 +97,6 @@ const categoryPages = [
   "src/pages/company/index.astro",
   "src/pages/technology/index.astro",
   "src/pages/products/index.astro",
-  "src/pages/health/index.astro",
   "src/pages/support/index.astro"
 ].map((file) => readFileSync(join(process.cwd(), file), "utf8"));
 const astroConfig = readFileSync(join(process.cwd(), "astro.config.mjs"), "utf8");
@@ -110,11 +114,13 @@ const requiredContent = [
   ["home hero avoids category-style CTA", !heroComponent.includes('href={withBase("/company/")}') && !heroComponent.includes('href={withBase("/products/")}')],
   ["home site menu gateway removed", !siteData.includes("categoryGateway") && !homePage.includes("CategoryGateway") && !homePage.includes("SITE MENU") && !homePage.includes("비오랩 홀딩스 주요 정보")],
   ["subpage grid on category pages", categoryPages.every((page) => page.includes("SubpageGrid"))],
+  ["health menu folded into products", !siteData.includes('label: "건강정보"') && !headerComponent.includes("healthSubpages") && !headerComponent.includes('withBase("/health/")')],
+  ["product guide routes", sourceFiles.some((file) => file.includes('href={withBase("/products/guide/")}')) && sourceFiles.some((file) => file.includes("getStaticPaths") && file.includes("/products/guide/"))],
   ["desktop hover dropdown menu", headerComponent.includes("data-desktop-menu-group") && headerComponent.includes("data-desktop-dropdown") && headerComponent.includes("group-hover:visible") && headerComponent.includes("companySubpages")],
   ["mobile submenu menu", headerComponent.includes("data-mobile-submenu") && headerComponent.includes("aria-expanded") && headerComponent.includes("mobileMenuGroups")],
   ["top nav uses dropdown triggers", headerComponent.includes("data-desktop-menu-trigger") && !headerComponent.includes("{item.label} 메인")],
   ["legacy page guide removed", sourceFiles.every((file) => !file.includes("이 페이지에서 확인할 내용") && !file.includes("PageSectionNav"))],
-  ["hash shortcut links removed", sourceFiles.every((file) => !file.includes("/support/#") && !file.includes("#greeting") && !file.includes("#ingredients") && !file.includes("#category") && !file.includes("#articles") && !file.includes("#news"))],
+  ["hash shortcut links removed", sourceFiles.every((file) => !file.includes("/support/#") && !file.includes("/products/guide/#") && !file.includes("#greeting") && !file.includes("#ingredients") && !file.includes("#category") && !file.includes("#articles") && !file.includes("#news"))],
   ["RP Bio style news categories", newsData.includes("supportNewsCategories")],
   ["external press source metadata", newsData.includes("sourceUrl") && newsData.includes("article-university.qoo10.jp/entry/case_iheal_kor") && newsData.includes("dnews.co.kr") && newsData.includes("oliveyoung.co.kr")],
   ["news list links stay internal", !/href:\s*"https?:\/\//.test(newsData) && newsData.includes('/support/news/qoo10-iheal-case/')],
