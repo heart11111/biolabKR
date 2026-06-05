@@ -61,6 +61,9 @@ const requiredFiles = [
   "public/images/studio/studio-venus-stick.jpg",
   "public/images/studio/studio-kids-lac.jpg",
   "public/images/studio/studio-line-n.jpg",
+  "public/images/partners/all-grace-duty-free.svg",
+  "public/images/partners/onnuri-pharmacy.svg",
+  "public/images/partners/don-quijote.svg",
   ".github/workflows/deploy.yml"
 ];
 
@@ -111,6 +114,7 @@ const requiredContent = [
   ["company english name", siteData.includes('englishName: "BIOLAB"')],
   ["holdings label removed", [...sourceFiles, readme, ogImage].every((file) => !file.includes("비오랩 홀딩스") && !file.includes("BIOLAB HOLDINGS"))],
   ["brand content", siteData.includes("iHEAL")],
+  ["new domestic and Japan offline channels", siteData.includes("올 그레이스 면세점") && siteData.includes("온누리 약국") && siteData.includes("돈키호테")],
   ["company address", siteData.includes("경기 성남시 분당구 쇳골북로 10 (궁내동) 2층")],
   ["GitHub Pages site", astroConfig.includes("https://heart11111.github.io")],
   ["GitHub Pages base", astroConfig.includes("/biolabKR")],

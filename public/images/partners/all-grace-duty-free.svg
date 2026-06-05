@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="120" viewBox="0 0 360 120" role="img" aria-labelledby="title">
+  <title id="title">All Grace Duty Free</title>
+  <rect width="360" height="120" fill="#ffffff"/>
+  <text x="180" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="#16345c">ALL GRACE</text>
+  <text x="180" y="78" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="3" fill="#0f9b79">DUTY FREE</text>
+  <path d="M84 92h192" stroke="#d7e4ef" stroke-width="3" stroke-linecap="round"/>
+</svg>

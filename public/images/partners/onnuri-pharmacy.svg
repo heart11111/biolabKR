@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="120" viewBox="0 0 360 120" role="img" aria-labelledby="title">
+  <title id="title">Onnuri Pharmacy</title>
+  <rect width="360" height="120" fill="#ffffff"/>
+  <circle cx="94" cy="60" r="28" fill="#e6f7f2" stroke="#1a9b78" stroke-width="4"/>
+  <path d="M94 43v34M77 60h34" stroke="#1a9b78" stroke-width="7" stroke-linecap="round"/>
+  <text x="210" y="54" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" fill="#16345c">ONNURI</text>
+  <text x="210" y="81" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="2.6" fill="#1a9b78">PHARMACY</text>
+</svg>
