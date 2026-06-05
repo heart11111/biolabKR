@@ -115,7 +115,7 @@ const requiredContent = [
   ["GitHub Pages site", astroConfig.includes("https://heart11111.github.io")],
   ["GitHub Pages base", astroConfig.includes("/biolabKR")],
   ["home hero", homePage.includes("비오랩")],
-  ["home opens with vision hero", heroComponent.includes("data-vision-hero") && heroComponent.includes("건강의 내일은") && heroComponent.includes("오늘의 작은 기준에서 시작됩니다") && heroComponent.includes("/images/studio/studio-iheal-lineup-hero.jpg")],
+  ["home opens with vision hero", heroComponent.includes("data-vision-hero") && heroComponent.includes("건강의 내일은") && heroComponent.includes("오늘의 작은 기준에서") && heroComponent.includes("시작됩니다") && heroComponent.includes("/images/studio/studio-iheal-lineup-hero.jpg")],
   ["home hero avoids category-style CTA", !heroComponent.includes('href={withBase("/company/")}') && !heroComponent.includes('href={withBase("/products/")}')],
   ["home site menu gateway removed", !siteData.includes("categoryGateway") && !homePage.includes("CategoryGateway") && !homePage.includes("SITE MENU") && !homePage.includes("비오랩 홀딩스 주요 정보")],
   ["subpage grid on category pages", categoryPages.every((page) => page.includes("SubpageGrid"))],
