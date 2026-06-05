@@ -39,7 +39,7 @@ export const site = {
     },
     {
       title: "국내외 유통 채널 확장",
-      body: "올리브영, 약국, Qoo10, 라쿠텐, 아마존, 일본 주요 오프라인 채널 등으로 접점을 넓히고 있습니다.",
+      body: "국내 온라인, 약국, Qoo10, 라쿠텐, 아마존, 일본 주요 오프라인 채널 등으로 접점을 넓히고 있습니다.",
       image: "/images/competence-global.jpg",
       imageAlt: "국내외 유통 채널과 물류 확장을 상징하는 이미지"
     },
@@ -65,13 +65,12 @@ export const site = {
     { year: "2026", items: ["일본 웰시아, 이토요카도 등 주요 오프라인 채널 순차 전개 예정"] }
   ],
   partners: [
-    "Olive Young",
-    "Qoo10",
-    "Rakuten",
-    "Amazon JP",
-    "Amazon US",
-    "Welcia",
-    "Ito Yokado",
-    "Sugi Pharmacy"
+    { name: "Qoo10", logo: "/images/partners/qoo10.svg", region: "Japan Online" },
+    { name: "Rakuten", logo: "/images/partners/rakuten.svg", region: "Japan Online" },
+    { name: "Amazon JP", logo: "/images/partners/amazon.svg", region: "Japan Online" },
+    { name: "Amazon US", logo: "/images/partners/amazon.svg", region: "US Online" },
+    { name: "Welcia", logo: "/images/partners/welcia.svg", region: "Japan Offline" },
+    { name: "Ito Yokado", logo: "/images/partners/ito-yokado.png", region: "Japan Offline" },
+    { name: "Sugi Pharmacy", logo: "/images/partners/sugi-pharmacy.png", region: "Japan Offline" }
   ]
 };

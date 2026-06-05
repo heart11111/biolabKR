@@ -17,8 +17,7 @@ const { title, description, image = "/images/sub-hero.jpg" } = Astro.props;
   </div>
   <div class="container-page relative flex min-h-[250px] flex-col justify-center py-16 text-white">
     <p class="mb-3 text-sm font-bold tracking-[0.24em] text-emerald-200">BIOLAB</p>
-    <h1 class="text-4xl font-black">{title}</h1>
-    <p class="mt-5 max-w-2xl text-base leading-7 text-slate-100">{description}</p>
+    <h1 class="text-4xl font-black [overflow-wrap:anywhere]">{title}</h1>
+    <p class="mt-5 max-w-[320px] break-all text-base leading-7 text-slate-100 [overflow-wrap:anywhere] sm:max-w-2xl">{description}</p>
   </div>
 </section>
-
