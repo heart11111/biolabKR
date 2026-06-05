@@ -12,6 +12,18 @@ import { news } from "@/data/news";
 import { withBase } from "@/lib/path";
 
 const strengthIcons = ["dna", "network", "shield", "heartPulse"];
+const animatedStats = site.stats.map((stat) => {
+  const match = stat.value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
+  const numericText = match?.[2] ?? "0";
+
+  return {
+    ...stat,
+    countPrefix: match?.[1] ?? "",
+    countTarget: Number(numericText),
+    countDecimals: numericText.includes(".") ? numericText.split(".")[1].length : 0,
+    countSuffix: match?.[3] ?? stat.value
+  };
+});
 ---
 
 <BaseLayout title="비오랩" description={site.description}>
@@ -25,10 +37,21 @@ const strengthIcons = ["dna", "network", "shield", "heartPulse"];
         title="건강한 삶을 위한 기능성 소재와 브랜드를 만듭니다"
         description="비오랩은 iHEAL 브랜드를 중심으로 여성과 아이의 건강을 위한 건강기능식품, 이너케어, 뷰티 솔루션을 연구하고 전개합니다."
       />
-      <div class="grid grid-cols-2 gap-4">
-        {site.stats.map((stat) => (
+      <div class="grid grid-cols-2 gap-4" data-animated-stats>
+        {animatedStats.map((stat, index) => (
           <div class="border border-slate-200 bg-white p-6 shadow-sm">
-            <strong class="block text-3xl font-black text-brand-blue">{stat.value}</strong>
+            <strong
+              class="block text-3xl font-black tabular-nums text-brand-blue"
+              data-countup
+              data-count-target={stat.countTarget}
+              data-count-prefix={stat.countPrefix}
+              data-count-suffix={stat.countSuffix}
+              data-count-decimals={stat.countDecimals}
+              data-count-index={index}
+              aria-label={stat.value}
+            >
+              {stat.value}
+            </strong>
             <span class="mt-2 block text-sm font-semibold text-slate-600">{stat.label}</span>
           </div>
         ))}
@@ -89,3 +112,74 @@ const strengthIcons = ["dna", "network", "shield", "heartPulse"];
 
   <CTASection />
 </BaseLayout>
+
+<script>
+  const statsSection = document.querySelector("[data-animated-stats]");
+  const counters = Array.from(document.querySelectorAll<HTMLElement>("[data-countup]"));
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const formatCounter = (value: number, decimals: number) => value.toFixed(decimals);
+
+  const setCounterText = (counter: HTMLElement, value: number) => {
+    const decimals = Number(counter.dataset.countDecimals ?? 0);
+    const prefix = counter.dataset.countPrefix ?? "";
+    const suffix = counter.dataset.countSuffix ?? "";
+    counter.textContent = `${prefix}${formatCounter(value, decimals)}${suffix}`;
+  };
+
+  const animateCounter = (counter: HTMLElement) => {
+    if (counter.dataset.countAnimated === "true") return;
+
+    counter.dataset.countAnimated = "true";
+    const target = Number(counter.dataset.countTarget ?? 0);
+
+    if (prefersReducedMotion) {
+      setCounterText(counter, target);
+      return;
+    }
+
+    const duration = 1400;
+    const startTime = performance.now();
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      setCounterText(counter, target * eased);
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        setCounterText(counter, target);
+      }
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  const runCounters = () => {
+    counters.forEach((counter, index) => {
+      window.setTimeout(() => animateCounter(counter), index * 120);
+    });
+  };
+
+  counters.forEach((counter) => {
+    const target = Number(counter.dataset.countTarget ?? 0);
+    setCounterText(counter, prefersReducedMotion ? target : 0);
+  });
+
+  if (statsSection && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        runCounters();
+        observer.disconnect();
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(statsSection);
+  } else {
+    runCounters();
+  }
+</script>

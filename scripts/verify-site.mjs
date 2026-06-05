@@ -113,6 +113,7 @@ const requiredContent = [
   ["news detail renders image and source", supportNewsDetailPage.includes("<figure") && supportNewsDetailPage.includes("imageCredit") && supportNewsDetailPage.includes("기사 출처")],
   ["support news board split page", supportNewsPage.includes("NewsBoard")],
   ["componentized product cards", homePage.includes("ProductCard")],
+  ["home stats countup animation", homePage.includes("data-animated-stats") && homePage.includes("data-countup") && homePage.includes("IntersectionObserver") && homePage.includes("requestAnimationFrame") && homePage.includes("prefers-reduced-motion")],
   ["subpage cards use icons", sourceFiles.some((file) => file.includes("data-subpage-grid") && file.includes("<Icon"))],
   ["strength cards use icons", homePage.includes("strengthIcons") && homePage.includes("<Icon")],
   ["ingredient cards use icons", ingredientCard.includes("<Icon")]
