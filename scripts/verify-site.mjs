@@ -49,6 +49,10 @@ const requiredFiles = [
   "src/data/articles.ts",
   "src/data/faqs.ts",
   "public/robots.txt",
+  "public/images/competence-research.jpg",
+  "public/images/competence-global.jpg",
+  "public/images/competence-quality.jpg",
+  "public/images/competence-family.jpg",
   ".github/workflows/deploy.yml"
 ];
 
@@ -116,6 +120,7 @@ const requiredContent = [
   ["home stats countup animation", homePage.includes("data-animated-stats") && homePage.includes("data-countup") && homePage.includes("IntersectionObserver") && homePage.includes("requestAnimationFrame") && homePage.includes("prefers-reduced-motion")],
   ["subpage cards use icons", sourceFiles.some((file) => file.includes("data-subpage-grid") && file.includes("<Icon"))],
   ["strength cards use icons", homePage.includes("strengthIcons") && homePage.includes("<Icon")],
+  ["strength cards use generated images", siteData.includes("competence-research.jpg") && siteData.includes("competence-global.jpg") && siteData.includes("competence-quality.jpg") && siteData.includes("competence-family.jpg") && homePage.includes("<img") && homePage.includes("item.imageAlt")],
   ["ingredient cards use icons", ingredientCard.includes("<Icon")]
 ];
 

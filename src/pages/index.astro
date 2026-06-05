@@ -64,15 +64,30 @@ const animatedStats = site.stats.map((stat) => {
       <SectionTitle eyebrow="COMPETENCE" title="비오랩의 핵심 경쟁력" />
       <div class="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 md:grid-cols-2 lg:grid-cols-4">
         {site.strengths.map((item, index) => (
-          <article class="bg-white p-8">
-            <div class="mb-8 flex items-center justify-between">
-              <span class="block text-sm font-black text-brand-green">0{index + 1}</span>
-              <span class="flex h-12 w-12 items-center justify-center border border-brand-blue/20 bg-brand-mint text-brand-blue">
-                <Icon name={strengthIcons[index]} class="h-6 w-6" />
+          <article class="group flex h-full flex-col bg-white">
+            <div class="relative aspect-[5/4] overflow-hidden bg-slate-100">
+              <img
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                src={withBase(item.image)}
+                alt={item.imageAlt}
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/35 via-brand-navy/5 to-transparent"></div>
+              <span class="absolute left-5 top-5 block bg-white/95 px-3 py-2 text-sm font-black text-brand-green shadow-sm">
+                0{index + 1}
               </span>
             </div>
-            <h3 class="text-xl font-extrabold text-brand-navy">{item.title}</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-600">{item.body}</p>
+            <div class="flex flex-1 flex-col p-7">
+              <div class="mb-5 flex items-center justify-between">
+                <span class="text-xs font-black tracking-[0.28em] text-brand-green">COMPETENCE</span>
+                <span class="flex h-11 w-11 items-center justify-center border border-brand-blue/20 bg-brand-mint text-brand-blue">
+                  <Icon name={strengthIcons[index]} class="h-5 w-5" />
+                </span>
+              </div>
+              <h3 class="text-xl font-extrabold text-brand-navy">{item.title}</h3>
+              <p class="mt-4 text-sm leading-7 text-slate-600">{item.body}</p>
+            </div>
           </article>
         ))}
       </div>
