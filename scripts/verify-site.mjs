@@ -67,6 +67,8 @@ if (removedFiles.length) {
 
 const siteData = readFileSync(join(process.cwd(), "src/data/site.ts"), "utf8");
 const homePage = readFileSync(join(process.cwd(), "src/pages/index.astro"), "utf8");
+const readme = readFileSync(join(process.cwd(), "README.md"), "utf8");
+const ogImage = readFileSync(join(process.cwd(), "public/og-image.svg"), "utf8");
 const sourceFiles = requiredFiles
   .filter((file) => file.startsWith("src/"))
   .map((file) => readFileSync(join(process.cwd(), file), "utf8"));
@@ -86,12 +88,14 @@ const categoryPages = [
 const astroConfig = readFileSync(join(process.cwd(), "astro.config.mjs"), "utf8");
 
 const requiredContent = [
-  ["company name", siteData.includes("비오랩 홀딩스")],
+  ["company name", siteData.includes('name: "비오랩"')],
+  ["company english name", siteData.includes('englishName: "BIOLAB"')],
+  ["holdings label removed", [...sourceFiles, readme, ogImage].every((file) => !file.includes("비오랩 홀딩스") && !file.includes("BIOLAB HOLDINGS"))],
   ["brand content", siteData.includes("iHEAL")],
   ["company address", siteData.includes("경기 성남시 분당구 쇳골북로 10 (궁내동) 2층")],
   ["GitHub Pages site", astroConfig.includes("https://heart11111.github.io")],
   ["GitHub Pages base", astroConfig.includes("/biolabKR")],
-  ["home hero", homePage.includes("비오랩 홀딩스")],
+  ["home hero", homePage.includes("비오랩")],
   ["home opens with vision hero", heroComponent.includes("data-vision-hero") && heroComponent.includes("건강의 내일은") && heroComponent.includes("오늘의 작은 기준에서 시작됩니다") && heroComponent.includes("/images/ingredient-hyaluronic.jpg")],
   ["home hero avoids category-style CTA", !heroComponent.includes('href={withBase("/company/")}') && !heroComponent.includes('href={withBase("/products/")}')],
   ["home site menu gateway removed", !siteData.includes("categoryGateway") && !homePage.includes("CategoryGateway") && !homePage.includes("SITE MENU") && !homePage.includes("비오랩 홀딩스 주요 정보")],
@@ -135,7 +139,10 @@ const visitorCopyForbiddenPhrases = [
   "정적 사이트",
   "문의 기능 준비중",
   "교체 가능한",
-  "추후 교체"
+  "추후 교체",
+  "비오랩는",
+  "비오랩와",
+  "biolab-holdings"
 ];
 const visitorCopyFailures = visitorCopyForbiddenPhrases.filter((phrase) =>
   sourceFiles.some((file) => file.includes(phrase))

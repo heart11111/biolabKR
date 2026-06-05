@@ -21,7 +21,7 @@ const { item } = Astro.props;
 ---
 
 <BaseLayout title={item.title} description={item.summary}>
-  <SubHero title="공지사항 / 보도자료" description="비오랩 홀딩스와 iHEAL 브랜드의 주요 소식을 전합니다." />
+  <SubHero title="공지사항 / 보도자료" description="비오랩과 iHEAL 브랜드의 주요 소식을 전합니다." />
   <Breadcrumb parent={{ label: "공지사항 / 보도자료", href: "/support/news/" }} current={item.title} />
 
   <article class="section-band bg-white">
@@ -30,14 +30,14 @@ const { item } = Astro.props;
         <header class="border-b border-slate-200 bg-white px-5 py-8 md:px-8">
           <div class="mb-4 flex flex-wrap items-center gap-2 text-sm font-bold">
             <span class="bg-brand-mint px-3 py-1 text-brand-green">{item.category}</span>
-            <span class="text-slate-500">비오랩 홀딩스 게시판</span>
+            <span class="text-slate-500">비오랩 게시판</span>
           </div>
           <h1 class="text-3xl font-black leading-tight text-brand-navy md:text-4xl">{item.title}</h1>
         </header>
 
         <div class="grid border-b border-slate-200 bg-slate-50 text-sm text-slate-600 md:grid-cols-4">
           <div class="border-b border-slate-200 px-5 py-4 md:border-b-0 md:border-r">
-            <strong class="mr-3 text-brand-navy">작성자</strong>{item.author ?? "비오랩 홀딩스"}
+            <strong class="mr-3 text-brand-navy">작성자</strong>{item.author ?? "비오랩"}
           </div>
           <div class="border-b border-slate-200 px-5 py-4 md:border-b-0 md:border-r">
             <strong class="mr-3 text-brand-navy">작성일</strong>{item.date}

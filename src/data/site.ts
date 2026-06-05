@@ -1,11 +1,11 @@
 export const site = {
-  name: "비오랩 홀딩스",
-  englishName: "BIOLAB HOLDINGS",
+  name: "비오랩",
+  englishName: "BIOLAB",
   brandName: "iHEAL",
   url: "https://heart11111.github.io/biolabKR/",
   description:
-    "비오랩 홀딩스는 iHEAL 브랜드를 중심으로 여성과 아이의 건강을 위한 건강기능식품과 이너케어 솔루션을 연구하고 전개합니다.",
-  email: "contact@biolab-holdings.co.kr",
+    "비오랩은 iHEAL 브랜드를 중심으로 여성과 아이의 건강을 위한 건강기능식품과 이너케어 솔루션을 연구하고 전개합니다.",
+  email: "contact@biolab.co.kr",
   phone: "02-0000-0000",
   fax: "02-0000-0001",
   address: "경기 성남시 분당구 쇳골북로 10 (궁내동) 2층",

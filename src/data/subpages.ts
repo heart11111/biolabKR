@@ -11,14 +11,14 @@ export const companySubpages: SubpageItem[] = [
     label: "대표 인사말",
     href: "/company/greeting/",
     eyebrow: "CEO MESSAGE",
-    summary: "여성과 아이의 건강을 중심에 둔 비오랩 홀딩스의 브랜드 철학을 소개합니다.",
+    summary: "여성과 아이의 건강을 중심에 둔 비오랩의 브랜드 철학을 소개합니다.",
     icon: "heartPulse"
   },
   {
     label: "회사 개요",
     href: "/company/overview/",
     eyebrow: "OVERVIEW",
-    summary: "비오랩 홀딩스, iHEAL, 국내외 유통 법인과 사업 영역을 정리했습니다.",
+    summary: "비오랩, iHEAL, 국내외 유통 법인과 사업 영역을 정리했습니다.",
     icon: "building"
   },
   {
@@ -39,7 +39,7 @@ export const companySubpages: SubpageItem[] = [
     label: "오시는 길",
     href: "/company/location/",
     eyebrow: "LOCATION",
-    summary: "비오랩 홀딩스의 연락처, 주소, 문의 채널을 안내합니다.",
+    summary: "비오랩의 연락처, 주소, 문의 채널을 안내합니다.",
     icon: "map"
   }
 ];

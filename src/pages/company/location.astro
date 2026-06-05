@@ -7,13 +7,13 @@ import CTASection from "@/components/CTASection.astro";
 import { site } from "@/data/site";
 ---
 
-<BaseLayout title="오시는 길" description="비오랩 홀딩스 연락처와 주소를 안내합니다.">
+<BaseLayout title="오시는 길" description="비오랩 연락처와 주소를 안내합니다.">
   <SubHero title="오시는 길" description="제품, 원료, 유통 제휴 문의를 위한 기본 연락처입니다." />
   <Breadcrumb parent={{ label: "회사소개", href: "/company/" }} current="오시는 길" />
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="LOCATION" title="비오랩 홀딩스" description="제품, 원료, 유통 제휴 상담은 대표 연락처로 문의해 주세요. 방문 상담은 사전 예약 후 안내드립니다." />
+      <SectionTitle eyebrow="LOCATION" title="비오랩" description="제품, 원료, 유통 제휴 상담은 대표 연락처로 문의해 주세요. 방문 상담은 사전 예약 후 안내드립니다." />
       <div class="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
         <div class="border border-slate-200 p-8">
           <h2 class="text-2xl font-black text-brand-navy">{site.name}</h2>
@@ -23,7 +23,7 @@ import { site } from "@/data/site";
           <p class="text-slate-600">이메일: {site.email}</p>
         </div>
         <div class="flex min-h-[320px] items-center justify-center bg-slate-100 text-center text-slate-500">
-          BIOLAB HOLDINGS<br />방문 상담은 사전 예약제로 운영됩니다.
+          BIOLAB<br />방문 상담은 사전 예약제로 운영됩니다.
         </div>
       </div>
     </div>

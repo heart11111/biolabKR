@@ -8,13 +8,13 @@ import CTASection from "@/components/CTASection.astro";
 import { ingredients } from "@/data/ingredients";
 ---
 
-<BaseLayout title="핵심 원료" description="비오랩 홀딩스의 핵심 원료와 특허 균주를 소개합니다.">
+<BaseLayout title="핵심 원료" description="비오랩의 핵심 원료와 특허 균주를 소개합니다.">
   <SubHero title="핵심 원료" description="특허 유산균과 이너케어 원료를 제품 목적에 맞춰 설계합니다." />
   <Breadcrumb parent={{ label: "원료/기술", href: "/technology/" }} current="핵심 원료" />
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="INGREDIENT" title="제품 설계의 중심 원료" description="아이힐 브랜드 자료에 기재된 특허 균주와 핵심 부원료를 비오랩 홀딩스 산하 브랜드 원료 정보로 정리했습니다." />
+      <SectionTitle eyebrow="INGREDIENT" title="제품 설계의 중심 원료" description="아이힐 브랜드 자료에 기재된 특허 균주와 핵심 부원료를 비오랩 산하 브랜드 원료 정보로 정리했습니다." />
       <div class="grid gap-6 md:grid-cols-2">
         {ingredients.map((ingredient) => <IngredientCard ingredient={ingredient} />)}
       </div>
