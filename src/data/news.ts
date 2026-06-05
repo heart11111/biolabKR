@@ -115,7 +115,7 @@ export const news: NewsItem[] = [
       "제품 소개에는 키즈 유산균 원료, 섭취 편의성, 성장기 아이를 고려한 제품 특징을 중심으로 반영했습니다.",
       "자세한 제품 구성은 제품소개 메뉴의 키즈락 유산균 상세 페이지에서 함께 확인할 수 있습니다."
     ],
-    image: "/images/product-kids-lac-actual.jpg",
+    image: "/images/studio/studio-kids-lac.jpg",
     imageAlt: "키즈락 유산균 제품 이미지",
     imageCredit: "이미지 출처: 비오랩 제품 자료",
     imageSourceUrl: "/products/kids-lac-probiotics/"

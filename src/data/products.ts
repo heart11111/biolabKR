@@ -22,7 +22,7 @@ export const products: Product[] = [
     tagline: "건강한 한국 여성의 질에서 유래한 특허 유산균 3종 함유",
     summary:
       "특허균주 MG242, MG901, MG989와 철분, 크랜베리를 배합한 iHEAL 대표 여성 유산균입니다.",
-    image: "/images/product-venus-probiotics-actual.jpg",
+    image: "/images/studio/studio-venus-probiotics.jpg",
     ingredients: ["락토바실러스 살리바리우스 MG242", "락토바실러스 퍼멘툼 MG901", "락토바실러스 플란타룸 MG989", "철분", "크랜베리"],
     features: ["20억 보장 유산균", "여성 맞춤형 포뮬러", "누적 후기와 재구매 기반의 대표 제품", "간편한 데일리 섭취"],
     intake: "1일 1회, 제품 표시사항에 따라 물과 함께 섭취",
@@ -38,7 +38,7 @@ export const products: Product[] = [
     tagline: "여성 유산균과 뷰티 성분을 함께 담은 스틱형 포뮬러",
     summary:
       "특허 유산균 3종에 히알루론산, 콜라겐, 비타민E, 이노시톨을 더한 여성 이너케어 제품입니다.",
-    image: "/images/product-venus-stick-actual.jpg",
+    image: "/images/studio/studio-venus-stick.jpg",
     ingredients: ["특허 유산균 3종", "히알루론산", "콜라겐", "비타민E", "이노시톨"],
     features: ["휴대가 쉬운 스틱 제형", "여성 건강과 피부 컨디션 동시 케어", "부원료 복합 설계", "부드러운 섭취감"],
     intake: "1일 1포, 제품 표시사항에 따라 섭취",
@@ -54,7 +54,7 @@ export const products: Product[] = [
     tagline: "아이의 건강한 성장을 위한 올인원 키즈 유산균",
     summary:
       "모유 유래 유산균과 영유아 유래 특허 유산균, 아연, 비타민D, 칼슘, 식이섬유를 배합했습니다.",
-    image: "/images/product-kids-lac-actual.jpg",
+    image: "/images/studio/studio-kids-lac.jpg",
     ingredients: ["L. reuteri MG505", "영유아 유래 유산균 3종", "아연", "비타민D", "칼슘", "식이섬유"],
     features: ["10억 보장 유산균", "호박 동결건조 특허 코팅", "아이 섭취 편의 고려", "성장기 영양 설계"],
     intake: "연령과 제품 표시사항에 따라 보호자 지도하에 섭취",
@@ -70,7 +70,7 @@ export const products: Product[] = [
     tagline: "특허 유산균과 가르시니아 추출물을 담은 체지방 관리 라인",
     summary:
       "항비만 활성을 갖는 인체 유래 특허균주 2종과 가르시니아 캄보지아 추출물을 배합했습니다.",
-    image: "/images/product-line-n-actual.jpg",
+    image: "/images/studio/studio-line-n.jpg",
     ingredients: ["MG4231", "MG4244", "가르시니아 캄보지아 추출물", "HCA"],
     features: ["20억 보장 유산균", "체지방 관리 컨셉", "간편한 다이어트 루틴", "특허 균주 연구 기반"],
     intake: "제품 표시사항에 따라 1일 권장량을 섭취",

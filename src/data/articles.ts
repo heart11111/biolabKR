@@ -15,7 +15,7 @@ export const articles: Article[] = [
     category: "여성 건강",
     date: "2026.02.10",
     excerpt: "균주의 출처, 보장균수, 부원료, 섭취 편의성을 함께 살펴보는 것이 좋습니다.",
-    image: "/images/product-venus-probiotics-actual.jpg",
+    image: "/images/studio/studio-venus-probiotics.jpg",
     content: [
       "여성 유산균은 균주의 특성과 제품 설계 방향을 함께 보는 것이 중요합니다.",
       "비오랩은 특허 균주, 부원료, 섭취 편의성을 기준으로 iHEAL 제품 정보를 정리합니다.",
@@ -41,7 +41,7 @@ export const articles: Article[] = [
     category: "키즈 건강",
     date: "2026.01.26",
     excerpt: "아이 제품은 연령, 원료, 섭취량, 보호자 지도 여부를 꼼꼼히 확인해야 합니다.",
-    image: "/images/product-kids-lac-actual.jpg",
+    image: "/images/studio/studio-kids-lac.jpg",
     content: [
       "키즈 제품은 보호자가 표시사항을 확인하고 아이의 섭취 습관에 맞춰 관리해야 합니다.",
       "아연, 비타민D, 칼슘 등 성장기 영양 설계는 제품 선택 시 참고할 수 있는 요소입니다.",
