@@ -36,7 +36,7 @@ export const companySubpages: SubpageItem[] = [
     icon: "network"
   },
   {
-    label: "오시는 길",
+    label: "찾아오시는 길",
     href: "/company/location/",
     eyebrow: "LOCATION",
     summary: "비오랩의 연락처, 주소, 문의 채널을 안내합니다.",

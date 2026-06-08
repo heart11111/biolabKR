@@ -22,7 +22,7 @@ export const site = {
     { label: "대표 인사말", href: "/company/greeting/" },
     { label: "연혁", href: "/company/history/" },
     { label: "주요 파트너", href: "/company/partners/" },
-    { label: "오시는 길", href: "/company/location/" }
+    { label: "찾아오시는 길", href: "/company/location/" }
   ],
   stats: [
     { label: "창업", value: "2018.07" },
