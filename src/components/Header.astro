@@ -31,10 +31,14 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
 
 <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
   <div class="hidden border-b border-slate-100 bg-slate-50 text-[13px] text-slate-600 lg:block">
-    <div class="container-page flex h-9 items-center justify-end gap-5">
-      <a class="hover:text-brand-blue" href={withBase("/")}>Home</a>
-      <a class="hover:text-brand-blue" href={withBase("/support/contact/")}>Contact Us</a>
-      <a class="rounded-full bg-brand-green px-4 py-1 font-semibold text-white" href={site.japanUrl}>BIOLAB JAPAN</a>
+    <div class="container-page flex h-9 items-center justify-end gap-4">
+      <a class="font-semibold hover:text-brand-blue" href={withBase("/")}>Home</a>
+      <span class="h-3 w-px bg-slate-300" aria-hidden="true"></span>
+      <a class="font-semibold hover:text-brand-blue" href={withBase("/support/contact/")}>Contact Us</a>
+      <div class="ml-2 inline-flex overflow-hidden rounded-full border border-slate-200 bg-slate-100 text-xs font-extrabold shadow-sm" aria-label="언어 선택">
+        <a class="bg-brand-green px-5 py-1.5 text-white" href={withBase("/")} aria-current="true">KOR</a>
+        <a class="px-5 py-1.5 text-slate-500 transition hover:bg-white hover:text-brand-blue" href="#" aria-label="English version">ENG</a>
+      </div>
     </div>
   </div>
   <div class="container-page flex h-[76px] items-center justify-between gap-6">
@@ -170,8 +174,12 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
       ))}
     </ul>
     <div class="mt-8 grid grid-cols-2 gap-3 text-sm sm:max-w-md">
-      <a class="border border-slate-200 px-4 py-3 text-center" href={withBase("/support/contact/")}>Contact</a>
-      <a class="border border-slate-200 px-4 py-3 text-center" href={site.japanUrl}>BIOLAB JAPAN</a>
+      <a class="border border-slate-200 px-4 py-3 text-center" href={withBase("/")}>Home</a>
+      <a class="border border-slate-200 px-4 py-3 text-center" href={withBase("/support/contact/")}>Contact Us</a>
+    </div>
+    <div class="mt-4 inline-flex overflow-hidden rounded-full border border-slate-200 bg-slate-100 text-xs font-extrabold shadow-sm" aria-label="언어 선택">
+      <a class="bg-brand-green px-6 py-2 text-white" href={withBase("/")} aria-current="true">KOR</a>
+      <a class="px-6 py-2 text-slate-500" href="#" aria-label="English version">ENG</a>
     </div>
   </nav>
 </div>
