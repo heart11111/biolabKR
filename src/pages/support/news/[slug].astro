@@ -21,7 +21,7 @@ const { item } = Astro.props;
 ---
 
 <BaseLayout title={item.title} description={item.summary}>
-  <SubHero title="공지사항 / 보도자료" description="비오랩과 iHEAL 브랜드의 주요 소식을 전합니다." image={item.image} imagePosition="50% 46%" visualWord="NEWS" />
+  <SubHero title="공지사항 / 보도자료" description="비오랩과 iHEAL 브랜드의 주요 소식을 전합니다." visualWord="NEWS" />
   <Breadcrumb parent={{ label: "공지사항 / 보도자료", href: "/support/news/" }} current={item.title} />
 
   <article class="section-band bg-white">
@@ -55,9 +55,9 @@ const { item } = Astro.props;
             {item.summary}
           </p>
 
-          <figure class="mb-10 overflow-hidden border border-slate-200 bg-slate-50" data-reveal="image">
+          <figure class="mb-10 overflow-hidden border border-slate-200 bg-white" data-reveal="image">
             <a href={withBase(item.imageSourceUrl)} target="_blank" rel="noreferrer" aria-label={`${item.imageCredit} 보기`}>
-              <img class="max-h-[520px] w-full object-contain" src={withBase(item.image)} alt={item.imageAlt} />
+              <img class="mx-auto max-h-[360px] w-full object-contain p-5 md:p-10" src={withBase(item.image)} alt={item.imageAlt} />
             </a>
             <figcaption class="border-t border-slate-200 px-5 py-3 text-xs leading-6 text-slate-500">
               <a class="font-semibold text-slate-600 underline-offset-4 hover:text-brand-blue hover:underline" href={withBase(item.imageSourceUrl)} target="_blank" rel="noreferrer">
