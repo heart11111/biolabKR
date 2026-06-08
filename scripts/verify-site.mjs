@@ -63,6 +63,7 @@ const requiredFiles = [
   "public/images/studio/studio-venus-stick.jpg",
   "public/images/studio/studio-kids-lac.jpg",
   "public/images/studio/studio-line-n.jpg",
+  "public/images/brand/biolab-logo.png",
   "public/images/partners/all-grace-duty-free.svg",
   "public/images/partners/onnuri-pharmacy.svg",
   "public/images/partners/don-quijote.svg",
@@ -100,6 +101,7 @@ const sourceFiles = requiredFiles
 const supportNewsPage = readFileSync(join(process.cwd(), "src/pages/support/news.astro"), "utf8");
 const supportNewsDetailPage = readFileSync(join(process.cwd(), "src/pages/support/news/[slug].astro"), "utf8");
 const headerComponent = readFileSync(join(process.cwd(), "src/components/Header.astro"), "utf8");
+const footerComponent = readFileSync(join(process.cwd(), "src/components/Footer.astro"), "utf8");
 const heroComponent = readFileSync(join(process.cwd(), "src/components/Hero.astro"), "utf8");
 const newsData = readFileSync(join(process.cwd(), "src/data/news.ts"), "utf8");
 const ingredientCard = readFileSync(join(process.cwd(), "src/components/IngredientCard.astro"), "utf8");
@@ -131,6 +133,7 @@ const requiredContent = [
   ["desktop hover dropdown menu", headerComponent.includes("data-desktop-menu-group") && headerComponent.includes("data-desktop-dropdown") && headerComponent.includes("group-hover:visible") && headerComponent.includes("companySubpages")],
   ["mobile submenu menu", headerComponent.includes("data-mobile-submenu") && headerComponent.includes("aria-expanded") && headerComponent.includes("mobileMenuGroups")],
   ["top nav uses dropdown triggers", headerComponent.includes("data-desktop-menu-trigger") && !headerComponent.includes("{item.label} 메인")],
+  ["header and footer use BIOLAB logo image", headerComponent.includes("/images/brand/biolab-logo.png") && footerComponent.includes("/images/brand/biolab-logo.png")],
   ["legacy page guide removed", sourceFiles.every((file) => !file.includes("이 페이지에서 확인할 내용") && !file.includes("PageSectionNav"))],
   ["hash shortcut links removed", sourceFiles.every((file) => !file.includes("/support/#") && !file.includes("/products/guide/#") && !file.includes("#greeting") && !file.includes("#ingredients") && !file.includes("#category") && !file.includes("#articles") && !file.includes("#news"))],
   ["RP Bio style news categories", newsData.includes("supportNewsCategories")],
