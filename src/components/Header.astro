@@ -29,30 +29,30 @@ const normalizedPath = pathWithoutBase.endsWith("/") ? pathWithoutBase : `${path
 const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(href);
 ---
 
-<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-  <div class="hidden border-b border-slate-100 bg-slate-50 text-[13px] text-slate-600 lg:block">
+<header class="sticky top-0 z-50 border-b border-neutral-200 bg-white">
+  <div class="hidden border-b border-neutral-200 bg-white text-[13px] text-neutral-500 lg:block">
     <div class="container-page flex h-9 items-center justify-end gap-4">
-      <a class="font-semibold hover:text-brand-blue" href={withBase("/")}>Home</a>
-      <span class="h-3 w-px bg-slate-300" aria-hidden="true"></span>
-      <a class="font-semibold hover:text-brand-blue" href={withBase("/support/contact/")}>Contact Us</a>
-      <div class="ml-2 inline-flex overflow-hidden rounded-full border border-slate-200 bg-slate-100 text-xs font-extrabold shadow-sm" aria-label="언어 선택">
+      <a class="font-semibold hover:text-brand-green" href={withBase("/")}>Home</a>
+      <span class="h-3 w-px bg-neutral-300" aria-hidden="true"></span>
+      <a class="font-semibold hover:text-brand-green" href={withBase("/support/contact/")}>Contact Us</a>
+      <div class="ml-2 inline-flex overflow-hidden rounded-full border border-neutral-200 bg-neutral-100 text-xs font-extrabold" aria-label="언어 선택">
         <a class="bg-brand-green px-5 py-1.5 text-white" href={withBase("/")} aria-current="true">KOR</a>
-        <a class="px-5 py-1.5 text-slate-500 transition hover:bg-white hover:text-brand-blue" href="#" aria-label="English version">ENG</a>
+        <a class="px-5 py-1.5 text-neutral-500 transition hover:bg-white hover:text-brand-green" href="#" aria-label="English version">ENG</a>
       </div>
     </div>
   </div>
-  <div class="container-page flex h-[76px] items-center justify-between gap-6">
+  <div class="container-page flex h-[88px] items-center justify-between gap-8">
     <a class="flex items-center" href={withBase("/")} aria-label={`${site.name} 홈`}>
-      <img class="h-11 w-auto lg:h-12" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
+      <img class="h-12 w-auto lg:h-14" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
     </a>
 
-    <nav class="hidden h-full items-stretch lg:flex" aria-label="주요 메뉴">
+    <nav class="hidden h-full flex-1 items-stretch justify-center lg:flex" aria-label="주요 메뉴">
       {navGroups.map((item) => (
         <div class="group relative flex items-center" data-desktop-menu-group>
           <button
             class:list={[
-              "relative flex h-full items-center px-7 text-[17px] font-semibold hover:text-brand-blue",
-              isActive(item.href) ? "text-brand-blue after:absolute after:inset-x-7 after:bottom-0 after:h-[3px] after:bg-brand-blue" : "text-slate-800"
+              "relative flex h-full items-center px-9 text-[18px] font-bold text-neutral-900 hover:text-brand-green",
+              isActive(item.href) ? "text-brand-green after:absolute after:inset-x-9 after:bottom-0 after:h-[3px] after:bg-brand-green" : ""
             ]}
             type="button"
             data-desktop-menu-trigger
@@ -60,14 +60,14 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
           >
             {item.label}
           </button>
-          <div class="invisible absolute left-1/2 top-full w-[248px] -translate-x-1/2 border-t-2 border-brand-blue bg-white py-3 opacity-0 shadow-[0_20px_45px_rgba(15,23,42,0.16)] ring-1 ring-slate-200 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100" data-desktop-dropdown>
+          <div class="invisible absolute left-1/2 top-full w-[248px] -translate-x-1/2 border-t-2 border-brand-green bg-white py-3 opacity-0 shadow-[0_20px_45px_rgba(15,23,42,0.14)] ring-1 ring-neutral-200 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100" data-desktop-dropdown>
             <ul>
               {item.children.map((child) => (
                 <li>
                   <a
                     class:list={[
-                      "block px-6 py-3 text-[15px] font-semibold hover:bg-slate-50 hover:text-brand-blue",
-                      isActive(child.href) ? "text-brand-blue" : "text-slate-700"
+                      "block px-6 py-3 text-[15px] font-semibold hover:bg-neutral-50 hover:text-brand-green",
+                      isActive(child.href) ? "text-brand-green" : "text-neutral-700"
                     ]}
                     href={withBase(child.href)}
                   >
@@ -83,7 +83,7 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
 
     <div class="hidden items-center gap-2 lg:flex">
       <a
-        class="flex h-11 w-11 items-center justify-center border border-slate-200 text-slate-700 hover:border-brand-blue hover:text-brand-blue"
+        class="flex h-12 w-12 items-center justify-center border border-neutral-200 text-neutral-600 hover:border-brand-green hover:text-brand-green"
         href={withBase("/products/guide/")}
         aria-label="제품 정보 검색"
       >
@@ -93,7 +93,7 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
         </svg>
       </a>
       <button
-        class="flex h-11 w-11 items-center justify-center border border-slate-200 text-slate-700 hover:border-brand-blue hover:text-brand-blue"
+        class="flex h-12 w-12 items-center justify-center border border-neutral-200 text-neutral-600 hover:border-brand-green hover:text-brand-green"
         type="button"
         data-mobile-toggle
         aria-label="전체 메뉴 열기"
@@ -107,7 +107,7 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
     </div>
 
     <button
-      class="flex h-11 w-11 items-center justify-center border border-slate-200 text-slate-700 lg:hidden"
+      class="flex h-11 w-11 items-center justify-center border border-neutral-200 text-neutral-700 lg:hidden"
       type="button"
       data-mobile-toggle
       aria-label="모바일 메뉴 열기"
@@ -122,7 +122,7 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
 </header>
 
 <div class="mobile-panel fixed inset-0 z-[60] hidden min-h-screen bg-white" data-mobile-panel>
-  <div class="container-page flex h-[76px] items-center justify-between border-b border-slate-200">
+  <div class="container-page flex h-[82px] items-center justify-between border-b border-neutral-200">
     <img class="h-11 w-auto" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
     <button class="flex h-10 w-10 items-center justify-center border border-slate-200" type="button" data-mobile-close aria-label="모바일 메뉴 닫기">
       <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

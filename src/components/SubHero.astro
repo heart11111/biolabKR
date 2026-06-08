@@ -61,34 +61,28 @@ const {
     </div>
   </section>
 ) : (
-<section class="relative isolate overflow-hidden border-b border-slate-200 bg-brand-navy">
+<section class="relative isolate overflow-hidden bg-neutral-900">
   <div class="absolute inset-0">
     <img
-      class="h-full w-full scale-[1.18] object-cover saturate-[0.92]"
+      class="h-full w-full scale-[1.05] object-cover saturate-[1.04]"
       src={withBase(image)}
       alt=""
       style={`object-position: ${imagePosition};`}
     />
-    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,35,58,0.86),rgba(18,92,86,0.62)_45%,rgba(13,51,75,0.36))]"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(89,207,181,0.38),rgba(17,50,77,0.12)_36%,rgba(8,28,46,0.55)_78%)]"></div>
-    <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand-navy/65 to-transparent"></div>
+    <div class="absolute inset-0 bg-black/34"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,121,99,0.38),rgba(0,0,0,0.08)_48%,rgba(0,121,99,0.30))]"></div>
   </div>
   <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    <span class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-[clamp(5rem,15vw,14rem)] font-black tracking-[0.08em] text-white/[0.075] lg:block">
+    <span class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-[clamp(5rem,14vw,13rem)] font-light tracking-[0.04em] text-white/[0.11] lg:block">
       {visualWord}
     </span>
-    <span class="absolute right-8 top-10 hidden origin-right rotate-90 text-[11px] font-black tracking-[0.34em] text-emerald-100/70 lg:block">
-      FUNCTIONAL HEALTHCARE
-    </span>
   </div>
-  <div class="container-page relative flex min-h-[360px] items-center justify-center py-20 text-center text-white lg:min-h-[410px]">
-    <div class="max-w-4xl">
-      <p class="mb-6 text-sm font-black tracking-[0.34em] text-emerald-100">BIOLAB</p>
-      <h1 class="text-4xl font-black leading-tight [overflow-wrap:anywhere] md:text-6xl">{title}</h1>
-      <p class="mx-auto mt-6 max-w-3xl text-base font-bold leading-8 text-white/92 [overflow-wrap:anywhere] md:text-lg">
+  <div class="container-page relative flex min-h-[320px] items-center justify-center py-20 text-center text-white lg:min-h-[360px]">
+    <div class="max-w-4xl [text-shadow:0_3px_16px_rgba(0,0,0,0.35)]">
+      <h1 class="text-4xl font-light leading-tight [overflow-wrap:anywhere] md:text-6xl">{title}</h1>
+      <p class="mx-auto mt-6 max-w-3xl text-base font-bold leading-8 text-white/95 [overflow-wrap:anywhere] md:text-lg">
         {description}
       </p>
-      <div class="mx-auto mt-8 h-[3px] w-20 bg-emerald-200" aria-hidden="true"></div>
     </div>
   </div>
 </section>

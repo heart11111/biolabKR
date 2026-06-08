@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --brand-navy: #17324d;
-  --brand-blue: #416f9c;
-  --brand-green: #58b6a6;
-  --brand-ink: #1c2838;
-  --brand-muted: #6b7a8c;
-  --line: #dbe5eb;
+  --brand-navy: #111827;
+  --brand-blue: #1f4e79;
+  --brand-green: #35b779;
+  --brand-ink: #171717;
+  --brand-muted: #666f7a;
+  --line: #e5e7eb;
 }
 
 * {
@@ -21,7 +21,7 @@ html {
 
 body {
   margin: 0;
-  background: #fbfcfd;
+  background: #ffffff;
   color: var(--brand-ink);
   font-family:
     "Pretendard",
@@ -48,12 +48,12 @@ img {
 }
 
 .container-page {
-  width: min(1180px, calc(100% - 40px));
+  width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
 }
 
 .section-band {
-  padding: 88px 0;
+  padding: 96px 0;
 }
 
 .section-band-sm {
@@ -87,16 +87,16 @@ img {
 
 [data-reveal] {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(42px);
   transition:
-    opacity 0.82s ease,
-    transform 0.82s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.19, 1, 0.22, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
 
 [data-reveal="image"] {
-  transform: translateY(34px) scale(0.985);
+  transform: translateY(46px) scale(0.98);
 }
 
 [data-reveal].is-visible {

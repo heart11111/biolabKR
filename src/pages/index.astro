@@ -2,16 +2,13 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Hero from "@/components/Hero.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
-import Icon from "@/components/Icon.astro";
 import ProductCard from "@/components/ProductCard.astro";
 import NewsCard from "@/components/NewsCard.astro";
-import CTASection from "@/components/CTASection.astro";
 import { site } from "@/data/site";
 import { products } from "@/data/products";
 import { news } from "@/data/news";
 import { withBase } from "@/lib/path";
 
-const strengthIcons = ["dna", "network", "shield", "heartPulse"];
 const animatedStats = site.stats.map((stat) => {
   const match = stat.value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
   const numericText = match?.[2] ?? "0";
@@ -29,98 +26,139 @@ const animatedStats = site.stats.map((stat) => {
 <BaseLayout title="비오랩" description={site.description}>
   <Hero />
 
-  <section id="about" class="section-band bg-slate-50">
-    <div class="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-      <SectionTitle
-        align="left"
-        eyebrow="ABOUT BIOLAB"
-        title="건강한 삶을 위한 기능성 소재와 브랜드를 만듭니다"
-        description="비오랩은 iHEAL 브랜드를 중심으로 여성과 아이의 건강을 위한 건강기능식품, 이너케어, 뷰티 솔루션을 연구하고 전개합니다."
-      />
-      <div class="grid grid-cols-2 gap-4" data-animated-stats data-reveal-group>
-        {animatedStats.map((stat, index) => (
-          <div class="border border-slate-200 bg-white p-6 shadow-sm" data-reveal>
-            <strong
-              class="block text-3xl font-black tabular-nums text-brand-blue"
-              data-countup
-              data-count-target={stat.countTarget}
-              data-count-prefix={stat.countPrefix}
-              data-count-suffix={stat.countSuffix}
-              data-count-decimals={stat.countDecimals}
-              data-count-index={index}
-              aria-label={stat.value}
-            >
-              {stat.value}
-            </strong>
-            <span class="mt-2 block text-sm font-semibold text-slate-600">{stat.label}</span>
-          </div>
-        ))}
-      </div>
+  <section id="about" class="section-band bg-white">
+    <div class="container-page text-center" data-reveal>
+      <p class="mb-4 text-sm font-black tracking-[0.26em] text-brand-green">HEALTHCARE BRAND COMPANY</p>
+      <h2 class="text-5xl font-light tracking-[0.02em] text-neutral-900 sm:text-6xl">BIOLAB</h2>
+      <p class="mx-auto mt-8 max-w-4xl text-lg leading-9 text-neutral-700">
+        비오랩은 여성과 아이의 건강한 일상에 필요한 기능성 소재와 제품 경험을 연구합니다.
+        원료 선정부터 제품 설계, 국내외 유통 채널 운영까지 건강기능식품 브랜드의 기준을 높입니다.
+      </p>
     </div>
   </section>
 
-  <section class="section-band bg-white">
-    <div class="container-page">
-      <SectionTitle eyebrow="COMPETENCE" title="비오랩의 핵심 경쟁력" />
-      <div class="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
-        {site.strengths.map((item, index) => (
-          <article class="group flex h-full flex-col bg-white" data-reveal>
-            <div class="relative aspect-[5/4] overflow-hidden bg-brand-navy">
-              <img
-                class="h-full w-full scale-[1.08] object-cover opacity-85 saturate-[0.88] transition duration-500 group-hover:scale-[1.16]"
-                src={withBase(item.image)}
-                alt={item.imageAlt}
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(23,50,77,0.82),rgba(65,111,156,0.34)_46%,rgba(88,182,166,0.42))]"></div>
-              <span class="absolute bottom-5 right-5 text-[clamp(2.5rem,6vw,4.8rem)] font-black leading-none tracking-[0.04em] text-white/[0.11]">
-                {index === 1 ? "GLOBAL" : index === 2 ? "QUALITY" : index === 3 ? "LIFE" : "R&D"}
-              </span>
-              <span class="absolute left-5 top-5 block bg-white/95 px-3 py-2 text-sm font-black text-brand-green shadow-sm">
-                0{index + 1}
-              </span>
-            </div>
-            <div class="flex flex-1 flex-col p-7">
-              <div class="mb-5 flex items-center justify-between">
-                <span class="text-xs font-black tracking-[0.28em] text-brand-green">COMPETENCE</span>
-                <span class="flex h-11 w-11 items-center justify-center border border-brand-blue/20 bg-brand-mint text-brand-blue">
-                  <Icon name={strengthIcons[index]} class="h-5 w-5" />
-                </span>
-              </div>
-              <h3 class="text-xl font-extrabold text-brand-navy">{item.title}</h3>
-              <p class="mt-4 text-sm leading-7 text-slate-600">{item.body}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section-band bg-brand-mint">
-    <div class="container-page">
-      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div>
-          <SectionTitle
-            align="left"
-            eyebrow="PRODUCT PREVIEW"
-            title="여성과 아이의 일상에 맞춘 iHEAL 대표 제품"
-            description="특허 유산균과 이너케어 원료를 바탕으로 여성 건강, 키즈 건강, 뷰티 케어 제품군을 전개합니다."
+  <section class="section-band bg-white pt-0">
+    <div class="container-page grid gap-20">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <figure class="overflow-hidden" data-reveal="image">
+          <img
+            class="aspect-[4/3] h-full w-full object-cover"
+            src={withBase("/images/science/petri-pipette-lab.jpg")}
+            alt="원료 연구를 상징하는 피펫과 배양접시 이미지"
+            loading="lazy"
+            decoding="async"
           />
-          <a class="inline-flex bg-brand-navy px-6 py-4 text-sm font-bold text-white" href={withBase("/products/")}>제품 라인업 보기</a>
+        </figure>
+        <div data-reveal>
+          <p class="mb-5 text-sm font-black tracking-[0.22em] text-brand-green">R & D</p>
+          <h2 class="text-4xl font-light leading-tight text-neutral-900 sm:text-5xl">
+            원료를 고르는 기준부터<br class="hidden sm:block" />
+            제품의 완성도를 설계합니다
+          </h2>
+          <p class="mt-8 text-base leading-8 text-neutral-700">
+            특허 유산균과 이너케어 원료를 제품 목적에 맞춰 검토하고,
+            섭취 편의성과 브랜드 경험까지 고려해 iHEAL 포트폴리오를 전개합니다.
+          </p>
+          <ul class="mt-8 space-y-3 text-sm font-semibold text-neutral-700">
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>여성 건강 중심 특허 균주 포뮬러</li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>키즈와 이너케어 제품별 원료 설계</li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>국내외 유통 채널에 맞춘 제품 운영</li>
+          </ul>
         </div>
-        <div class="grid gap-6 md:grid-cols-2" data-reveal-group>
-          {products.slice(0, 2).map((product) => <ProductCard product={product} />)}
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div class="order-2 lg:order-1" data-reveal>
+          <p class="mb-5 text-sm font-black tracking-[0.22em] text-brand-green">QUALITY & GLOBAL</p>
+          <h2 class="text-4xl font-light leading-tight text-neutral-900 sm:text-5xl">
+            국내외 채널에서 신뢰받는<br class="hidden sm:block" />
+            브랜드 운영을 지향합니다
+          </h2>
+          <p class="mt-8 text-base leading-8 text-neutral-700">
+            비오랩은 단기 판매보다 지속 가능한 품질 관리와 채널 운영을 우선합니다.
+            국내 약국·면세점과 일본 온라인·오프라인 채널을 통해 브랜드 접점을 넓혀갑니다.
+          </p>
+          <div class="mt-10 grid grid-cols-2 gap-px bg-neutral-200" data-animated-stats data-reveal-group>
+            {animatedStats.map((stat, index) => (
+              <div class="bg-white p-7 text-left" data-reveal>
+                <strong
+                  class="block text-4xl font-light tabular-nums text-neutral-900"
+                  data-countup
+                  data-count-target={stat.countTarget}
+                  data-count-prefix={stat.countPrefix}
+                  data-count-suffix={stat.countSuffix}
+                  data-count-decimals={stat.countDecimals}
+                  data-count-index={index}
+                  aria-label={stat.value}
+                >
+                  {stat.value}
+                </strong>
+                <span class="mt-3 block text-sm font-bold text-neutral-600">{stat.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
+        <figure class="order-1 overflow-hidden lg:order-2" data-reveal="image">
+          <img
+            class="aspect-[4/3] h-full w-full object-cover"
+            src={withBase("/images/science/clinical-capsules-doctor.jpg")}
+            alt="임상과 품질 관리를 상징하는 건강기능식품 이미지"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-neutral-50">
+    <div class="container-page">
+      <SectionTitle eyebrow="BUSINESS FIELD" title="건강한 일상을 위한 제품 영역" />
+      <div class="grid gap-8 md:grid-cols-2" data-reveal-group>
+        <article class="text-center" data-reveal>
+          <img
+            class="aspect-[16/9] w-full object-cover"
+            src={withBase("/images/science/capsules-tablets-clinical.jpg")}
+            alt="건강기능식품 캡슐 이미지"
+            loading="lazy"
+            decoding="async"
+          />
+          <h3 class="mt-8 text-2xl font-bold text-neutral-900">건강기능식품</h3>
+          <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-neutral-600">
+            특허 유산균, 키즈 건강, 다이어트 라인 등 일상 관리에 필요한 제품군을 전개합니다.
+          </p>
+        </article>
+        <article class="text-center" data-reveal>
+          <img
+            class="aspect-[16/9] w-full object-cover"
+            src={withBase("/images/ingredient-hyaluronic.jpg")}
+            alt="이너케어와 보습 원료를 상징하는 이미지"
+            loading="lazy"
+            decoding="async"
+          />
+          <h3 class="mt-8 text-2xl font-bold text-neutral-900">이너케어</h3>
+          <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-neutral-600">
+            여성 Y존 케어, 보습, 진정 컨셉의 원료를 바탕으로 뷰티 루틴을 제안합니다.
+          </p>
+        </article>
       </div>
     </div>
   </section>
 
   <section class="section-band bg-white">
-    <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+    <div class="container-page">
+      <SectionTitle eyebrow="PRODUCTS" title="대표 제품" description="비오랩 산하 iHEAL 브랜드의 주요 제품을 소개합니다." />
+      <div class="grid gap-7 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+        {products.slice(0, 3).map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-white pt-0">
+    <div class="container-page grid gap-10 border-t border-neutral-900 pt-14 lg:grid-cols-[0.8fr_1.2fr]">
       <div>
-        <SectionTitle align="left" eyebrow="NOTICE" title="공지사항 / 보도자료" description="비오랩의 최신 소식과 브랜드 성장 소식을 전합니다." />
-        <a class="inline-flex border border-brand-blue px-5 py-3 text-sm font-bold text-brand-blue" href={withBase("/support/news/")}>전체 보기</a>
+        <SectionTitle align="left" eyebrow="NEWS" title="공지사항 / 보도자료" description="비오랩의 최신 소식과 브랜드 성장 소식을 전합니다." />
+        <a class="inline-flex border border-neutral-900 px-6 py-3 text-sm font-bold text-neutral-900 transition hover:border-brand-green hover:bg-brand-green hover:text-white" href={withBase("/support/news/")}>전체 보기</a>
       </div>
       <div data-reveal-group>
         {news.slice(0, 3).map((item) => <NewsCard item={item} />)}
@@ -128,7 +166,6 @@ const animatedStats = site.stats.map((stat) => {
     </div>
   </section>
 
-  <CTASection />
 </BaseLayout>
 
 <script>
