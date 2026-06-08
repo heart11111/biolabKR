@@ -41,9 +41,9 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
       </div>
     </div>
   </div>
-  <div class="container-page flex h-[88px] items-center justify-between gap-8">
+  <div class="container-page flex h-[80px] items-center justify-between gap-8">
     <a class="flex items-center" href={withBase("/")} aria-label={`${site.name} 홈`}>
-      <img class="h-12 w-auto lg:h-14" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
+      <img class="h-9 w-auto lg:h-10" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
     </a>
 
     <nav class="hidden h-full flex-1 items-stretch justify-center lg:flex" aria-label="주요 메뉴">
@@ -122,8 +122,8 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
 </header>
 
 <div class="mobile-panel fixed inset-0 z-[60] hidden min-h-screen bg-white" data-mobile-panel>
-  <div class="container-page flex h-[82px] items-center justify-between border-b border-neutral-200">
-    <img class="h-11 w-auto" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
+  <div class="container-page flex h-[76px] items-center justify-between border-b border-neutral-200">
+    <img class="h-9 w-auto" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
     <button class="flex h-10 w-10 items-center justify-center border border-slate-200" type="button" data-mobile-close aria-label="모바일 메뉴 닫기">
       <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M18 6 6 18"></path>
