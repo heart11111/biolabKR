@@ -5,20 +5,19 @@ export default {
     extend: {
       colors: {
         brand: {
-          navy: "#0f2f57",
-          blue: "#2567a9",
-          sky: "#e8f3fb",
-          green: "#1f9a7a",
-          mint: "#eaf7f3",
-          ink: "#172033",
-          muted: "#64748b"
+          navy: "#17324d",
+          blue: "#416f9c",
+          sky: "#eef5f8",
+          green: "#58b6a6",
+          mint: "#f2faf7",
+          ink: "#1c2838",
+          muted: "#6b7a8c"
         }
       },
       boxShadow: {
-        corporate: "0 16px 40px rgba(15, 47, 87, 0.10)"
+        corporate: "0 16px 40px rgba(23, 50, 77, 0.10)"
       }
     }
   },
   plugins: []
 };
-

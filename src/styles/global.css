@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --brand-navy: #0f2f57;
-  --brand-blue: #2567a9;
-  --brand-green: #1f9a7a;
-  --brand-ink: #172033;
-  --brand-muted: #64748b;
-  --line: #d9e2ec;
+  --brand-navy: #17324d;
+  --brand-blue: #416f9c;
+  --brand-green: #58b6a6;
+  --brand-ink: #1c2838;
+  --brand-muted: #6b7a8c;
+  --line: #dbe5eb;
 }
 
 * {
@@ -21,7 +21,7 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: #fbfcfd;
   color: var(--brand-ink);
   font-family:
     "Pretendard",
@@ -76,7 +76,7 @@ img {
 
 .table-corporate th {
   width: 170px;
-  background: #f5f8fb;
+  background: #f6f9fa;
   color: var(--brand-navy);
   font-weight: 700;
 }
