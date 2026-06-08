@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 import Icon from "@/components/Icon.astro";
 import CTASection from "@/components/CTASection.astro";
+import { withBase } from "@/lib/path";
 
 const qualityItems = [
   {
@@ -50,7 +51,17 @@ const qualityItems = [
   </section>
 
   <section class="section-band bg-slate-50">
-    <div class="container-page">
+    <div class="container-page grid gap-10 lg:grid-cols-[0.5fr_0.5fr] lg:items-center">
+      <figure class="relative overflow-hidden bg-brand-navy shadow-corporate" data-reveal="image">
+        <img
+          class="aspect-[4/3] h-full w-full scale-105 object-cover object-[54%_50%]"
+          src={withBase("/images/science/pharma-blister-packs.jpg")}
+          alt="블리스터 포장과 정제를 활용한 품질관리 이미지"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(23,50,77,0.38),rgba(88,182,166,0.12))]"></div>
+      </figure>
       <table class="table-corporate">
         <tbody>
           <tr><th>원료 관리</th><td>특허 균주, 보장균수, 부원료, 외용 원료별 규격과 적용 목적을 제품별 기준에 맞춰 관리합니다.</td></tr>

@@ -34,8 +34,8 @@ export const site = {
     {
       title: "특허 균주 기반 제품 설계",
       body: "건강한 한국 여성 유래 특허 유산균 3종을 중심으로 여성 맞춤형 건강 솔루션을 개발합니다.",
-      image: "/images/competence-research.jpg",
-      imageAlt: "유산균 균주 연구와 제품 설계를 상징하는 실험실 이미지"
+      image: "/images/science/petri-pipette-lab.jpg",
+      imageAlt: "피펫과 배양접시를 활용한 유산균 원료 연구 이미지"
     },
     {
       title: "국내외 유통 채널 확장",
@@ -46,8 +46,8 @@ export const site = {
     {
       title: "무차입 경영 기조",
       body: "단기 성장보다 재무 건전성과 지속 가능한 브랜드 운영을 우선하는 경영 원칙을 지향합니다.",
-      image: "/images/competence-quality.jpg",
-      imageAlt: "품질 점검과 안정적인 경영 기준을 상징하는 이미지"
+      image: "/images/science/pharma-blister-packs.jpg",
+      imageAlt: "블리스터 포장과 정제를 활용한 품질 기준 이미지"
     },
     {
       title: "여성과 아이 중심 포트폴리오",
