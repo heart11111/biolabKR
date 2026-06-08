@@ -19,8 +19,21 @@ const iconName = product.category.includes("키즈")
 ---
 
 <article class="group flex h-full flex-col overflow-hidden border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-corporate">
-  <a href={withBase(`/products/${product.slug}/`)} aria-label={`${product.name} 상세 보기`}>
-    <img class="h-56 w-full bg-slate-50 object-contain" src={withBase(product.image)} alt={product.name} />
+  <a class="relative block aspect-[4/3] overflow-hidden bg-[#f6f9fa]" href={withBase(`/products/${product.slug}/`)} aria-label={`${product.name} 상세 보기`}>
+    <img
+      class="absolute inset-0 h-full w-full scale-110 object-cover opacity-20 blur-md"
+      src={withBase(product.image)}
+      alt=""
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      class="relative z-10 h-full w-full object-contain p-5 transition duration-300 group-hover:scale-[1.03]"
+      src={withBase(product.image)}
+      alt={product.name}
+      loading="lazy"
+      decoding="async"
+    />
   </a>
   <div class="flex flex-1 flex-col p-6">
     <div class="mb-4 flex items-center justify-between gap-3">
