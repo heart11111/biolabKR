@@ -13,8 +13,8 @@ import { withBase } from "@/lib/path";
   <Breadcrumb parent={{ label: "회사소개", href: "/company/" }} current="회사 개요" />
 
   <section class="section-band bg-white">
-    <div class="container-page grid gap-12 lg:grid-cols-[0.52fr_0.48fr] lg:items-center">
-      <figure class="relative overflow-hidden bg-brand-navy">
+    <div class="container-page grid gap-12 lg:grid-cols-[0.52fr_0.48fr] lg:items-center" data-reveal-group>
+      <figure class="relative overflow-hidden bg-brand-navy" data-reveal="image">
         <img
           class="aspect-[4/3] h-full w-full scale-110 object-cover object-[58%_45%] opacity-90 saturate-[0.92]"
           src={withBase("/images/studio/studio-iheal-three-products.jpg")}
@@ -25,7 +25,7 @@ import { withBase } from "@/lib/path";
         <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(23,50,77,0.44),rgba(88,182,166,0.16))]"></div>
       </figure>
 
-      <div>
+      <div data-reveal>
         <p class="mb-5 text-sm font-black tracking-[0.28em] text-brand-green">BIOLAB OVERVIEW</p>
         <h2 class="text-4xl font-light leading-tight text-brand-ink md:text-5xl">
           제품 기획부터<br />
@@ -47,7 +47,7 @@ import { withBase } from "@/lib/path";
   <section class="section-band bg-slate-50">
     <div class="container-page">
       <SectionTitle eyebrow="OVERVIEW" title="비오랩 개요" description="첨부 자료 기준, iHEAL은 국내 B2B·해외 유통의 비오랩과 국내 B2C 유통의 퍼스트케어 체계를 통해 성장하고 있습니다." />
-      <table class="table-corporate">
+      <table class="table-corporate" data-reveal>
         <tbody>
           <tr><th>회사명</th><td>{site.name} / {site.englishName}</td></tr>
           <tr><th>대표 브랜드</th><td>{site.brandName}</td></tr>

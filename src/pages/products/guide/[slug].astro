@@ -31,7 +31,7 @@ const { article } = Astro.props;
         <time class="text-slate-500">{article.date}</time>
       </div>
       <h1 class="text-4xl font-black leading-tight text-brand-navy">{article.title}</h1>
-      <img class="my-10 h-[380px] w-full bg-slate-50 object-contain shadow-corporate" src={withBase(article.image)} alt={article.title} />
+      <img class="my-10 h-[380px] w-full bg-slate-50 object-contain shadow-corporate" src={withBase(article.image)} alt={article.title} data-reveal="image" />
       <div class="space-y-6 text-lg leading-9 text-slate-700">
         {article.content.map((paragraph) => <p>{paragraph}</p>)}
       </div>

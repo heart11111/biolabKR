@@ -48,6 +48,35 @@ const ogImage = new URL(withBase(image), site.url).toString();
       <slot />
     </main>
     <Footer />
+    <script>
+      const revealItems = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      revealItems.forEach((item, index) => {
+        const group = item.closest("[data-reveal-group]");
+        const siblings = group ? Array.from(group.querySelectorAll<HTMLElement>("[data-reveal]")) : [];
+        const groupIndex = siblings.includes(item) ? siblings.indexOf(item) : index;
+        const delay = Number(item.dataset.revealDelay ?? groupIndex * 90);
+
+        item.style.setProperty("--reveal-delay", `${Math.min(delay, 360)}ms`);
+      });
+
+      if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      } else {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.16 }
+        );
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+      }
+    </script>
   </body>
 </html>
-

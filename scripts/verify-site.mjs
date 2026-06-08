@@ -103,6 +103,8 @@ const supportNewsDetailPage = readFileSync(join(process.cwd(), "src/pages/suppor
 const headerComponent = readFileSync(join(process.cwd(), "src/components/Header.astro"), "utf8");
 const footerComponent = readFileSync(join(process.cwd(), "src/components/Footer.astro"), "utf8");
 const heroComponent = readFileSync(join(process.cwd(), "src/components/Hero.astro"), "utf8");
+const baseLayout = readFileSync(join(process.cwd(), "src/layouts/BaseLayout.astro"), "utf8");
+const globalStyles = readFileSync(join(process.cwd(), "src/styles/global.css"), "utf8");
 const newsData = readFileSync(join(process.cwd(), "src/data/news.ts"), "utf8");
 const ingredientCard = readFileSync(join(process.cwd(), "src/components/IngredientCard.astro"), "utf8");
 const ingredientsPage = readFileSync(join(process.cwd(), "src/pages/technology/ingredients.astro"), "utf8");
@@ -145,6 +147,7 @@ const requiredContent = [
   ["support news board split page", supportNewsPage.includes("NewsBoard")],
   ["componentized product cards", homePage.includes("ProductCard")],
   ["home stats countup animation", homePage.includes("data-animated-stats") && homePage.includes("data-countup") && homePage.includes("IntersectionObserver") && homePage.includes("requestAnimationFrame") && homePage.includes("prefers-reduced-motion")],
+  ["scroll reveal animation", baseLayout.includes("[data-reveal]") && baseLayout.includes("IntersectionObserver") && baseLayout.includes("is-visible") && globalStyles.includes("[data-reveal]") && globalStyles.includes("prefers-reduced-motion")],
   ["subpage cards use icons", sourceFiles.some((file) => file.includes("data-subpage-grid") && file.includes("<Icon"))],
   ["strength cards use icons", homePage.includes("strengthIcons") && homePage.includes("<Icon")],
   ["strength cards use generated images", siteData.includes("competence-research.jpg") && siteData.includes("competence-global.jpg") && siteData.includes("competence-quality.jpg") && siteData.includes("competence-family.jpg") && homePage.includes("<img") && homePage.includes("item.imageAlt")],

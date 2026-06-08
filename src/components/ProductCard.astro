@@ -18,7 +18,7 @@ const iconName = product.category.includes("키즈")
       : "heartPulse";
 ---
 
-<article class="group flex h-full flex-col overflow-hidden border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-corporate">
+<article class="group flex h-full flex-col overflow-hidden border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-corporate" data-reveal>
   <a class="relative block aspect-[4/3] overflow-hidden bg-[#f6f9fa]" href={withBase(`/products/${product.slug}/`)} aria-label={`${product.name} 상세 보기`}>
     <img
       class="absolute inset-0 h-full w-full scale-110 object-cover opacity-20 blur-md"

@@ -55,7 +55,7 @@ const { item } = Astro.props;
             {item.summary}
           </p>
 
-          <figure class="mb-10 overflow-hidden border border-slate-200 bg-slate-50">
+          <figure class="mb-10 overflow-hidden border border-slate-200 bg-slate-50" data-reveal="image">
             <a href={withBase(item.imageSourceUrl)} target="_blank" rel="noreferrer" aria-label={`${item.imageCredit} 보기`}>
               <img class="max-h-[520px] w-full object-contain" src={withBase(item.image)} alt={item.imageAlt} />
             </a>
