@@ -50,6 +50,7 @@ const requiredFiles = [
   "public/images/competence-global.jpg",
   "public/images/competence-quality.jpg",
   "public/images/competence-family.jpg",
+  "public/images/ingredients/ingredient-research-lab.jpg",
   "public/images/product-venus-probiotics-actual.jpg",
   "public/images/product-venus-stick-actual.jpg",
   "public/images/product-kids-lac-actual.jpg",
@@ -101,6 +102,7 @@ const headerComponent = readFileSync(join(process.cwd(), "src/components/Header.
 const heroComponent = readFileSync(join(process.cwd(), "src/components/Hero.astro"), "utf8");
 const newsData = readFileSync(join(process.cwd(), "src/data/news.ts"), "utf8");
 const ingredientCard = readFileSync(join(process.cwd(), "src/components/IngredientCard.astro"), "utf8");
+const ingredientsPage = readFileSync(join(process.cwd(), "src/pages/technology/ingredients.astro"), "utf8");
 const categoryPages = [
   "src/pages/company/index.astro",
   "src/pages/technology/index.astro",
@@ -143,7 +145,8 @@ const requiredContent = [
   ["strength cards use icons", homePage.includes("strengthIcons") && homePage.includes("<Icon")],
   ["strength cards use generated images", siteData.includes("competence-research.jpg") && siteData.includes("competence-global.jpg") && siteData.includes("competence-quality.jpg") && siteData.includes("competence-family.jpg") && homePage.includes("<img") && homePage.includes("item.imageAlt")],
   ["products use actual product photos", sourceFiles.some((file) => file.includes("studio-venus-probiotics.jpg")) && sourceFiles.some((file) => file.includes("studio-venus-stick.jpg")) && sourceFiles.some((file) => file.includes("studio-kids-lac.jpg")) && sourceFiles.some((file) => file.includes("studio-line-n.jpg")) && sourceFiles.some((file) => file.includes("product-inner-clean-v-actual.jpg")) && sourceFiles.some((file) => file.includes("product-venus-inner-perfume-actual.jpg"))],
-  ["ingredient cards use icons", ingredientCard.includes("<Icon")]
+  ["ingredient cards use icons", ingredientCard.includes("<Icon")],
+  ["ingredient page uses research visual", ingredientsPage.includes("ingredient-research-lab.jpg") && ingredientsPage.includes("유산균 캡슐과 원료 연구 실험실 이미지")]
 ];
 
 const visitorCopyForbiddenPhrases = [

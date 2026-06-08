@@ -6,6 +6,7 @@ import SectionTitle from "@/components/SectionTitle.astro";
 import IngredientCard from "@/components/IngredientCard.astro";
 import CTASection from "@/components/CTASection.astro";
 import { ingredients } from "@/data/ingredients";
+import { withBase } from "@/lib/path";
 ---
 
 <BaseLayout title="핵심 원료" description="비오랩의 핵심 원료와 특허 균주를 소개합니다.">
@@ -15,6 +16,14 @@ import { ingredients } from "@/data/ingredients";
   <section class="section-band bg-white">
     <div class="container-page">
       <SectionTitle eyebrow="INGREDIENT" title="제품 설계의 중심 원료" description="아이힐 브랜드 자료에 기재된 특허 균주와 핵심 부원료를 비오랩 산하 브랜드 원료 정보로 정리했습니다." />
+      <figure class="mb-8 overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+        <img
+          src={withBase("/images/ingredients/ingredient-research-lab.jpg")}
+          alt="유산균 캡슐과 원료 연구 실험실 이미지"
+          class="h-[260px] w-full object-cover sm:h-[340px] lg:h-[420px]"
+          loading="eager"
+        />
+      </figure>
       <div class="grid gap-6 md:grid-cols-2">
         {ingredients.map((ingredient) => <IngredientCard ingredient={ingredient} />)}
       </div>
