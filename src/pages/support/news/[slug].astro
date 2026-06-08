@@ -21,7 +21,7 @@ const { item } = Astro.props;
 ---
 
 <BaseLayout title={item.title} description={item.summary}>
-  <SubHero title="공지사항 / 보도자료" description="비오랩과 iHEAL 브랜드의 주요 소식을 전합니다." />
+  <SubHero title="공지사항 / 보도자료" description="비오랩과 iHEAL 브랜드의 주요 소식을 전합니다." image={item.image} imagePosition="50% 46%" visualWord="NEWS" />
   <Breadcrumb parent={{ label: "공지사항 / 보도자료", href: "/support/news/" }} current={item.title} />
 
   <article class="section-band bg-white">

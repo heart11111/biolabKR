@@ -22,7 +22,7 @@ const qualityImage = withBase("/images/ingredients/ingredient-research-lab.jpg")
 ---
 
 <BaseLayout title={product.name} description={product.summary} image={product.image}>
-  <SubHero title={product.name} description={product.tagline} />
+  <SubHero title={product.name} description={product.tagline} image={product.image} imagePosition="50% 48%" visualWord="iHEAL" />
   <Breadcrumb parent={{ label: "제품소개", href: "/products/" }} current={product.name} />
 
   <section class="section-band bg-white">

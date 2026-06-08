@@ -21,7 +21,7 @@ const { article } = Astro.props;
 ---
 
 <BaseLayout title={article.title} description={article.excerpt} image={article.image}>
-  <SubHero title={article.category} description={article.excerpt} />
+  <SubHero title={article.category} description={article.excerpt} image={article.image} imagePosition="54% 48%" visualWord="GUIDE" />
   <Breadcrumb parent={{ label: "제품소개", href: "/products/" }} current={article.title} />
 
   <article class="section-band bg-white">

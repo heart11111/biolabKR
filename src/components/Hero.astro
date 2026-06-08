@@ -3,14 +3,27 @@ import { site } from "@/data/site";
 import { withBase } from "@/lib/path";
 ---
 
-<section class="relative overflow-hidden bg-brand-navy" data-vision-hero>
+<section class="relative isolate overflow-hidden bg-brand-navy" data-vision-hero>
   <div class="absolute inset-0">
-    <img class="h-full w-full object-cover object-center" src={withBase("/images/studio/studio-iheal-lineup-hero.jpg")} alt="iHEAL 대표 제품 스튜디오 이미지" />
-    <div class="absolute inset-y-0 left-0 w-[min(1040px,92vw)] bg-gradient-to-r from-brand-navy/95 via-brand-navy/76 to-transparent"></div>
-    <div class="absolute inset-y-0 left-0 w-[min(820px,78vw)] bg-[radial-gradient(circle_at_38%_44%,rgba(2,20,45,0.72),rgba(2,20,45,0.46)_45%,rgba(2,20,45,0)_76%)]"></div>
+    <img
+      class="h-full w-full scale-[1.12] object-cover object-[68%_44%] saturate-[0.95]"
+      src={withBase("/images/studio/studio-iheal-lineup-hero.jpg")}
+      alt="iHEAL 대표 제품 스튜디오 이미지"
+    />
+    <div class="absolute inset-y-0 left-0 w-[min(980px,94vw)] bg-[linear-gradient(90deg,rgba(12,35,58,0.92),rgba(23,50,77,0.74)_48%,rgba(23,50,77,0.18)_78%,rgba(23,50,77,0))]"></div>
+    <div class="absolute inset-y-0 left-0 w-[min(780px,82vw)] bg-[radial-gradient(circle_at_36%_44%,rgba(55,124,150,0.56),rgba(23,50,77,0.22)_48%,rgba(23,50,77,0)_76%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-brand-navy/60 to-transparent"></div>
+  </div>
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <span class="absolute -right-8 top-28 hidden text-[clamp(6rem,16vw,15rem)] font-black tracking-[0.05em] text-white/[0.07] xl:block">
+      BIOLAB
+    </span>
+    <span class="absolute right-10 top-1/2 hidden -translate-y-1/2 rotate-90 text-[11px] font-black tracking-[0.36em] text-emerald-100/70 lg:block">
+      FUNCTIONAL INGREDIENTS
+    </span>
   </div>
   <div class="container-page relative flex min-h-[620px] items-center py-20 text-white lg:min-h-[700px]">
-    <div class="max-w-4xl [text-shadow:0_3px_18px_rgba(0,0,0,0.42)]">
+    <div class="max-w-4xl [text-shadow:0_3px_18px_rgba(0,0,0,0.38)]">
       <p class="mb-6 text-sm font-black tracking-[0.34em] text-emerald-200">VISION OF BIOLAB</p>
       <h1 class="text-4xl font-black leading-[1.25] sm:text-5xl lg:text-6xl">
         건강의 내일은<br />
@@ -20,10 +33,10 @@ import { withBase } from "@/lib/path";
       <p class="mt-8 max-w-[22rem] break-words text-[15px] font-semibold leading-7 text-slate-100 sm:max-w-2xl sm:text-lg sm:leading-8">
         비오랩은 원료를 고르는 기준, 제품을 설계하는 태도, 고객에게 전달되는 경험까지 건강한 일상의 기준을 세웁니다.
       </p>
-      <div class="mt-12 grid max-w-3xl gap-px overflow-hidden bg-white/25 text-sm font-bold text-white sm:grid-cols-3">
-        <div class="bg-brand-navy/55 px-5 py-4 backdrop-blur-sm">Functional Ingredients</div>
-        <div class="bg-brand-navy/55 px-5 py-4 backdrop-blur-sm">Women & Kids Health</div>
-        <div class="bg-brand-navy/55 px-5 py-4 backdrop-blur-sm">Global Brand Channels</div>
+      <div class="mt-12 grid max-w-3xl gap-px overflow-hidden border border-white/18 bg-white/18 text-sm font-bold text-white shadow-[0_18px_45px_rgba(0,0,0,0.18)] sm:grid-cols-3">
+        <div class="bg-brand-navy/42 px-5 py-4 backdrop-blur-md">Functional Ingredients</div>
+        <div class="bg-brand-navy/42 px-5 py-4 backdrop-blur-md">Women & Kids Health</div>
+        <div class="bg-brand-navy/42 px-5 py-4 backdrop-blur-md">Global Brand Channels</div>
       </div>
       <p class="mt-8 text-xs font-bold tracking-[0.24em] text-emerald-100">{site.englishName}</p>
     </div>
