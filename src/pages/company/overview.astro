@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 import CTASection from "@/components/CTASection.astro";
 import { site } from "@/data/site";
+import { withBase } from "@/lib/path";
 ---
 
 <BaseLayout title="회사 개요" description="비오랩의 사업 영역과 국내외 유통 현황을 소개합니다.">
@@ -12,6 +13,38 @@ import { site } from "@/data/site";
   <Breadcrumb parent={{ label: "회사소개", href: "/company/" }} current="회사 개요" />
 
   <section class="section-band bg-white">
+    <div class="container-page grid gap-12 lg:grid-cols-[0.52fr_0.48fr] lg:items-center">
+      <figure class="relative overflow-hidden bg-brand-navy">
+        <img
+          class="aspect-[4/3] h-full w-full scale-110 object-cover object-[58%_45%] opacity-90 saturate-[0.92]"
+          src={withBase("/images/studio/studio-iheal-three-products.jpg")}
+          alt="iHEAL 대표 제품과 브랜드 포트폴리오 이미지"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(23,50,77,0.44),rgba(88,182,166,0.16))]"></div>
+      </figure>
+
+      <div>
+        <p class="mb-5 text-sm font-black tracking-[0.28em] text-brand-green">BIOLAB OVERVIEW</p>
+        <h2 class="text-4xl font-light leading-tight text-brand-ink md:text-5xl">
+          제품 기획부터<br />
+          국내외 유통까지 연결합니다
+        </h2>
+        <p class="mt-8 text-base leading-8 text-slate-700">
+          비오랩은 iHEAL 브랜드를 통해 여성 건강, 키즈 건강, 이너케어 제품군을 전개합니다.
+          특허 유산균과 기능성 원료를 바탕으로 제품 목적에 맞는 포뮬러를 설계하고, 국내외 유통 채널에서 브랜드 접점을 확장하고 있습니다.
+        </p>
+        <ul class="mt-8 space-y-3 text-sm font-semibold leading-7 text-slate-700">
+          <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>여성·키즈·이너케어 중심의 iHEAL 제품 포트폴리오</li>
+          <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>국내 약국·면세점과 일본 온라인·오프라인 채널 운영</li>
+          <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>원료, 제품, 채널을 함께 관리하는 브랜드 운영 체계</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-slate-50">
     <div class="container-page">
       <SectionTitle eyebrow="OVERVIEW" title="비오랩 개요" description="첨부 자료 기준, iHEAL은 국내 B2B·해외 유통의 비오랩과 국내 B2C 유통의 퍼스트케어 체계를 통해 성장하고 있습니다." />
       <table class="table-corporate">
