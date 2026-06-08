@@ -3,42 +3,32 @@ import { site } from "@/data/site";
 import { withBase } from "@/lib/path";
 ---
 
-<section class="relative isolate overflow-hidden bg-brand-navy" data-vision-hero>
-  <div class="absolute inset-0">
-    <img
-      class="h-full w-full scale-[1.12] object-cover object-[68%_44%] saturate-[0.95]"
-      src={withBase("/images/studio/studio-iheal-lineup-hero.jpg")}
-      alt="iHEAL 대표 제품 스튜디오 이미지"
-    />
-    <div class="absolute inset-y-0 left-0 w-[min(980px,94vw)] bg-[linear-gradient(90deg,rgba(12,35,58,0.92),rgba(23,50,77,0.74)_48%,rgba(23,50,77,0.18)_78%,rgba(23,50,77,0))]"></div>
-    <div class="absolute inset-y-0 left-0 w-[min(780px,82vw)] bg-[radial-gradient(circle_at_36%_44%,rgba(55,124,150,0.56),rgba(23,50,77,0.22)_48%,rgba(23,50,77,0)_76%)]"></div>
-    <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-brand-navy/60 to-transparent"></div>
-  </div>
-  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    <span class="absolute -right-8 top-28 hidden text-[clamp(6rem,16vw,15rem)] font-black tracking-[0.05em] text-white/[0.07] xl:block">
-      BIOLAB
-    </span>
-    <span class="absolute right-10 top-1/2 hidden -translate-y-1/2 rotate-90 text-[11px] font-black tracking-[0.36em] text-emerald-100/70 lg:block">
-      FUNCTIONAL INGREDIENTS
-    </span>
-  </div>
-  <div class="container-page relative flex min-h-[620px] items-center py-20 text-white lg:min-h-[700px]">
-    <div class="max-w-4xl [text-shadow:0_3px_18px_rgba(0,0,0,0.38)]">
-      <p class="mb-6 text-sm font-black tracking-[0.34em] text-emerald-200">VISION OF BIOLAB</p>
-      <h1 class="text-4xl font-black leading-[1.25] sm:text-5xl lg:text-6xl">
-        건강의 내일은<br />
-        오늘의 작은 기준에서<br />
-        시작됩니다
-      </h1>
-      <p class="mt-8 max-w-[22rem] break-words text-[15px] font-semibold leading-7 text-slate-100 sm:max-w-2xl sm:text-lg sm:leading-8">
-        비오랩은 원료를 고르는 기준, 제품을 설계하는 태도, 고객에게 전달되는 경험까지 건강한 일상의 기준을 세웁니다.
-      </p>
-      <div class="mt-12 grid max-w-3xl gap-px overflow-hidden border border-white/18 bg-white/18 text-sm font-bold text-white shadow-[0_18px_45px_rgba(0,0,0,0.18)] sm:grid-cols-3">
-        <div class="bg-brand-navy/42 px-5 py-4 backdrop-blur-md">Functional Ingredients</div>
-        <div class="bg-brand-navy/42 px-5 py-4 backdrop-blur-md">Women & Kids Health</div>
-        <div class="bg-brand-navy/42 px-5 py-4 backdrop-blur-md">Global Brand Channels</div>
+<section class="relative isolate overflow-hidden bg-white" data-vision-hero>
+  <div class="container-page bg-white pb-20 pt-0">
+    <div class="relative isolate min-h-[440px] overflow-hidden bg-slate-900 sm:min-h-[520px] lg:min-h-[620px]">
+      <img
+        class="absolute inset-0 h-full w-full object-cover object-[58%_48%]"
+        src={withBase("/images/home-hero-family.png")}
+        alt="푸른 공원에서 건강한 일상을 보내는 가족 이미지"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-black/28"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(11,31,51,0.18),rgba(11,31,51,0.58))]"></div>
+      <div class="relative flex min-h-[440px] items-center justify-center px-6 py-20 text-center text-white sm:min-h-[520px] lg:min-h-[620px]">
+        <div class="max-w-4xl [text-shadow:0_3px_18px_rgba(0,0,0,0.42)]">
+          <p class="mb-5 text-sm font-black tracking-[0.34em] text-emerald-100">VISION OF BIOLAB</p>
+          <h1 class="text-6xl font-light tracking-[0.02em] sm:text-7xl lg:text-8xl">
+            {site.englishName}
+          </h1>
+          <p class="mt-7 text-lg font-bold leading-8 text-white sm:text-xl">
+            건강기능식품과 이너케어 브랜드로 건강한 일상의 기준을 만듭니다.
+          </p>
+          <p class="mx-auto mt-4 max-w-2xl text-sm font-semibold leading-7 text-white/88 sm:text-base">
+            비오랩은 여성과 아이의 건강을 위한 원료, 제품, 유통 경험을 연구합니다.
+          </p>
+        </div>
       </div>
-      <p class="mt-8 text-xs font-bold tracking-[0.24em] text-emerald-100">{site.englishName}</p>
     </div>
   </div>
 </section>
