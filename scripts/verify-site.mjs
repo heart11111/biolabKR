@@ -110,6 +110,7 @@ const heroComponent = readFileSync(join(process.cwd(), "src/components/Hero.astr
 const baseLayout = readFileSync(join(process.cwd(), "src/layouts/BaseLayout.astro"), "utf8");
 const globalStyles = readFileSync(join(process.cwd(), "src/styles/global.css"), "utf8");
 const newsData = readFileSync(join(process.cwd(), "src/data/news.ts"), "utf8");
+const ingredientData = readFileSync(join(process.cwd(), "src/data/ingredients.ts"), "utf8");
 const ingredientCard = readFileSync(join(process.cwd(), "src/components/IngredientCard.astro"), "utf8");
 const ingredientsPage = readFileSync(join(process.cwd(), "src/pages/technology/ingredients.astro"), "utf8");
 const categoryPages = [
@@ -160,6 +161,7 @@ const requiredContent = [
   ["products use actual product photos", sourceFiles.some((file) => file.includes("product-venus-probiotics-actual.jpg")) && sourceFiles.some((file) => file.includes("product-venus-stick-actual.jpg")) && sourceFiles.some((file) => file.includes("product-kids-lac-actual.jpg")) && sourceFiles.some((file) => file.includes("product-line-n-actual.jpg")) && sourceFiles.some((file) => file.includes("product-inner-clean-v-actual.jpg")) && sourceFiles.some((file) => file.includes("product-venus-inner-perfume-actual.jpg"))],
   ["product cards normalize image frames", sourceFiles.some((file) => file.includes('aspect-[4/3]') && file.includes("bg-[#f6fbf8]") && file.includes("max-h-[74%]") && file.includes("max-w-[78%]"))],
   ["ingredient cards use icons", ingredientCard.includes("<Icon")],
+  ["ingredient cards use generated photos", ingredientData.includes("ingredient-patented-probiotics.png") && ingredientData.includes("ingredient-coating-technology.png") && ingredientData.includes("ingredient-hyaluronic-molecule.png") && ingredientData.includes("ingredient-botanical-soothing.png") && ingredientCard.includes("ingredient.image")],
   ["ingredient page uses compact hero", ingredientsPage.includes("compact") && !ingredientsPage.includes("유산균 캡슐과 원료 연구 실험실 이미지")],
   ["ingredient detail cards avoid repeated image", ingredientsPage.includes("INGREDIENT FOCUS") && ingredientsPage.includes("science/petri-pipette-lab.jpg") && !ingredientsPage.includes("여성 특허 균주 배양 이미지") && !ingredientsPage.includes("키즈 특허 균주 배양 이미지")]
 ];
