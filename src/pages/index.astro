@@ -39,6 +39,27 @@ const animatedStats = site.stats.map((stat) => {
 
   <section class="section-band bg-white pt-0">
     <div class="container-page grid gap-20">
+      <section class="relative isolate min-h-[300px] overflow-hidden bg-neutral-900 sm:min-h-[320px]" data-reveal="image">
+        <img
+          class="absolute inset-0 h-full w-full object-cover object-[58%_50%]"
+          src={withBase("/images/science/clinical-capsules-doctor.jpg")}
+          alt="품질과 건강기능식품 연구를 상징하는 전문가 이미지"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-y-0 left-0 w-full bg-[rgba(244,147,25,0.9)] mix-blend-multiply [clip-path:polygon(0_0,42%_0,58%_100%,0_100%)]"></div>
+        <div class="absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,rgba(8,52,35,0.50),rgba(8,52,35,0.04)_58%,rgba(255,255,255,0))]"></div>
+        <div class="relative flex min-h-[300px] items-center px-8 py-10 text-white sm:min-h-[320px] sm:px-16 lg:px-24">
+          <div class="max-w-xl [text-shadow:0_3px_14px_rgba(0,0,0,0.35)]">
+            <p class="mb-4 text-sm font-black tracking-[0.28em] text-white/85">BIOLAB STANDARD</p>
+            <h2 class="text-3xl font-black leading-tight sm:text-5xl">Global Health Partner</h2>
+            <p class="mt-5 max-w-lg text-sm font-bold leading-7 text-white/90 sm:text-base">
+              제품 설계와 채널 운영의 기준을 높여 건강한 일상의 신뢰를 만듭니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
         <figure class="overflow-hidden" data-reveal="image">
           <img
@@ -51,7 +72,7 @@ const animatedStats = site.stats.map((stat) => {
         </figure>
         <div data-reveal>
           <p class="mb-5 text-sm font-black tracking-[0.22em] text-brand-green">R & D</p>
-          <h2 class="text-4xl font-light leading-tight text-neutral-900 sm:text-5xl">
+          <h2 class="text-3xl font-light leading-tight text-neutral-900 sm:text-5xl">
             원료를 고르는 기준부터<br class="hidden sm:block" />
             제품의 완성도를 설계합니다
           </h2>
@@ -70,7 +91,7 @@ const animatedStats = site.stats.map((stat) => {
       <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
         <div class="order-2 lg:order-1" data-reveal>
           <p class="mb-5 text-sm font-black tracking-[0.22em] text-brand-green">QUALITY & GLOBAL</p>
-          <h2 class="text-4xl font-light leading-tight text-neutral-900 sm:text-5xl">
+          <h2 class="text-3xl font-light leading-tight text-neutral-900 sm:text-5xl">
             국내외 채널에서 신뢰받는<br class="hidden sm:block" />
             브랜드 운영을 지향합니다
           </h2>
