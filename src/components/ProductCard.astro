@@ -19,16 +19,14 @@ const iconName = product.category.includes("키즈")
 ---
 
 <article class="group flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]" data-reveal>
-  <a class="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#f6fbf8] p-5" href={withBase(`/products/${product.slug}/`)} aria-label={`${product.name} 상세 보기`}>
-    <div class="flex h-full w-full items-center justify-center border border-white/80 bg-white/72 shadow-[inset_0_0_0_1px_rgba(17,24,39,0.03)]">
-      <img
-        class="max-h-[74%] max-w-[78%] object-contain drop-shadow-[0_18px_22px_rgba(15,23,42,0.10)] contrast-[1.04] saturate-[1.04] transition duration-500 group-hover:scale-[1.04]"
-        src={withBase(product.image)}
-        alt={product.name}
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
+  <a class="relative block aspect-[4/3] overflow-hidden bg-[#f3faf6]" href={withBase(`/products/${product.slug}/`)} aria-label={`${product.name} 상세 보기`}>
+    <img
+      class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.035]"
+      src={withBase(product.cardImage ?? product.image)}
+      alt={product.name}
+      loading="lazy"
+      decoding="async"
+    />
   </a>
   <div class="flex flex-1 flex-col p-6">
     <div class="mb-4 flex items-center justify-between gap-3">
