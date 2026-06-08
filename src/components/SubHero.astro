@@ -7,6 +7,7 @@ type Props = {
   image?: string;
   imagePosition?: string;
   visualWord?: string;
+  compact?: boolean;
 };
 
 const props = Astro.props;
@@ -43,10 +44,23 @@ const {
   description,
   image = preset?.image ?? "/images/studio/studio-iheal-lineup-hero.jpg",
   imagePosition = preset?.position ?? "58% 48%",
-  visualWord = preset?.word ?? "BIOLAB"
+  visualWord = preset?.word ?? "BIOLAB",
+  compact = false
 } = props;
 ---
 
+{compact ? (
+  <section class="border-b border-slate-200 bg-white">
+    <div class="container-page py-16 lg:py-20">
+      <p class="mb-5 text-sm font-black tracking-[0.34em] text-brand-green">BIOLAB</p>
+      <h1 class="text-4xl font-black leading-tight text-brand-navy [overflow-wrap:anywhere] md:text-5xl">{title}</h1>
+      <p class="mt-5 max-w-3xl text-base font-semibold leading-8 text-slate-700 [overflow-wrap:anywhere] md:text-lg">
+        {description}
+      </p>
+      <div class="mt-8 h-[3px] w-16 bg-brand-blue" aria-hidden="true"></div>
+    </div>
+  </section>
+) : (
 <section class="relative isolate overflow-hidden border-b border-slate-200 bg-brand-navy">
   <div class="absolute inset-0">
     <img
@@ -78,3 +92,4 @@ const {
     </div>
   </div>
 </section>
+)}
