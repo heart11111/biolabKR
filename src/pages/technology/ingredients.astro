@@ -31,19 +31,39 @@ import { withBase } from "@/lib/path";
   </section>
 
   <section class="section-band bg-slate-50">
-    <div class="container-page grid gap-6 lg:grid-cols-3" data-reveal-group>
-      <article class="overflow-hidden border border-slate-200 bg-white" data-reveal>
-        <img class="h-40 w-full object-cover" src={withBase("/images/ingredients/ingredient-strain-culture.jpg")} alt="여성 특허 균주 배양 이미지" loading="lazy" />
-        <div class="p-7"><h2 class="text-xl font-black text-brand-navy">여성 특허 균주</h2><p class="mt-4 text-sm leading-7 text-slate-600">MG242, MG901, MG989는 건강한 한국 여성 유래 특허 유산균 3종으로 비너스 유산균과 스틱 제품에 적용됩니다.</p></div>
-      </article>
-      <article class="overflow-hidden border border-slate-200 bg-white" data-reveal>
-        <img class="h-40 w-full object-cover" src={withBase("/images/ingredients/ingredient-strain-culture.jpg")} alt="키즈 특허 균주 배양 이미지" loading="lazy" />
-        <div class="p-7"><h2 class="text-xl font-black text-brand-navy">키즈 특허 균주</h2><p class="mt-4 text-sm leading-7 text-slate-600">L. reuteri MG505와 영유아 유래 특허 유산균 3종을 중심으로 키즈락 유산균을 설계합니다.</p></div>
-      </article>
-      <article class="overflow-hidden border border-slate-200 bg-white" data-reveal>
-        <img class="h-40 w-full object-cover" src={withBase("/images/ingredients/ingredient-strain-culture.jpg")} alt="이너케어 원료 균주 배양 이미지" loading="lazy" />
-        <div class="p-7"><h2 class="text-xl font-black text-brand-navy">이너케어 원료</h2><p class="mt-4 text-sm leading-7 text-slate-600">5중 히알루론산, 글루타치온, 판테놀, 식물 유래 성분, 락토바실러스 발효여과물을 활용합니다.</p></div>
-      </article>
+    <div class="container-page grid gap-10 lg:grid-cols-[0.44fr_0.56fr] lg:items-start">
+      <figure class="relative overflow-hidden bg-brand-navy shadow-corporate" data-reveal="image">
+        <img
+          class="aspect-[4/5] h-full w-full scale-105 object-cover object-[48%_46%]"
+          src={withBase("/images/science/petri-pipette-lab.jpg")}
+          alt="피펫과 배양접시를 활용한 유산균 원료 연구 이미지"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(23,50,77,0.48),rgba(88,182,166,0.12))]"></div>
+        <div class="absolute bottom-7 left-7 right-7 text-white">
+          <p class="text-xs font-black tracking-[0.28em] text-emerald-100">INGREDIENT FOCUS</p>
+          <h2 class="mt-3 text-3xl font-black leading-tight">핵심 원료 적용 구조</h2>
+        </div>
+      </figure>
+
+      <div class="space-y-4" data-reveal-group>
+        <article class="border border-slate-200 bg-white p-7" data-reveal>
+          <p class="text-sm font-black tracking-[0.2em] text-brand-green">PROBIOTICS</p>
+          <h2 class="mt-4 text-2xl font-black text-brand-navy">여성 특허 균주</h2>
+          <p class="mt-4 text-sm leading-7 text-slate-600">MG242, MG901, MG989는 건강한 한국 여성 유래 특허 유산균 3종으로 비너스 유산균과 스틱 제품에 적용됩니다.</p>
+        </article>
+        <article class="border border-slate-200 bg-white p-7" data-reveal>
+          <p class="text-sm font-black tracking-[0.2em] text-brand-green">KIDS STRAIN</p>
+          <h2 class="mt-4 text-2xl font-black text-brand-navy">키즈 특허 균주</h2>
+          <p class="mt-4 text-sm leading-7 text-slate-600">L. reuteri MG505와 영유아 유래 특허 유산균 3종을 중심으로 키즈락 유산균을 설계합니다.</p>
+        </article>
+        <article class="border border-slate-200 bg-white p-7" data-reveal>
+          <p class="text-sm font-black tracking-[0.2em] text-brand-green">INNER CARE</p>
+          <h2 class="mt-4 text-2xl font-black text-brand-navy">이너케어 원료</h2>
+          <p class="mt-4 text-sm leading-7 text-slate-600">5중 히알루론산, 글루타치온, 판테놀, 식물 유래 성분, 락토바실러스 발효여과물을 활용합니다.</p>
+        </article>
+      </div>
     </div>
   </section>
 

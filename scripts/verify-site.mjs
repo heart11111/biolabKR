@@ -160,7 +160,7 @@ const requiredContent = [
   ["product cards normalize image frames", sourceFiles.some((file) => file.includes('aspect-[4/3]') && file.includes("blur-md") && file.includes("object-contain p-5"))],
   ["ingredient cards use icons", ingredientCard.includes("<Icon")],
   ["ingredient page uses research visual", ingredientsPage.includes("ingredient-research-lab.jpg") && ingredientsPage.includes("유산균 캡슐과 원료 연구 실험실 이미지")],
-  ["ingredient detail cards use strain visual", ingredientsPage.includes("ingredient-strain-culture.jpg") && ingredientsPage.includes("여성 특허 균주 배양 이미지") && ingredientsPage.includes("키즈 특허 균주 배양 이미지")]
+  ["ingredient detail cards avoid repeated image", ingredientsPage.includes("INGREDIENT FOCUS") && ingredientsPage.includes("science/petri-pipette-lab.jpg") && !ingredientsPage.includes("여성 특허 균주 배양 이미지") && !ingredientsPage.includes("키즈 특허 균주 배양 이미지")]
 ];
 
 const visitorCopyForbiddenPhrases = [
