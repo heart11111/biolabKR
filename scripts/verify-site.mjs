@@ -51,6 +51,7 @@ const requiredFiles = [
   "public/images/competence-quality.jpg",
   "public/images/competence-family.jpg",
   "public/images/ingredients/ingredient-research-lab.jpg",
+  "public/images/ingredients/ingredient-strain-culture.jpg",
   "public/images/product-venus-probiotics-actual.jpg",
   "public/images/product-venus-stick-actual.jpg",
   "public/images/product-kids-lac-actual.jpg",
@@ -146,7 +147,8 @@ const requiredContent = [
   ["strength cards use generated images", siteData.includes("competence-research.jpg") && siteData.includes("competence-global.jpg") && siteData.includes("competence-quality.jpg") && siteData.includes("competence-family.jpg") && homePage.includes("<img") && homePage.includes("item.imageAlt")],
   ["products use actual product photos", sourceFiles.some((file) => file.includes("studio-venus-probiotics.jpg")) && sourceFiles.some((file) => file.includes("studio-venus-stick.jpg")) && sourceFiles.some((file) => file.includes("studio-kids-lac.jpg")) && sourceFiles.some((file) => file.includes("studio-line-n.jpg")) && sourceFiles.some((file) => file.includes("product-inner-clean-v-actual.jpg")) && sourceFiles.some((file) => file.includes("product-venus-inner-perfume-actual.jpg"))],
   ["ingredient cards use icons", ingredientCard.includes("<Icon")],
-  ["ingredient page uses research visual", ingredientsPage.includes("ingredient-research-lab.jpg") && ingredientsPage.includes("유산균 캡슐과 원료 연구 실험실 이미지")]
+  ["ingredient page uses research visual", ingredientsPage.includes("ingredient-research-lab.jpg") && ingredientsPage.includes("유산균 캡슐과 원료 연구 실험실 이미지")],
+  ["ingredient detail cards use strain visual", ingredientsPage.includes("ingredient-strain-culture.jpg") && ingredientsPage.includes("여성 특허 균주 배양 이미지") && ingredientsPage.includes("키즈 특허 균주 배양 이미지")]
 ];
 
 const visitorCopyForbiddenPhrases = [
