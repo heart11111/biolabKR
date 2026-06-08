@@ -14,39 +14,75 @@ const props = Astro.props;
 const presets = [
   {
     match: ["원료", "기술", "연구", "품질", "핵심"],
-    image: "/images/ingredients/ingredient-strain-culture.jpg",
-    position: "62% 48%",
-    word: "R & D"
+    image: "/images/science/petri-pipette-lab.jpg",
+    position: "58% 48%",
+    word: "R & D",
+    tone: "research"
   },
   {
     match: ["제품", "여성", "키즈", "이너", "다이어트", "아이힐"],
-    image: "/images/studio/studio-iheal-three-products.jpg",
-    position: "68% 46%",
-    word: "PRODUCT"
+    image: "/images/science/clinical-capsules-doctor.jpg",
+    position: "55% 48%",
+    word: "PRODUCT",
+    tone: "product"
   },
   {
     match: ["공지", "보도", "FAQ", "문의", "고객"],
     image: "/images/competence-global.jpg",
-    position: "52% 50%",
-    word: "NEWS"
+    position: "54% 50%",
+    word: "NEWS",
+    tone: "support"
   },
   {
     match: ["대표", "회사", "연혁", "파트너", "찾아오시는"],
-    image: "/images/studio/studio-iheal-lineup-hero.jpg",
-    position: "60% 45%",
-    word: "BIOLAB"
+    image: "/images/science/capsules-tablets-clinical.jpg",
+    position: "56% 48%",
+    word: "BIOLAB",
+    tone: "company"
   }
 ];
 
 const preset = presets.find((item) => item.match.some((keyword) => props.title.includes(keyword)));
+const coverCopy = new Map([
+  ["회사소개", "기준이 있는 제품 설계와 책임 있는 유통으로 건강한 일상의 신뢰를 만듭니다."],
+  ["회사 개요", "원료, 제품, 채널을 함께 관리하며 iHEAL 브랜드의 성장을 설계합니다."],
+  ["대표 인사말", "건강한 일상에 닿는 제품을 만들기 위해 원료와 품질의 기준을 지켜가겠습니다."],
+  ["연혁", "제품 개발과 국내외 채널 확장을 통해 브랜드의 다음 단계를 준비합니다."],
+  ["주요 파트너", "국내외 유통 네트워크와 함께 브랜드 접점을 넓혀갑니다."],
+  ["찾아오시는 길", "제품, 원료, 유통 제휴 상담을 위한 비오랩의 위치와 연락처입니다."],
+  ["원료/기술 소개", "특허 균주와 기능성 원료를 제품 목적에 맞춰 검증하고 설계합니다."],
+  ["핵심 원료", "여성 건강, 키즈 건강, 이너케어 제품을 위한 핵심 원료 기준을 정리합니다."],
+  ["연구개발", "건강기능식품과 이너케어 제품의 효능, 안정성, 사용성을 함께 검토합니다."],
+  ["품질관리", "원료 선정부터 표시 기준과 유통 이력까지 단계별 관리 체계를 유지합니다."],
+  ["제품소개", "여성과 아이의 일상에 맞춘 iHEAL 제품 포트폴리오를 소개합니다."],
+  ["여성 건강", "여성의 생활 리듬과 섭취 편의를 고려한 유산균 라인입니다."],
+  ["키즈 건강", "성장기 아이의 영양과 섭취 경험을 고려한 키즈 건강 라인입니다."],
+  ["이너케어", "데일리 루틴에 맞춘 이너 뷰티와 Y존 케어 제품군입니다."],
+  ["다이어트", "특허 균주와 기능성 원료를 바탕으로 체지방 관리 루틴을 제안합니다."],
+  ["제품 선택 가이드", "제품 목적과 원료 기준을 한눈에 비교할 수 있도록 정리했습니다."],
+  ["고객지원", "제품, 입점, 제휴 문의와 브랜드 소식을 정확하게 안내합니다."],
+  ["공지사항 / 보도자료", "비오랩과 iHEAL 브랜드의 주요 소식을 기업 게시판 형식으로 전합니다."],
+  ["문의하기", "제품, 원료, 유통 제휴 상담을 위한 공식 문의 창구입니다."],
+  ["FAQ", "제품과 제휴 문의에서 자주 확인하는 내용을 정리했습니다."]
+]);
+
 const {
   title,
-  description,
+  description: propDescription,
   image = preset?.image ?? "/images/studio/studio-iheal-lineup-hero.jpg",
   imagePosition = preset?.position ?? "58% 48%",
   visualWord = preset?.word ?? "BIOLAB",
   compact = false
 } = props;
+
+const description = coverCopy.get(title) ?? propDescription;
+const tone = preset?.tone ?? "company";
+const panelClasses = {
+  company: "from-[#17324d]/95 via-[#1e5f72]/90 to-[#c98721]/88",
+  research: "from-[#08364a]/95 via-[#007c71]/90 to-[#6aa23a]/86",
+  product: "from-[#0d2d4f]/95 via-[#166f7c]/88 to-[#c68c2c]/82",
+  support: "from-[#102f4b]/95 via-[#257b76]/90 to-[#6f8f3f]/84"
+}[tone];
 ---
 
 {compact ? (
@@ -61,28 +97,31 @@ const {
     </div>
   </section>
 ) : (
-<section class="relative isolate overflow-hidden bg-neutral-900">
+<section class="relative isolate overflow-hidden bg-white">
   <div class="absolute inset-0">
     <img
-      class="h-full w-full scale-[1.05] object-cover saturate-[1.04]"
+      class="h-full w-full scale-[1.03] object-cover saturate-[1.05]"
       src={withBase(image)}
       alt=""
       style={`object-position: ${imagePosition};`}
     />
-    <div class="absolute inset-0 bg-black/48"></div>
-    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,38,55,0.58),rgba(8,38,55,0.30)_48%,rgba(0,88,72,0.48))]"></div>
+    <div class="absolute inset-0 bg-white/20"></div>
+    <div class="absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.62))]"></div>
   </div>
-  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    <span class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-[clamp(5rem,14vw,13rem)] font-light tracking-[0.04em] text-white/[0.11] lg:block">
-      {visualWord}
-    </span>
-  </div>
-  <div class="container-page relative flex min-h-[320px] items-center justify-center py-20 text-center text-white lg:min-h-[360px]">
-    <div class="max-w-4xl bg-brand-navy/72 px-7 py-7 shadow-[0_22px_60px_rgba(0,0,0,0.22)] backdrop-blur-[2px] md:px-12 md:py-9">
-      <h1 class="text-4xl font-black leading-tight text-white [overflow-wrap:anywhere] md:text-6xl">{title}</h1>
-      <p class="mx-auto mt-5 max-w-3xl text-base font-extrabold leading-8 text-white [overflow-wrap:anywhere] md:text-lg">
-        {description}
-      </p>
+  <div class="container-page relative flex min-h-[330px] items-center py-12 lg:min-h-[390px] lg:py-16">
+    <div class={`relative w-full max-w-[790px] overflow-hidden px-7 py-10 text-white shadow-[0_28px_70px_rgba(15,35,55,0.24)] sm:px-10 md:py-12 lg:pr-28 [clip-path:polygon(0_0,84%_0,100%_100%,0_100%)] max-lg:[clip-path:none] bg-gradient-to-br ${panelClasses}`}>
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_24%_18%,rgba(255,255,255,0.20),transparent_32%),linear-gradient(90deg,rgba(0,0,0,0.12),transparent)]"></div>
+      <div class="relative max-w-[610px]">
+        <p class="text-xs font-black tracking-[0.42em] text-white/85 md:text-sm">BIOLAB STANDARD</p>
+        <h1 class="mt-5 text-4xl font-black leading-[1.08] text-white [overflow-wrap:anywhere] md:text-6xl">{title}</h1>
+        <p class="mt-6 max-w-xl text-base font-extrabold leading-8 text-white/95 [overflow-wrap:anywhere] md:text-lg">
+          {description}
+        </p>
+        <div class="mt-8 h-[3px] w-16 bg-white/80" aria-hidden="true"></div>
+      </div>
+      <span class="pointer-events-none absolute bottom-4 right-10 hidden text-5xl font-black tracking-[0.08em] text-white/[0.08] lg:block">
+        {visualWord}
+      </span>
     </div>
   </div>
 </section>
