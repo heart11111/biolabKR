@@ -18,6 +18,7 @@ const iconName = product.category.includes("키즈")
       : "heartPulse";
 
 const displayImage = product.cardImage ?? product.image;
+const isVerticalStickCard = product.slug === "venus-stick-probiotics";
 ---
 
 <article class="group flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]" data-reveal>
@@ -28,7 +29,10 @@ const displayImage = product.cardImage ?? product.image;
   >
     <div class="absolute inset-5 flex items-center justify-center border border-neutral-200 bg-white shadow-[0_16px_45px_rgba(15,35,55,0.05)]">
       <img
-        class="h-full w-full object-contain p-8 transition duration-500 group-hover:scale-[1.035]"
+        class:list={[
+          "h-full w-full object-contain transition duration-500 group-hover:scale-[1.035]",
+          isVerticalStickCard ? "p-2 scale-[1.28] group-hover:scale-[1.32]" : "p-8"
+        ]}
         src={withBase(displayImage)}
         alt={product.name}
         loading="lazy"

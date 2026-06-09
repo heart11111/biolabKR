@@ -41,7 +41,7 @@ export const products: Product[] = [
     summary:
       "특허 유산균 3종에 히알루론산, 콜라겐, 비타민E, 이노시톨을 더한 여성 이너케어 제품입니다.",
     image: "/images/product-venus-stick-actual.jpg",
-    cardImage: "/images/products/card-venus-stick-probiotics.jpg",
+    cardImage: "/images/products/card-venus-stick-cutout.png",
     ingredients: ["특허 유산균 3종", "히알루론산", "콜라겐", "비타민E", "이노시톨"],
     features: ["휴대가 쉬운 스틱 제형", "여성 건강과 피부 컨디션 동시 케어", "부원료 복합 설계", "부드러운 섭취감"],
     intake: "1일 1포, 제품 표시사항에 따라 섭취",
