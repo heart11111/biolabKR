@@ -29,10 +29,10 @@ const normalizedPath = pathWithoutBase.endsWith("/") ? pathWithoutBase : `${path
 const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(href);
 ---
 
-<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#263244]/82 text-white shadow-[0_14px_40px_rgba(0,0,0,0.14)] backdrop-blur-md">
-  <div class="container-page flex h-[74px] items-center justify-between gap-8">
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#243044]/78 text-white shadow-[0_14px_40px_rgba(0,0,0,0.14)] backdrop-blur-md">
+  <div class="mx-auto flex h-[82px] w-[min(1500px,calc(100%_-_64px))] items-center justify-between gap-8 max-lg:w-[min(1180px,calc(100%_-_28px))]">
     <a class="flex items-center" href={withBase("/")} aria-label={`${site.name} 홈`}>
-      <img class="h-8 w-auto brightness-0 invert lg:h-9" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
+      <img class="h-9 w-auto brightness-0 invert lg:h-11" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
     </a>
 
     <nav class="hidden h-full flex-1 items-stretch justify-center lg:flex" aria-label="주요 메뉴">
@@ -40,7 +40,7 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
         <div class="group relative flex items-center" data-desktop-menu-group>
           <button
             class:list={[
-              "relative flex h-full items-center px-8 text-[14px] font-black tracking-[0.18em] text-white/90 transition hover:text-white",
+              "relative flex h-full items-center px-8 text-[14px] font-black tracking-[0.16em] text-white/90 transition hover:text-white xl:px-10",
               isActive(item.href) ? "text-white after:absolute after:inset-x-8 after:bottom-0 after:h-[3px] after:bg-brand-green" : ""
             ]}
             type="button"
