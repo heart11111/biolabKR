@@ -29,21 +29,10 @@ const normalizedPath = pathWithoutBase.endsWith("/") ? pathWithoutBase : `${path
 const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(href);
 ---
 
-<header class="sticky top-0 z-50 border-b border-neutral-200 bg-white">
-  <div class="hidden border-b border-neutral-200 bg-white text-[13px] text-neutral-500 lg:block">
-    <div class="container-page flex h-9 items-center justify-end gap-4">
-      <a class="font-semibold hover:text-brand-green" href={withBase("/")}>Home</a>
-      <span class="h-3 w-px bg-neutral-300" aria-hidden="true"></span>
-      <a class="font-semibold hover:text-brand-green" href={withBase("/support/contact/")}>Contact Us</a>
-      <div class="ml-2 inline-flex overflow-hidden rounded-full border border-neutral-200 bg-neutral-100 text-xs font-extrabold" aria-label="언어 선택">
-        <a class="bg-brand-green px-5 py-1.5 text-white" href={withBase("/")} aria-current="true">KOR</a>
-        <a class="px-5 py-1.5 text-neutral-500 transition hover:bg-white hover:text-brand-green" href="#" aria-label="English version">ENG</a>
-      </div>
-    </div>
-  </div>
-  <div class="container-page flex h-[80px] items-center justify-between gap-8">
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#263244]/82 text-white shadow-[0_14px_40px_rgba(0,0,0,0.14)] backdrop-blur-md">
+  <div class="container-page flex h-[74px] items-center justify-between gap-8">
     <a class="flex items-center" href={withBase("/")} aria-label={`${site.name} 홈`}>
-      <img class="h-9 w-auto lg:h-10" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
+      <img class="h-8 w-auto brightness-0 invert lg:h-9" src={withBase("/images/brand/biolab-logo.png")} alt={site.englishName} />
     </a>
 
     <nav class="hidden h-full flex-1 items-stretch justify-center lg:flex" aria-label="주요 메뉴">
@@ -51,8 +40,8 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
         <div class="group relative flex items-center" data-desktop-menu-group>
           <button
             class:list={[
-              "relative flex h-full items-center px-9 text-[18px] font-bold text-neutral-900 hover:text-brand-green",
-              isActive(item.href) ? "text-brand-green after:absolute after:inset-x-9 after:bottom-0 after:h-[3px] after:bg-brand-green" : ""
+              "relative flex h-full items-center px-8 text-[14px] font-black tracking-[0.18em] text-white/90 transition hover:text-white",
+              isActive(item.href) ? "text-white after:absolute after:inset-x-8 after:bottom-0 after:h-[3px] after:bg-brand-green" : ""
             ]}
             type="button"
             data-desktop-menu-trigger
@@ -81,9 +70,12 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
       ))}
     </nav>
 
-    <div class="hidden items-center gap-2 lg:flex">
+    <div class="hidden items-center gap-4 lg:flex">
+      <a class="text-[12px] font-bold text-white/72 transition hover:text-white" href={withBase("/")}>Home</a>
+      <span class="h-3 w-px bg-white/24" aria-hidden="true"></span>
+      <a class="text-[12px] font-bold text-white/72 transition hover:text-white" href={withBase("/support/contact/")}>Contact Us</a>
       <a
-        class="flex h-12 w-12 items-center justify-center border border-neutral-200 text-neutral-600 hover:border-brand-green hover:text-brand-green"
+        class="flex h-9 w-9 items-center justify-center text-white/84 transition hover:text-white"
         href={withBase("/products/guide/")}
         aria-label="제품 정보 검색"
       >
@@ -92,8 +84,12 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
           <path d="m20 20-3.5-3.5"></path>
         </svg>
       </a>
+      <div class="inline-flex overflow-hidden rounded-full border border-white/18 bg-white/10 text-[11px] font-extrabold" aria-label="언어 선택">
+        <a class="bg-brand-green px-4 py-1.5 text-white" href={withBase("/")} aria-current="true">KOR</a>
+        <a class="px-4 py-1.5 text-white/72 transition hover:bg-white/10 hover:text-white" href="#" aria-label="English version">ENG</a>
+      </div>
       <button
-        class="flex h-12 w-12 items-center justify-center border border-neutral-200 text-neutral-600 hover:border-brand-green hover:text-brand-green"
+        class="flex h-9 w-9 items-center justify-center text-white/84 transition hover:text-white"
         type="button"
         data-mobile-toggle
         aria-label="전체 메뉴 열기"
@@ -107,7 +103,7 @@ const isActive = (href: string) => href !== "/" && normalizedPath.startsWith(hre
     </div>
 
     <button
-      class="flex h-11 w-11 items-center justify-center border border-neutral-200 text-neutral-700 lg:hidden"
+      class="flex h-11 w-11 items-center justify-center border border-white/20 text-white lg:hidden"
       type="button"
       data-mobile-toggle
       aria-label="모바일 메뉴 열기"
