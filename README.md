@@ -2,6 +2,8 @@
 
 Astro + Tailwind CSS로 제작한 비오랩 정적 기업 홈페이지입니다.
 
+공개 사이트: https://heart11111.github.io/biolabKR/
+
 ## 주요 명령
 
 ```bash
@@ -25,6 +27,7 @@ npm run preview
 
 GitHub Pages 프로젝트 사이트 기준입니다.
 
+- `url`: `https://heart11111.github.io/biolabKR/`
 - `site`: `https://heart11111.github.io`
 - `base`: `/biolabKR`
 - GitHub 저장소 Settings > Pages에서 Source를 GitHub Actions로 설정합니다.
