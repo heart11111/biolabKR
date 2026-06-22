@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SubHero from "@/components/SubHero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import SubpageGrid from "@/components/SubpageGrid.astro";
+import CTASection from "@/components/CTASection.astro";
+import { businessSubpages } from "@/data/subpages";
+import { businessServices } from "@/data/supply";
+import { withBase } from "@/lib/path";
+---
+
+<BaseLayout title="사업/서비스" description="비오랩의 기능성 소재 공급, OEM/ODM, 브랜드 매니지먼트 서비스를 소개합니다.">
+  <SubHero title="사업/서비스" description="소재 검토부터 제품화, 브랜드 운영까지 기능성 헬스케어 사업을 연결합니다." />
+  <Breadcrumb current="사업/서비스" />
+
+  <section class="section-band bg-white">
+    <div class="container-page">
+      <SectionTitle eyebrow="BUSINESS & SERVICE" title="기능성 소재를 제품화하는 사업 구조" description="비오랩은 원료 포트폴리오, 제조 네트워크, 브랜드 운영 경험을 바탕으로 파트너의 제품화 과정을 지원합니다." />
+      <div class="grid gap-7 lg:grid-cols-3" data-reveal-group>
+        {businessServices.map((service) => (
+          <a class="group flex h-full flex-col border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-brand-green hover:shadow-corporate" href={withBase(service.href)} data-reveal>
+            <span class="text-xs font-black tracking-[0.22em] text-brand-green">{service.eyebrow}</span>
+            <h2 class="mt-5 text-2xl font-black leading-tight text-brand-navy">{service.title}</h2>
+            <p class="mt-4 flex-1 text-sm leading-7 text-slate-600">{service.body}</p>
+            <ul class="mt-6 space-y-2">
+              {service.points.map((point) => (
+                <li class="flex gap-3 text-sm font-semibold text-slate-700">
+                  <span class="mt-2 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <span class="mt-7 text-sm font-extrabold text-brand-blue">자세히 보기 <span class="transition group-hover:translate-x-1" aria-hidden="true">→</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band bg-slate-50">
+    <div class="container-page">
+      <SectionTitle eyebrow="SERVICE MAP" title="서비스별 상세 안내" description="필요한 사업 목적에 맞춰 기능성 소재 공급, OEM/ODM, 브랜드 운영 페이지를 확인할 수 있습니다." />
+      <SubpageGrid items={businessSubpages} />
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

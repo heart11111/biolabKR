@@ -8,24 +8,23 @@ import ProductCard from "@/components/ProductCard.astro";
 import CTASection from "@/components/CTASection.astro";
 import { productSubpages } from "@/data/subpages";
 import { products } from "@/data/products";
-import { articles } from "@/data/articles";
 import { withBase } from "@/lib/path";
 ---
 
-<BaseLayout title="제품소개" description="비오랩의 iHEAL 제품 라인업을 소개합니다.">
-  <SubHero title="제품소개" description="여성 건강, 키즈 건강, 이너케어, 다이어트까지 iHEAL 제품군의 구성과 특징을 소개합니다." />
-  <Breadcrumb current="제품소개" />
+<BaseLayout title="공급제품" description="비오랩의 프로바이오틱스와 자연유래 기능성 소재 공급 제품을 소개합니다.">
+  <SubHero title="공급제품" description="마이크로바이옴 프로바이오틱스와 자연유래 기능성 소재 포트폴리오를 공급 관점에서 소개합니다." />
+  <Breadcrumb current="공급제품" />
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="PRODUCT CATEGORY" title="제품군별 라인업" description="소비자 니즈에 맞춰 설계한 제품군과 주요 성분, 섭취 안내를 제품별로 정리했습니다." />
+      <SectionTitle eyebrow="SUPPLY PRODUCT" title="공급제품 카테고리" description="PPT 사이트맵 기준에 맞춰 프로바이오틱스와 자연유래 기능성 소재를 구분했습니다." />
       <SubpageGrid items={productSubpages} />
     </div>
   </section>
 
   <section class="section-band bg-slate-50">
     <div class="container-page">
-      <SectionTitle eyebrow="ALL PRODUCTS" title="전체 제품" description="각 제품의 성분, 특징, 섭취 방법, 인증 정보를 함께 안내합니다." />
+      <SectionTitle eyebrow="iHEAL BRAND PRODUCTS" title="운영 중인 iHEAL 제품" description="현재 판매·운영 중인 iHEAL 제품군은 브랜드 제품 참고 자료로 함께 유지합니다." />
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
         {products.map((product) => <ProductCard product={product} />)}
       </div>
@@ -33,32 +32,26 @@ import { withBase } from "@/lib/path";
   </section>
 
   <section class="section-band bg-white">
-    <div class="container-page">
-      <div class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-        <div>
-          <SectionTitle
-            align="left"
-            eyebrow="PRODUCT GUIDE"
-            title="제품 선택 가이드"
-            description="여성 유산균, 이너케어, 키즈 제품을 고를 때 확인하면 좋은 기준을 제품소개 안에서 함께 안내합니다."
-          />
-          <a class="inline-flex border border-brand-blue px-5 py-3 text-sm font-bold text-brand-blue" href={withBase("/products/guide/")}>가이드 전체 보기</a>
-        </div>
-        <div class="grid gap-6 md:grid-cols-3" data-reveal-group>
-          {articles.map((article) => (
-            <a class="group overflow-hidden border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-corporate" href={withBase(`/products/guide/${article.slug}/`)} data-reveal>
-              <img class="h-40 w-full bg-slate-50 object-contain" src={withBase(article.image)} alt={article.title} loading="lazy" decoding="async" />
-              <div class="p-6">
-                <span class="text-xs font-black tracking-[0.18em] text-brand-green">{article.category}</span>
-                <h3 class="mt-4 text-lg font-black leading-7 text-brand-navy">{article.title}</h3>
-                <p class="mt-3 text-sm leading-6 text-slate-600">{article.excerpt}</p>
-                <span class="mt-5 inline-flex text-sm font-extrabold text-brand-blue">
-                  자세히 보기 <span class="ml-2 transition group-hover:translate-x-1" aria-hidden="true">→</span>
-                </span>
-              </div>
-            </a>
-          ))}
-        </div>
+    <div class="container-page grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+      <SectionTitle
+        align="left"
+        eyebrow="E-CATALOG"
+        title="카탈로그형 공급 정보"
+        description="소재 리스트, 적용 영역, 근거 자료, 상담 흐름을 카탈로그 방식으로 확인할 수 있습니다."
+      />
+      <div class="grid gap-4 md:grid-cols-3" data-reveal-group>
+        <a class="border border-slate-200 bg-white p-6 shadow-sm transition hover:border-brand-green" href={withBase("/products/catalog/")} data-reveal>
+          <strong class="text-lg font-black text-brand-navy">E-Catalog</strong>
+          <p class="mt-3 text-sm leading-6 text-slate-600">공급 가능 소재와 상담 준비 사항을 확인합니다.</p>
+        </a>
+        <a class="border border-slate-200 bg-white p-6 shadow-sm transition hover:border-brand-green" href={withBase("/support/contact/")} data-reveal>
+          <strong class="text-lg font-black text-brand-navy">Customer Inquiries</strong>
+          <p class="mt-3 text-sm leading-6 text-slate-600">제품화, 유통, 브랜드 협업 문의를 접수합니다.</p>
+        </a>
+        <a class="border border-slate-200 bg-white p-6 shadow-sm transition hover:border-brand-green" href={withBase("/business/")} data-reveal>
+          <strong class="text-lg font-black text-brand-navy">Business Service</strong>
+          <p class="mt-3 text-sm leading-6 text-slate-600">소재 공급과 OEM/ODM 흐름을 함께 확인합니다.</p>
+        </a>
       </div>
     </div>
   </section>

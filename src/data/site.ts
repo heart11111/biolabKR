@@ -4,25 +4,25 @@ export const site = {
   brandName: "iHEAL",
   url: "https://heart11111.github.io/biolabKR/",
   description:
-    "비오랩은 iHEAL 브랜드를 중심으로 여성과 아이의 건강을 위한 건강기능식품과 이너케어 솔루션을 연구하고 전개합니다.",
+    "비오랩은 마이크로바이옴 프로바이오틱스와 기능성 소재, iHEAL 브랜드 운영 경험을 바탕으로 건강기능식품 사업을 전개합니다.",
   email: "contact@biolab.co.kr",
   phone: "02-0000-0000",
   fax: "02-0000-0001",
   address: "경기 성남시 분당구 쇳골북로 10 (궁내동) 2층",
   registrationNumber: "000-00-00000",
   ceo: "대표자명",
-  japanUrl: "#",
+  japanUrl: "https://biolabjp.com/",
   navigation: [
     { label: "회사소개", href: "/company/" },
-    { label: "원료/기술", href: "/technology/" },
-    { label: "제품소개", href: "/products/" },
-    { label: "고객지원", href: "/support/" }
+    { label: "사업/서비스", href: "/business/" },
+    { label: "공급제품", href: "/products/" },
+    { label: "문의사항", href: "/support/" }
   ],
   quickLinks: [
     { label: "대표 인사말", href: "/company/greeting/" },
-    { label: "연혁", href: "/company/history/" },
-    { label: "주요 파트너", href: "/company/partners/" },
-    { label: "찾아오시는 길", href: "/company/location/" }
+    { label: "비전 및 목표", href: "/company/vision/" },
+    { label: "기능성 소재 공급", href: "/business/materials/" },
+    { label: "고객 문의", href: "/support/contact/" }
   ],
   stats: [
     { label: "창업", value: "2018.07" },

@@ -11,36 +11,39 @@ export const companySubpages: SubpageItem[] = [
     label: "대표 인사말",
     href: "/company/greeting/",
     eyebrow: "CEO MESSAGE",
-    summary: "여성과 아이의 건강을 중심에 둔 비오랩의 브랜드 철학을 소개합니다.",
+    summary: "건강한 일상을 위한 기능성 소재와 제품 사업에 대한 비오랩의 메시지를 소개합니다.",
     icon: "heartPulse"
   },
   {
-    label: "회사 개요",
-    href: "/company/overview/",
-    eyebrow: "OVERVIEW",
-    summary: "비오랩, iHEAL, 국내외 유통 법인과 사업 영역을 정리했습니다.",
-    icon: "building"
-  },
-  {
-    label: "연혁",
-    href: "/company/history/",
-    eyebrow: "HISTORY",
-    summary: "2018년 창업부터 올리브영, Qoo10, 일본 오프라인 채널 진출까지의 흐름입니다.",
+    label: "비전 및 목표",
+    href: "/company/vision/",
+    eyebrow: "VISION",
+    summary: "기능성 헬스케어 사업에서 비오랩이 지향하는 방향과 성장 목표를 정리했습니다.",
     icon: "chart"
+  }
+];
+
+export const businessSubpages: SubpageItem[] = [
+  {
+    label: "기능성 소재 공급",
+    href: "/business/materials/",
+    eyebrow: "INGREDIENT SUPPLY",
+    summary: "마이크로바이옴 프로바이오틱스와 자연유래 기능성 소재를 제품 목적별로 제안합니다.",
+    icon: "dna"
   },
   {
-    label: "주요 파트너",
-    href: "/company/partners/",
-    eyebrow: "PARTNERS",
-    summary: "국내외 온라인·오프라인 유통 채널과 글로벌 확장 현황을 확인할 수 있습니다.",
-    icon: "network"
+    label: "OEM/ODM 서비스",
+    href: "/business/odm-oem/",
+    eyebrow: "OEM / ODM",
+    summary: "한국 제조 네트워크와 제품 기획 경험을 바탕으로 생산·공급 구조를 설계합니다.",
+    icon: "flask"
   },
   {
-    label: "찾아오시는 길",
-    href: "/company/location/",
-    eyebrow: "LOCATION",
-    summary: "비오랩의 연락처, 주소, 문의 채널을 안내합니다.",
-    icon: "map"
+    label: "브랜드 매니지먼트",
+    href: "/business/brand-management/",
+    eyebrow: "BRAND",
+    summary: "iHEAL 브랜드 운영 경험을 기반으로 제품 자료, 채널, 파트너 커뮤니케이션을 관리합니다.",
+    icon: "badge"
   }
 ];
 
@@ -70,40 +73,26 @@ export const technologySubpages: SubpageItem[] = [
 
 export const productSubpages: SubpageItem[] = [
   {
-    label: "여성 건강",
-    href: "/products/women/",
-    eyebrow: "WOMEN",
-    summary: "비너스 유산균과 비너스 유산균 스틱 등 여성 맞춤형 프로바이오틱스 라인입니다.",
-    icon: "heartPulse"
+    label: "Microbiome Probiotics",
+    href: "/products/microbiome-probiotics/",
+    eyebrow: "PROBIOTICS",
+    summary: "여성, 체지방, 인지, 간, 코, 스트레스, 장 건강 컨셉의 프로바이오틱스 소재를 정리했습니다.",
+    icon: "dna"
   },
   {
-    label: "키즈 건강",
-    href: "/products/kids/",
-    eyebrow: "KIDS",
-    summary: "키즈락 유산균 등 아이의 성장기 영양과 섭취 편의를 고려한 라인입니다.",
-    icon: "baby"
-  },
-  {
-    label: "이너케어",
-    href: "/products/inner-care/",
-    eyebrow: "INNER CARE",
-    summary: "이너클린 V, 비너스 이너 퍼퓸 등 Y존 케어와 보습 중심 제품입니다.",
-    icon: "droplet"
-  },
-  {
-    label: "다이어트",
-    href: "/products/diet/",
-    eyebrow: "DIET",
-    summary: "라인엔 유산균처럼 특허 균주와 체지방 관리 컨셉을 결합한 라인입니다.",
-    icon: "scale"
+    label: "Functional Nature's Food Ingredients",
+    href: "/products/nature-ingredients/",
+    eyebrow: "NATURE",
+    summary: "남성 건강, 기억, 피부, 간, 면역 등 자연유래 기능성 소재 포트폴리오를 소개합니다.",
+    icon: "leaf"
   }
 ];
 
 export const productGuideSubpage: SubpageItem = {
-  label: "제품 선택 가이드",
-  href: "/products/guide/",
-  eyebrow: "GUIDE",
-  summary: "여성 유산균, 이너케어, 키즈 제품 선택 기준과 생활 관리 정보를 함께 안내합니다.",
+  label: "E-Catalog",
+  href: "/products/catalog/",
+  eyebrow: "CATALOG",
+  summary: "공급 가능 소재와 제품 기획 방향을 한눈에 확인할 수 있는 카탈로그형 안내입니다.",
   icon: "newspaper"
 };
 
@@ -114,24 +103,24 @@ export const productMenuSubpages: SubpageItem[] = [
 
 export const supportSubpages: SubpageItem[] = [
   {
-    label: "공지사항 / 보도자료",
-    href: "/support/news/",
-    eyebrow: "NEWS",
-    summary: "브랜드 소식, 입점, 수상, 보도자료를 안내합니다.",
+    label: "E-Catalog",
+    href: "/support/catalog/",
+    eyebrow: "CATALOG",
+    summary: "소재 공급, OEM/ODM, 브랜드 협업 검토를 위한 카탈로그 확인 경로입니다.",
     icon: "newspaper"
   },
   {
-    label: "FAQ",
-    href: "/support/faq/",
-    eyebrow: "FAQ",
-    summary: "제품, 입점, 제휴 문의와 관련해 자주 묻는 내용을 안내합니다.",
-    icon: "faq"
+    label: "고객 문의사항",
+    href: "/support/contact/",
+    eyebrow: "INQUIRY",
+    summary: "제품, 기능성 소재, 유통, 제조, 브랜드 협업에 대한 문의를 접수합니다.",
+    icon: "headset"
   },
   {
-    label: "문의하기",
-    href: "/support/contact/",
-    eyebrow: "CONTACT",
-    summary: "제품, 원료, 유통 제휴, 해외 채널 문의를 위한 연락처입니다.",
-    icon: "headset"
+    label: "소통채널",
+    href: "/support/channels/",
+    eyebrow: "CHANNEL",
+    summary: "국내 비오랩과 BIOLAB Japan의 공식 연결 채널을 안내합니다.",
+    icon: "network"
   }
 ];

@@ -5,17 +5,16 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import SectionTitle from "@/components/SectionTitle.astro";
 import SubpageGrid from "@/components/SubpageGrid.astro";
 import CTASection from "@/components/CTASection.astro";
-import { site } from "@/data/site";
 import { companySubpages } from "@/data/subpages";
 import { withBase } from "@/lib/path";
 ---
 
-<BaseLayout title="회사소개" description="비오랩의 비전, 회사 개요, 연혁, 파트너, 찾아오시는 길을 소개합니다.">
-  <SubHero title="회사소개" description="여성과 아이의 건강을 위한 브랜드와 제품을 연구하며 글로벌 헬스케어 기업으로 성장합니다." />
+<BaseLayout title="회사소개" description="비오랩의 대표 인사말, 비전 및 목표를 소개합니다.">
+  <SubHero title="회사소개" description="기능성 소재와 제품 사업을 연결하며 건강한 일상의 파트너가 되겠습니다." />
   <Breadcrumb current="회사소개" />
 
   <section class="section-band bg-white">
-    <div class="container-page space-y-24">
+    <div class="container-page space-y-20">
       <div class="grid gap-12 lg:grid-cols-[0.52fr_0.48fr] lg:items-center" data-reveal-group>
         <figure class="relative overflow-hidden bg-brand-navy" data-reveal="image">
           <img
@@ -31,49 +30,19 @@ import { withBase } from "@/lib/path";
         <div data-reveal>
           <p class="mb-5 text-sm font-black tracking-[0.28em] text-brand-green">COMPANY VISION</p>
           <h2 class="text-4xl font-light leading-tight text-brand-ink md:text-5xl">
-            건강한 일상을 여는<br />
-            기능성 브랜드 운영사
+            믿을 수 있는<br />
+            헬스케어 사업 파트너
           </h2>
           <p class="mt-8 text-base leading-8 text-slate-700">
-            비오랩은 iHEAL 브랜드를 중심으로 여성과 아이의 건강을 위한 건강기능식품, 이너케어, 키즈 건강 제품을 기획하고 전개합니다.
-            원료 선택부터 제품 설계, 국내외 채널 운영까지 고객의 일상에 닿는 기준을 세우는 데 집중합니다.
+            비오랩은 기능성 소재 검토, 제품 기획, 제조 네트워크, 브랜드 운영 경험을 바탕으로 건강기능식품 사업을 전개합니다.
+            마이크로바이옴 프로바이오틱스와 자연유래 기능성 소재를 중심으로 고객과 파트너에게 필요한 헬스케어 솔루션을 제안합니다.
           </p>
           <ul class="mt-8 space-y-3 text-sm font-semibold leading-7 text-slate-700">
-            <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>특허 유산균 기반 여성·키즈 건강 제품 포트폴리오</li>
-            <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>국내 B2B와 해외 온라인·오프라인 채널 중심 확장</li>
-            <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>재구매와 브랜드 신뢰를 우선하는 제품 운영 기준</li>
+            <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>기능성 소재 공급과 제품화 검토</li>
+            <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>OEM/ODM 제조 네트워크 연계</li>
+            <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>iHEAL 브랜드 운영과 국내외 채널 커뮤니케이션</li>
           </ul>
         </div>
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[0.48fr_0.52fr] lg:items-center" data-reveal-group>
-        <div class="lg:order-1" data-reveal>
-          <p class="mb-5 text-sm font-black tracking-[0.28em] text-brand-green">GLOBAL CHANNEL</p>
-          <h2 class="text-4xl font-light leading-tight text-brand-ink md:text-5xl">
-            국내외 채널에서<br />
-            검증되는 브랜드 경쟁력
-          </h2>
-          <p class="mt-8 text-base leading-8 text-slate-700">
-            비오랩은 올 그레이스 면세점, 온누리 약국 등 국내 접점과 Qoo10, 라쿠텐, 아마존, 일본 주요 오프라인 채널을 통해
-            iHEAL 브랜드의 유통 기반을 넓히고 있습니다. 단기 노출보다 제품 신뢰와 안정적인 운영을 우선합니다.
-          </p>
-          <ul class="mt-8 space-y-3 text-sm font-semibold leading-7 text-slate-700">
-            <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>2024년 매출 63.97억 기준 성장 흐름</li>
-            <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>Qoo10, Rakuten, Amazon JP/US 등 해외 온라인 운영</li>
-            <li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>Welcia, Ito Yokado, Sugi Pharmacy, 돈키호테 등 일본 오프라인 전개</li>
-          </ul>
-        </div>
-
-        <figure class="relative overflow-hidden bg-brand-navy lg:order-2" data-reveal="image">
-          <img
-            class="aspect-[4/3] h-full w-full scale-110 object-cover object-[48%_52%] opacity-90 saturate-[0.9]"
-            src={withBase("/images/competence-global.jpg")}
-            alt="국내외 채널 확장을 상징하는 글로벌 네트워크 이미지"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(88,182,166,0.26),rgba(23,50,77,0.38))]"></div>
-        </figure>
       </div>
     </div>
   </section>
@@ -82,21 +51,10 @@ import { withBase } from "@/lib/path";
     <div class="container-page">
       <SectionTitle
         eyebrow="ABOUT BIOLAB"
-        title="비오랩을 구성하는 주요 정보"
-        description="대표 인사말, 회사 개요, 연혁, 파트너와 오시는 길을 확인하실 수 있습니다."
+        title="회사소개 세부 메뉴"
+        description="대표이사 인사말과 비오랩의 비전 및 목표를 확인할 수 있습니다."
       />
       <SubpageGrid items={companySubpages} />
-    </div>
-  </section>
-
-  <section class="section-band bg-white">
-    <div class="container-page grid gap-8 md:grid-cols-2 lg:grid-cols-4" data-reveal-group>
-      {site.stats.map((stat) => (
-        <div class="border border-slate-200 bg-white p-7 shadow-sm" data-reveal>
-          <strong class="block text-3xl font-black text-brand-blue">{stat.value}</strong>
-          <span class="mt-2 block text-sm font-semibold text-slate-600">{stat.label}</span>
-        </div>
-      ))}
     </div>
   </section>
 
