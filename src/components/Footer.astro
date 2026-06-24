@@ -24,7 +24,11 @@ import { withBase } from "@/lib/path";
       <p>
         <span class="font-semibold text-slate-200">{site.name}</span>
         <span class="mx-3 text-slate-600">|</span>대표: {site.ceo}
-        <span class="mx-3 text-slate-600">|</span>사업자번호: {site.registrationNumber}
+        {site.registrationNumber && (
+          <>
+            <span class="mx-3 text-slate-600">|</span>사업자번호: {site.registrationNumber}
+          </>
+        )}
       </p>
       <p>주소: {site.address}</p>
       <p>대표번호: {site.phone} <span class="mx-3 text-slate-600">|</span> 팩스: {site.fax} <span class="mx-3 text-slate-600">|</span> 이메일: {site.email}</p>
