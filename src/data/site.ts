@@ -12,6 +12,7 @@ export const site = {
   registrationNumber: "",
   ceo: "박종민",
   japanUrl: "https://biolabjp.com/",
+  shopUrl: "https://iheal.co.kr/main/index.php",
   navigation: [
     { label: "회사소개", href: "/company/" },
     { label: "사업/서비스", href: "/business/" },
