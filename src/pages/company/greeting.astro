@@ -5,7 +5,6 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import SectionTabs from "@/components/SectionTabs.astro";
 import CTASection from "@/components/CTASection.astro";
 import { companySubpages } from "@/data/subpages";
-import { withBase } from "@/lib/path";
 ---
 
 <BaseLayout title="대표 인사말" description="비오랩의 대표 메시지와 사업 철학을 소개합니다.">
@@ -15,35 +14,34 @@ import { withBase } from "@/lib/path";
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <figure class="relative mx-auto w-full max-w-[520px] pb-6 pl-6">
-          <div class="absolute bottom-0 left-0 h-[72%] w-[82%] bg-brand-green" aria-hidden="true"></div>
-          <img
-            class="relative aspect-[4/3] w-full border border-slate-200 object-cover shadow-sm"
-            src={withBase("/images/ingredients/ingredient-research-lab.jpg")}
-            alt="비오랩 원료 연구 이미지"
-          />
-        </figure>
+      <div class="grid gap-14 lg:grid-cols-[0.72fr_1.28fr]">
+        <aside class="lg:pt-1" data-reveal>
+          <div class="inline-flex bg-brand-blue px-8 py-5 text-lg font-black leading-tight text-white">
+            회사소개<br />
+            <span class="text-base">(Company Overview)</span>
+          </div>
+          <blockquote class="mt-8 border-l-4 border-brand-green pl-5 text-2xl font-black leading-snug text-slate-950">
+            “비오랩 재팬은 가장 믿을 수 있는<br class="hidden sm:block" />
+            헬스케어 파트너입니다.”
+          </blockquote>
+        </aside>
 
-        <div class="text-slate-700">
+        <div class="text-slate-800" data-reveal>
           <p class="mb-5 text-sm font-black tracking-[0.26em] text-brand-green">CEO MESSAGE</p>
-          <h2 class="text-3xl font-black leading-tight text-brand-navy md:text-4xl">
-            반갑습니다.<br />
-            비오랩을 찾아주신 모든 분들께 진심으로 감사드립니다.
-          </h2>
+          <h2 class="text-3xl font-black leading-tight text-slate-950 md:text-4xl">대표이사 인사말</h2>
 
-          <div class="mt-8 space-y-5 text-base leading-8">
+          <div class="mt-8 space-y-6 text-base leading-8">
             <p>
-              비오랩은 인류의 건강한 행복을 위해 기능성 소재와 건강기능식품 분야에서 지속적인 혁신과 성장을 이어가는 헬스케어 기업입니다.
+              비오랩 재팬을 방문해 주셔서 감사합니다.
             </p>
             <p>
-              iHEAL 브랜드 운영 경험과 마이크로바이옴 프로바이오틱스 소재 역량을 바탕으로, 기능성 소재 공급과 제품화 서비스를 함께 제안합니다.
+              비오랩 재팬은 한국에 본사를 두고 있는 (주)비오랩의 일본 현지법인입니다. (주)비오랩은 2015년 창립 이래 인류의 건강한 행복을 위해 마이크로바이옴 분야의 건강기능식품 헬스케어 전문 기업으로서 끊임없는 혁신과 노력을 통해 지속적인 성장을 해오고 있는 전문기업입니다.
             </p>
             <p>
-              비오랩이 공급하고 검토하는 기능성 소재는 인체적용시험, 논문, 특허 등 근거 자료를 중심으로 살펴보고, 공개 커뮤니케이션에서는 관련 기준을 준수하는 것을 원칙으로 합니다.
+              현재 가장 어렵고 진입 장벽이 높은 일본 시장에서 당사의 iHEAL 브랜드는 전문 프로바이오틱스 영역에서 빛나는 성장을 거듭하고 있으며, 현재 다양한 기능성 건강식품 시장으로의 영역을 구축하고 있습니다. 비오랩 재팬이 공급하는 모든 기능성 소재는 인체적용시험과 SCI 국제학술논문, 관련 특허를 기반으로 검토한 소재입니다.
             </p>
             <p>
-              앞으로도 비오랩은 소재, 제조, 브랜드, 유통을 연결하는 토털 헬스케어 파트너로서 고객과 파트너의 니즈에 맞는 실질적인 사업 기회를 만들어가겠습니다.
+              아울러 한국의 선진 제조기업들과의 완벽한 협업과 GMP 제조 시스템으로 생산되는 제품들을 공급하고 있습니다. 우리는 이제 그동안 쌓아 올린 노하우와 경험을 토대로 하여 일본 고객들의 Needs에 부합하는 당사만의 Total Healthcare Solution을 기반으로 하는 다양한 기능성 식품 소재 전문기업으로서 고객들의 든든한 파트너가 되겠습니다.
             </p>
           </div>
 
