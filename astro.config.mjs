@@ -3,8 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  site: "https://heart11111.github.io",
-  base: "/biolabKR",
+  site: "https://biolabkr.com",
   trailingSlash: "always",
   integrations: [
     tailwind({

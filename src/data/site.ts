@@ -2,7 +2,7 @@ export const site = {
   name: "비오랩",
   englishName: "BIOLAB",
   brandName: "iHEAL",
-  url: "https://heart11111.github.io/biolabKR/",
+  url: "https://biolabkr.com/",
   description:
     "비오랩은 마이크로바이옴 프로바이오틱스와 기능성 소재, iHEAL 브랜드 운영 경험을 바탕으로 건강기능식품 사업을 전개합니다.",
   email: "contact@biolab.co.kr",

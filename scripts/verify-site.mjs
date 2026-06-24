@@ -56,7 +56,7 @@ const astroConfig = read("astro.config.mjs");
 
 const requiredContent = [
   ["site name", siteData.includes('name: "비오랩"')],
-  ["domestic pages base", astroConfig.includes('/biolabKR')],
+  ["custom domain site URL", astroConfig.includes("https://biolabkr.com") && siteData.includes("https://biolabkr.com/")],
   ["new main navigation", siteData.includes("사업/서비스") && siteData.includes("공급제품") && siteData.includes("문의사항")],
   ["BIOLAB Japan link", siteData.includes("https://biolabjp.com/") && header.includes("BIOLAB Japan") && footer.includes("BIOLAB Japan")],
   ["company sitemap", subpages.includes("대표 인사말") && subpages.includes("비전 및 목표")],
