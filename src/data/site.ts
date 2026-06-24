@@ -5,7 +5,7 @@ export const site = {
   url: "https://biolabkr.com/",
   description:
     "비오랩은 마이크로바이옴 프로바이오틱스와 기능성 소재, iHEAL 브랜드 운영 경험을 바탕으로 건강기능식품 사업을 전개합니다.",
-  email: "contact@biolab.co.kr",
+  email: "iheal.official@gmail.com",
   phone: "02-2043-0740",
   fax: "02-2043-0741",
   address: "경기 성남시 분당구 쇳골북로 10 (궁내동) 2층",

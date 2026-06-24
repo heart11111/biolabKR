@@ -73,7 +73,7 @@ import { withBase } from "@/lib/path";
             </span>
             <div>
               <p class="text-xs font-black tracking-[0.22em] text-emerald-100">EMAIL</p>
-              <p class="mt-2 text-lg font-extrabold">{site.email}</p>
+              <a class="mt-2 inline-flex text-lg font-extrabold hover:text-emerald-100" href={`mailto:${site.email}`}>{site.email}</a>
             </div>
           </div>
         </div>

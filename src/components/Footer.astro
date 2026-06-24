@@ -31,7 +31,12 @@ import { withBase } from "@/lib/path";
         )}
       </p>
       <p>주소: {site.address}</p>
-      <p>대표번호: {site.phone} <span class="mx-3 text-slate-600">|</span> 팩스: {site.fax} <span class="mx-3 text-slate-600">|</span> 이메일: {site.email}</p>
+      <p>
+        대표번호: {site.phone}
+        <span class="mx-3 text-slate-600">|</span> 팩스: {site.fax}
+        <span class="mx-3 text-slate-600">|</span> 이메일:
+        <a class="hover:text-white" href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
       <p class="mt-5 text-xs text-slate-500">COPYRIGHT © {site.name}. ALL RIGHTS RESERVED.</p>
     </div>
   </div>

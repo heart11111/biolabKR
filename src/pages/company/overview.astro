@@ -55,7 +55,7 @@ import { withBase } from "@/lib/path";
           <tr><th>국내 채널</th><td>올리브영 온라인·오프라인, 자사몰, 쿠팡 로켓, 올 그레이스 면세점, 온누리 약국, 기타 온라인 마켓</td></tr>
           <tr><th>해외 온라인</th><td>Qoo10, Rakuten, Amazon JP, Amazon US, TikTok JP/US, Shopee 대만·싱가포르</td></tr>
           <tr><th>해외 오프라인</th><td>Welcia, Ito Yokado, Sugi Pharmacy, Don Quijote, Aeon Mall, Seven Eleven 예정</td></tr>
-          <tr><th>대표 연락처</th><td>{site.phone} / {site.email}</td></tr>
+          <tr><th>대표 연락처</th><td>{site.phone} / <a class="text-brand-blue" href={`mailto:${site.email}`}>{site.email}</a></td></tr>
           <tr><th>주소</th><td>{site.address}</td></tr>
         </tbody>
       </table>
