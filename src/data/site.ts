@@ -16,7 +16,7 @@ export const site = {
   navigation: [
     { label: "회사소개", href: "/company/" },
     { label: "사업/서비스", href: "/business/" },
-    { label: "iHEAL 제품", href: "/products/" },
+    { label: "Product", href: "/products/" },
     { label: "문의사항", href: "/support/" }
   ],
   quickLinks: [
