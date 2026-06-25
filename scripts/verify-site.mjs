@@ -31,7 +31,7 @@ const requiredFiles = [
   "src/data/site.ts",
   "src/data/subpages.ts",
   "src/data/products.ts",
-  "src/data/supply.ts",
+  "src/components/RedirectNotice.astro",
   "public/images/brand/biolab-logo.png",
   ".github/workflows/deploy.yml"
 ];
@@ -49,23 +49,24 @@ const subpages = read("src/data/subpages.ts");
 const header = read("src/components/Header.astro");
 const footer = read("src/components/Footer.astro");
 const tabs = read("src/components/SectionTabs.astro");
-const supply = read("src/data/supply.ts");
 const productsIndex = read("src/pages/products/index.astro");
 const supportIndex = read("src/pages/support/index.astro");
+const materialsPage = read("src/pages/business/materials.astro");
 const astroConfig = read("astro.config.mjs");
 
 const requiredContent = [
   ["site name", siteData.includes('name: "비오랩"')],
   ["custom domain site URL", astroConfig.includes("https://biolabkr.com") && siteData.includes("https://biolabkr.com/")],
-  ["new main navigation", siteData.includes("사업/서비스") && siteData.includes("공급제품") && siteData.includes("문의사항")],
+  ["main navigation", siteData.includes("사업/서비스") && siteData.includes("iHEAL 제품") && siteData.includes("문의사항")],
   ["BIOLAB Japan link", siteData.includes("https://biolabjp.com/") && header.includes("BIOLAB Japan") && footer.includes("BIOLAB Japan")],
+  ["iHEAL Mall link", siteData.includes("https://iheal.co.kr/main/index.php") && header.includes("iHEAL Mall") && footer.includes("iHEAL Mall")],
   ["company sitemap", subpages.includes("대표 인사말") && subpages.includes("비전 및 목표")],
-  ["business sitemap", subpages.includes("기능성 소재 공급") && subpages.includes("OEM/ODM 서비스") && subpages.includes("브랜드 매니지먼트")],
-  ["product sitemap", subpages.includes("Microbiome Probiotics") && subpages.includes("Functional Nature's Food Ingredients")],
-  ["support sitemap", subpages.includes("E-Catalog") && subpages.includes("고객 문의사항") && subpages.includes("소통채널")],
+  ["business sitemap", subpages.includes("OEM/ODM 서비스") && subpages.includes("브랜드 매니지먼트")],
+  ["product sitemap", subpages.includes("여성 건강") && subpages.includes("키즈 건강") && subpages.includes("다이어트") && subpages.includes("이너케어")],
+  ["support sitemap", subpages.includes("고객 문의사항") && subpages.includes("소통채널")],
   ["clean tab component", tabs.includes("overflow-x-auto") && tabs.includes("aria-label")],
-  ["supply data lists", supply.includes("probioticSupplyItems") && supply.includes("natureSupplyItems") && supply.includes("businessServices")],
-  ["products page is supply focused", productsIndex.includes("SUPPLY PRODUCT") && productsIndex.includes("iHEAL BRAND PRODUCTS")],
+  ["legacy materials page redirects", materialsPage.includes("RedirectNotice") && astroConfig.includes("/business/materials/")],
+  ["products page is iHEAL focused", productsIndex.includes("iHEAL BRAND PRODUCTS") && productsIndex.includes("PRODUCT LINEUP")],
   ["support page is communication focused", supportIndex.includes("COMMUNICATION") && supportIndex.includes("문의사항 안내")]
 ];
 

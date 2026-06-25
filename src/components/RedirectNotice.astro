@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { withBase } from "@/lib/path";
+
+type Props = {
+  title?: string;
+  description?: string;
+  to?: string;
+};
+
+const {
+  title = "페이지 이동 안내",
+  description = "국내 사이트에서는 iHEAL 제품 페이지로 안내합니다.",
+  to = "/products/"
+} = Astro.props;
+
+const target = withBase(to);
+---
+
+<BaseLayout title={title} description={description}>
+  <meta slot="head" name="robots" content="noindex,follow" />
+  <meta slot="head" http-equiv="refresh" content={`0; url=${target}`} />
+
+  <section class="section-band bg-white pt-32">
+    <div class="container-page max-w-3xl text-center">
+      <p class="text-sm font-black tracking-[0.28em] text-brand-green">BIOLAB</p>
+      <h1 class="mt-4 text-4xl font-black text-brand-navy">iHEAL 제품 페이지로 이동합니다</h1>
+      <p class="mt-5 text-base leading-8 text-slate-600">
+        국내 사이트에서는 iHEAL 제품 정보를 중심으로 안내합니다.
+      </p>
+      <a class="mt-8 inline-flex bg-brand-green px-7 py-4 text-sm font-extrabold text-white" href={target}>
+        iHEAL 제품 보기
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline define:vars={{ target }}>
+  window.location.replace(target);
+</script>

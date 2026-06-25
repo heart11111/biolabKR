@@ -8,22 +8,22 @@ import CTASection from "@/components/CTASection.astro";
 import { businessSubpages } from "@/data/subpages";
 ---
 
-<BaseLayout title="OEM/ODM 서비스" description="기능성 소재 기반 OEM/ODM 제품화 서비스를 소개합니다.">
-  <SubHero title="OEM/ODM 서비스" description="소재, 제형, 제조, 공급 조건을 제품화 관점에서 함께 설계합니다." compact />
+<BaseLayout title="OEM/ODM 서비스" description="iHEAL 제품 운영 경험 기반 OEM/ODM 제품화 서비스를 소개합니다.">
+  <SubHero title="OEM/ODM 서비스" description="제품 컨셉, 제형, 제조, 공급 조건을 제품화 관점에서 함께 설계합니다." compact />
   <SectionTabs items={businessSubpages} label="사업/서비스 하위 메뉴" />
   <Breadcrumb parent={{ label: "사업/서비스", href: "/business/" }} current="OEM/ODM 서비스" />
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="OEM / ODM" title="제품화 흐름을 단계별로 정리합니다" description="원료 검토부터 제조사 협업, 생산 조건, 유통 채널별 자료 정리까지 필요한 과정을 하나의 프로젝트로 관리합니다." />
+      <SectionTitle eyebrow="OEM / ODM" title="제품화 흐름을 단계별로 정리합니다" description="제품 컨셉 검토부터 제조사 협업, 생산 조건, 유통 채널별 자료 정리까지 필요한 과정을 하나의 프로젝트로 관리합니다." />
       <div class="grid gap-5 lg:grid-cols-4" data-reveal-group>
-        {["소재 검토", "처방·제형 설계", "제조 네트워크 연결", "공급·자료 관리"].map((step, index) => (
+        {["제품 컨셉 검토", "처방·제형 설계", "제조 네트워크 연결", "공급·자료 관리"].map((step, index) => (
           <article class="border border-slate-200 bg-white p-7 shadow-sm" data-reveal>
             <span class="text-sm font-black text-brand-green">0{index + 1}</span>
             <h2 class="mt-4 text-xl font-black text-brand-navy">{step}</h2>
             <p class="mt-4 text-sm leading-7 text-slate-600">
-              {index === 0 && "제품 목적과 타깃 시장에 맞는 기능성 소재와 근거 자료를 검토합니다."}
-              {index === 1 && "섭취량, 제형, 부원료, 표시 가능한 표현 범위를 제품 컨셉에 맞춰 정리합니다."}
+              {index === 0 && "제품 목적과 타깃 시장에 맞는 컨셉, 기능성 범위, 참고 제품을 검토합니다."}
+              {index === 1 && "섭취량, 제형, 구성 성분, 표시 가능한 표현 범위를 제품 컨셉에 맞춰 정리합니다."}
               {index === 2 && "한국 제조 파트너와 생산 가능성, 최소 수량, 일정, 품질 기준을 확인합니다."}
               {index === 3 && "제품 자료, 공급 조건, 문의 응대 기준을 파트너와 공유할 수 있게 정리합니다."}
             </p>

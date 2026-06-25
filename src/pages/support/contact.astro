@@ -8,14 +8,14 @@ import { site } from "@/data/site";
 import { supportSubpages } from "@/data/subpages";
 ---
 
-<BaseLayout title="고객 문의사항" description="비오랩 제품, 원료, 유통 제휴 문의 연락처를 안내합니다.">
-  <SubHero title="고객 문의사항" description="소재, 제조, 유통, 브랜드 협업 검토를 위한 문의 창구입니다." compact />
+<BaseLayout title="고객 문의사항" description="비오랩 제품, 입점, 유통 제휴 문의 연락처를 안내합니다.">
+  <SubHero title="고객 문의사항" description="제품, 입점, 유통, 브랜드 협업 검토를 위한 문의 창구입니다." compact />
   <SectionTabs items={supportSubpages} label="문의사항 하위 메뉴" />
   <Breadcrumb parent={{ label: "문의사항", href: "/support/" }} current="고객 문의사항" />
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="CUSTOMER INQUIRIES" title="고객 문의사항" description="소재 공급, OEM/ODM, 브랜드 협업, 국내외 유통 문의는 대표 이메일로 접수해 주세요." />
+      <SectionTitle eyebrow="CUSTOMER INQUIRIES" title="고객 문의사항" description="제품 문의, 입점, OEM/ODM, 브랜드 협업, 국내외 유통 문의는 대표 이메일로 접수해 주세요." />
       <div class="grid gap-8 lg:grid-cols-2">
         <table class="table-corporate">
           <tbody>
@@ -34,7 +34,7 @@ import { supportSubpages } from "@/data/subpages";
           <div class="mt-6 grid gap-3 text-sm text-slate-700">
             <p><strong class="text-brand-navy">제품 문의</strong> 제품 자료, 성분, 섭취 안내</p>
             <p><strong class="text-brand-navy">입점 문의</strong> 국내외 유통, 온라인 채널, 오프라인 매장</p>
-            <p><strong class="text-brand-navy">제휴 문의</strong> 원료, 제조, 브랜드 협업, 해외 사업</p>
+            <p><strong class="text-brand-navy">제휴 문의</strong> 제조, 브랜드 협업, 해외 사업</p>
           </div>
           <a class="mt-7 inline-flex bg-brand-navy px-6 py-3 text-sm font-bold text-white" href={`mailto:${site.email}`}>이메일 문의</a>
         </div>

@@ -6,18 +6,34 @@ import SectionTitle from "@/components/SectionTitle.astro";
 import SubpageGrid from "@/components/SubpageGrid.astro";
 import CTASection from "@/components/CTASection.astro";
 import { businessSubpages } from "@/data/subpages";
-import { businessServices } from "@/data/supply";
 import { withBase } from "@/lib/path";
+
+const businessServices = [
+  {
+    eyebrow: "OEM / ODM",
+    title: "제품화 협업",
+    body: "건강기능식품과 이너케어 제품 운영 경험을 바탕으로 제품 기획, 제조 협업, 공급 조건을 정리합니다.",
+    href: "/business/odm-oem/",
+    points: ["제품 컨셉 정리", "제형·포장 방향 검토", "제조 및 공급 협의"]
+  },
+  {
+    eyebrow: "BRAND MANAGEMENT",
+    title: "iHEAL 브랜드 운영",
+    body: "iHEAL 브랜드 운영 경험을 기반으로 제품 자료, 판매 채널, 파트너 커뮤니케이션을 관리합니다.",
+    href: "/business/brand-management/",
+    points: ["제품 정보 관리", "채널별 커뮤니케이션", "국내외 브랜드 협업"]
+  }
+];
 ---
 
-<BaseLayout title="사업/서비스" description="비오랩의 기능성 소재 공급, OEM/ODM, 브랜드 매니지먼트 서비스를 소개합니다.">
-  <SubHero title="사업/서비스" description="소재 검토부터 제품화, 브랜드 운영까지 기능성 헬스케어 사업을 연결합니다." />
+<BaseLayout title="사업/서비스" description="비오랩의 제품화 협업과 iHEAL 브랜드 운영 서비스를 소개합니다.">
+  <SubHero title="사업/서비스" description="iHEAL 브랜드 제품 운영 경험을 바탕으로 제품화와 유통 협업을 연결합니다." />
   <Breadcrumb current="사업/서비스" />
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="BUSINESS & SERVICE" title="기능성 소재를 제품화하는 사업 구조" description="비오랩은 원료 포트폴리오, 제조 네트워크, 브랜드 운영 경험을 바탕으로 파트너의 제품화 과정을 지원합니다." />
-      <div class="grid gap-7 lg:grid-cols-3" data-reveal-group>
+      <SectionTitle eyebrow="BUSINESS & SERVICE" title="제품과 브랜드를 운영하는 사업 구조" description="비오랩은 iHEAL 제품 포트폴리오와 국내외 채널 운영 경험을 바탕으로 파트너와의 협업 가능성을 검토합니다." />
+      <div class="grid gap-7 lg:grid-cols-2" data-reveal-group>
         {businessServices.map((service) => (
           <a class="group flex h-full flex-col border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-brand-green hover:shadow-corporate" href={withBase(service.href)} data-reveal>
             <span class="text-xs font-black tracking-[0.22em] text-brand-green">{service.eyebrow}</span>
@@ -40,7 +56,7 @@ import { withBase } from "@/lib/path";
 
   <section class="section-band bg-slate-50">
     <div class="container-page">
-      <SectionTitle eyebrow="SERVICE MAP" title="서비스별 상세 안내" description="필요한 사업 목적에 맞춰 기능성 소재 공급, OEM/ODM, 브랜드 운영 페이지를 확인할 수 있습니다." />
+      <SectionTitle eyebrow="SERVICE MAP" title="서비스별 상세 안내" description="필요한 사업 목적에 맞춰 OEM/ODM 서비스와 브랜드 운영 페이지를 확인할 수 있습니다." />
       <SubpageGrid items={businessSubpages} />
     </div>
   </section>

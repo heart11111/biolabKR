@@ -43,11 +43,11 @@ export const products: Product[] = [
     image: "/images/product-venus-stick-actual.jpg",
     cardImage: "/images/products/card-venus-stick-probiotics.jpg",
     ingredients: ["특허 유산균 3종", "히알루론산", "콜라겐", "비타민E", "이노시톨"],
-    features: ["휴대가 쉬운 스틱 제형", "여성 건강과 피부 컨디션 동시 케어", "부원료 복합 설계", "부드러운 섭취감"],
+    features: ["휴대가 쉬운 스틱 제형", "여성 건강과 피부 컨디션 동시 케어", "복합 성분 구성", "부드러운 섭취감"],
     intake: "1일 1포, 제품 표시사항에 따라 섭취",
-    certifications: ["특허 균주 적용", "원료별 품질 규격 관리"],
+    certifications: ["특허 균주 적용", "제품별 품질 기준 관리"],
     detail:
-      "비너스 유산균 스틱은 여성의 일상 루틴에 맞춘 스틱형 제품으로, 유산균과 뷰티 부원료를 함께 제안합니다."
+      "비너스 유산균 스틱은 여성의 일상 루틴에 맞춘 스틱형 제품으로, 유산균과 뷰티 성분을 함께 제안합니다."
   },
   {
     slug: "kids-lac-probiotics",
@@ -79,7 +79,7 @@ export const products: Product[] = [
     ingredients: ["MG4231", "MG4244", "가르시니아 캄보지아 추출물", "HCA"],
     features: ["20억 보장 유산균", "체지방 관리 컨셉", "간편한 다이어트 루틴", "특허 균주 연구 기반"],
     intake: "제품 표시사항에 따라 1일 권장량을 섭취",
-    certifications: ["특허 균주 적용", "건강기능식품 원료 기준 관리"],
+    certifications: ["특허 균주 적용", "건강기능식품 품질 기준 관리"],
     detail:
       "라인엔 유산균은 바쁜 일상에서도 건강한 체지방 관리 루틴을 이어갈 수 있도록 설계한 제품입니다."
   },
@@ -96,7 +96,7 @@ export const products: Product[] = [
     ingredients: ["알란토인", "13종 발효 약재 추출물", "락토바실러스 발효여과물", "데실글루코사이드", "시트릭애씨드"],
     features: ["약산성 포뮬러", "저자극 세정", "피부 진정 및 보습 컨셉", "데일리 이너케어"],
     intake: "외용 제품으로, 사용 방법은 제품 표시사항을 따름",
-    certifications: ["피부 저자극 컨셉", "원료별 품질 관리"],
+    certifications: ["피부 저자극 컨셉", "제품별 품질 관리"],
     detail:
       "이너클린 V는 민감한 부위의 pH 밸런스와 보습감을 고려한 여성 이너케어 클렌저입니다."
   },
@@ -113,7 +113,7 @@ export const products: Product[] = [
     ingredients: ["5중 히알루론산", "특허균주 3종 배양액", "글루타치온", "판테놀", "인도멀구슬나무잎 추출물", "드럼스틱씨오일"],
     features: ["보습 중심 설계", "피부 장벽 컨셉", "식물 유래 성분", "고급스러운 향"],
     intake: "외용 제품으로, 사용 방법은 제품 표시사항을 따름",
-    certifications: ["원료별 품질 규격 관리", "피부 보습 컨셉"],
+    certifications: ["제품별 품질 기준 관리", "피부 보습 컨셉"],
     detail:
       "비너스 이너 퍼퓸은 청결감, 보습, 피부 컨디션을 함께 고려한 이너 뷰티 제품입니다."
   }
