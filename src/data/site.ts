@@ -22,7 +22,7 @@ export const site = {
   quickLinks: [
     { label: "대표 인사말", href: "/company/greeting/" },
     { label: "비전 및 목표", href: "/company/vision/" },
-    { label: "iHEAL 제품", href: "/products/" },
+    { label: "Product", href: "/products/" },
     { label: "고객 문의", href: "/support/contact/" }
   ],
   stats: [
