@@ -78,4 +78,3 @@ export const site = {
     { name: "돈키호테", logo: "/images/partners/don-quijote.svg", region: "Japan Offline" }
   ]
 };
-h
