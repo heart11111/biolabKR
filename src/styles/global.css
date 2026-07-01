@@ -85,6 +85,32 @@ img {
   overflow: hidden;
 }
 
+.language-toggle button {
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.language-toggle.is-home button {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.language-toggle button:hover {
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--brand-navy);
+}
+
+.language-toggle.is-home button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.language-toggle button.is-active {
+  background: var(--brand-green);
+  color: #fff;
+}
+
 [data-reveal] {
   opacity: 0;
   transform: translateY(42px);

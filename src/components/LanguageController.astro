@@ -1,0 +1,171 @@
+---
+import { englishTranslations } from "@/data/translations";
+
+const translationsJson = JSON.stringify(englishTranslations).replace(/</g, "\\u003c");
+---
+
+<script is:inline type="application/json" id="biolabkr-translations" set:html={translationsJson} />
+
+<script is:inline>
+  (() => {
+    const STORAGE_KEY = "biolabkr-language";
+    const translationsElement = document.getElementById("biolabkr-translations");
+    const translations = translationsElement?.textContent ? JSON.parse(translationsElement.textContent) : {};
+    const textOriginals = new WeakMap();
+    const attrNames = ["alt", "aria-label", "title", "placeholder"];
+    let activeLanguage = localStorage.getItem(STORAGE_KEY) === "en" ? "en" : "ko";
+    let applying = false;
+
+    const normalize = (value) => value.replace(/\s+/g, " ").trim();
+    const hasKorean = (value) => /[가-힣]/.test(value);
+    const shouldSkip = (node) => {
+      const parent = node.parentElement;
+      return !parent || parent.closest("script, style, noscript, svg, canvas, [data-i18n-skip]");
+    };
+    const dynamicTranslate = (key) => {
+      if (key.startsWith("판매원: 비오랩 / 브랜드: ")) {
+        return `Distributor: BIOLAB / Brand: ${key.replace("판매원: 비오랩 / 브랜드: ", "")}`;
+      }
+      if (key.endsWith(" 상세 보기")) {
+        const name = key.replace(" 상세 보기", "");
+        return `${translations[name] || name} Details`;
+      }
+      if (key.endsWith(" 제품 이미지")) {
+        const name = key.replace(" 제품 이미지", "");
+        return `${translations[name] || name} product image`;
+      }
+      if (key.startsWith("이미지 출처: ") && key.endsWith(" 보기")) {
+        const source = key.replace("이미지 출처: ", "").replace(" 보기", "");
+        return `Image source: ${translations[source] || source}`;
+      }
+      return "";
+    };
+
+    const translateValue = (value) => {
+      const key = normalize(value);
+      return dynamicTranslate(key) || translations[key] || value;
+    };
+    const withWhitespace = (source, translated) => {
+      const lead = source.match(/^\s*/)?.[0] || "";
+      const tail = source.match(/\s*$/)?.[0] || "";
+      return `${lead}${translated}${tail}`;
+    };
+
+    const translateTextNode = (node) => {
+      if (shouldSkip(node)) return;
+
+      const current = node.nodeValue || "";
+      const normalizedCurrent = normalize(current);
+      if (!normalizedCurrent) return;
+
+      if (activeLanguage === "en" && hasKorean(current)) {
+        textOriginals.set(node, current);
+      }
+
+      const original = textOriginals.get(node) || current;
+      const normalizedOriginal = normalize(original);
+      const knownOriginal = translations[normalizedOriginal];
+
+      if (!textOriginals.has(node) && (knownOriginal || hasKorean(current))) {
+        textOriginals.set(node, current);
+      }
+
+      if (activeLanguage === "en") {
+        const translated =
+          dynamicTranslate(normalizedOriginal) ||
+          dynamicTranslate(normalizedCurrent) ||
+          translations[normalizedOriginal] ||
+          translations[normalizedCurrent];
+        if (translated) node.nodeValue = withWhitespace(current, translated);
+      } else if (textOriginals.has(node)) {
+        node.nodeValue = textOriginals.get(node);
+      }
+    };
+
+    const translateElementAttributes = (element) => {
+      attrNames.forEach((attr) => {
+        if (!element.hasAttribute(attr)) return;
+
+        const originalAttr = `data-i18n-original-${attr}`;
+        const current = element.getAttribute(attr) || "";
+        if (!element.hasAttribute(originalAttr) && hasKorean(current)) {
+          element.setAttribute(originalAttr, current);
+        }
+
+        const original = element.getAttribute(originalAttr) || current;
+        if (activeLanguage === "en") {
+          const translated = translateValue(original);
+          if (translated !== original) element.setAttribute(attr, translated);
+        } else if (element.hasAttribute(originalAttr)) {
+          element.setAttribute(attr, original);
+        }
+      });
+    };
+
+    const walk = (root = document.body) => {
+      if (!root) return;
+
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      let node = walker.nextNode();
+      while (node) {
+        translateTextNode(node);
+        node = walker.nextNode();
+      }
+
+      if (root instanceof Element) translateElementAttributes(root);
+      root.querySelectorAll?.("*").forEach((element) => translateElementAttributes(element));
+    };
+
+    const syncControls = () => {
+      document.documentElement.lang = activeLanguage === "en" ? "en" : "ko";
+      document.querySelectorAll("[data-language-set]").forEach((button) => {
+        const isActive = button.getAttribute("data-language-set") === activeLanguage;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+        if (isActive) {
+          button.setAttribute("aria-current", "true");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+    };
+
+    const applyLanguage = (language) => {
+      activeLanguage = language === "en" ? "en" : "ko";
+      localStorage.setItem(STORAGE_KEY, activeLanguage);
+      applying = true;
+      walk();
+      syncControls();
+      applying = false;
+    };
+
+    document.addEventListener("click", (event) => {
+      const target = event.target instanceof Element ? event.target.closest("[data-language-set]") : null;
+      if (!target) return;
+
+      event.preventDefault();
+      applyLanguage(target.getAttribute("data-language-set"));
+    });
+
+    const observer = new MutationObserver((mutations) => {
+      if (applying || activeLanguage !== "en") return;
+      window.requestAnimationFrame(() => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === "characterData" && mutation.target instanceof Text) {
+            translateTextNode(mutation.target);
+          }
+          mutation.addedNodes.forEach((node) => {
+            if (node instanceof Element) walk(node);
+            if (node instanceof Text) translateTextNode(node);
+          });
+        });
+        syncControls();
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      applyLanguage(activeLanguage);
+      observer.observe(document.body, { childList: true, characterData: true, subtree: true });
+    });
+  })();
+</script>

@@ -14,6 +14,9 @@ export type NewsItem = {
   imageSourceUrl: string;
   sourceName?: string;
   sourceUrl?: string;
+  sourceTitle?: string;
+  sourcePublishedAt?: string;
+  sourceLead?: string;
 };
 
 export const news: NewsItem[] = [
@@ -36,7 +39,11 @@ export const news: NewsItem[] = [
     imageCredit: "이미지 출처: Qoo10 대학 기사",
     imageSourceUrl: "https://article-university.qoo10.jp/entry/case_iheal_kor",
     sourceName: "Qoo10 대학",
-    sourceUrl: "https://article-university.qoo10.jp/entry/case_iheal_kor"
+    sourceUrl: "https://article-university.qoo10.jp/entry/case_iheal_kor",
+    sourceTitle: "〖iHEAL〗감성 브랜딩과 현지화 전략으로 일본 2030 여성 고객을 사로잡다",
+    sourcePublishedAt: "2025.06.13",
+    sourceLead:
+      "Qoo10 Japan을 통해 일본 시장에 안착한 iHEAL의 일본 진출 배경, 현지화 마케팅 전략, 향후 목표를 박종민 대표 인터뷰 형식으로 소개한 Qoo10 대학 기사입니다."
   },
   {
     slug: "qoo10-awards-2025-best-shop",
@@ -57,7 +64,10 @@ export const news: NewsItem[] = [
     imageCredit: "이미지 출처: 대한경제 / 이베이재팬 제공",
     imageSourceUrl: "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202602111839046820732",
     sourceName: "대한경제",
-    sourceUrl: "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202602111839046820732"
+    sourceUrl: "https://www.dnews.co.kr/uhtml/view.jsp?idxno=202602111839046820732",
+    sourceTitle: "Qoo10 AWARDS 2025 수상 관련 기사",
+    sourcePublishedAt: "2026.02.11",
+    sourceLead: "iHEAL이 Qoo10 AWARDS 2025 식품 부문 주요 베스트샵으로 소개된 외부 기사입니다."
   },
   {
     slug: "oliveyoung-venus-probiotics",
@@ -78,7 +88,10 @@ export const news: NewsItem[] = [
     imageCredit: "이미지 출처: CJ올리브영 브랜드 소개",
     imageSourceUrl: "https://corp.oliveyoung.com/ko/company/brand",
     sourceName: "올리브영",
-    sourceUrl: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000217101"
+    sourceUrl: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000217101",
+    sourceTitle: "올리브영 iHEAL 비너스 유산균 상품 페이지",
+    sourcePublishedAt: "2025.01",
+    sourceLead: "올리브영 채널에서 판매 중인 iHEAL 비너스 유산균 상품 상세 페이지입니다."
   },
   {
     slug: "qoo10-iheal-official-shop",
@@ -99,7 +112,10 @@ export const news: NewsItem[] = [
     imageCredit: "이미지 출처: Qoo10 Japan iHEAL 공식샵",
     imageSourceUrl: "https://www.qoo10.jp/gmkt.inc/Mobile/MiniShop/Default.aspx?shopdomain=iHEAL",
     sourceName: "Qoo10 Japan",
-    sourceUrl: "https://www.qoo10.jp/gmkt.inc/Mobile/MiniShop/Default.aspx?shopdomain=iHEAL"
+    sourceUrl: "https://www.qoo10.jp/gmkt.inc/Mobile/MiniShop/Default.aspx?shopdomain=iHEAL",
+    sourceTitle: "Qoo10 Japan iHEAL 공식샵",
+    sourcePublishedAt: "2026.03.26",
+    sourceLead: "Qoo10 Japan 내 iHEAL 공식샵과 AWARDS Shop 노출을 확인할 수 있는 공식 판매 채널입니다."
   },
   {
     slug: "kids-lac-product-update",

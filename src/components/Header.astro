@@ -111,13 +111,13 @@ const isHome = normalizedPath === "/";
       </a>
       <div
         class:list={[
-          "inline-flex overflow-hidden rounded-full text-[11px] font-extrabold",
-          isHome ? "border border-white/18 bg-white/10" : "border border-neutral-200 bg-neutral-50"
+          "language-toggle inline-flex overflow-hidden rounded-full text-[11px] font-extrabold",
+          isHome ? "is-home border border-white/18 bg-white/10" : "border border-neutral-200 bg-neutral-50"
         ]}
         aria-label="언어 선택"
       >
-        <a class="bg-brand-green px-3 py-1.5 text-white 2xl:px-4" href={withBase("/")} aria-current="true">KOR</a>
-        <a class:list={["px-3 py-1.5 transition 2xl:px-4", isHome ? "text-white/72 hover:bg-white/10 hover:text-white" : "text-neutral-500 hover:bg-white hover:text-brand-navy"]} href="#" aria-label="English version">ENG</a>
+        <button class="is-active px-3 py-1.5 transition 2xl:px-4" type="button" data-language-set="ko" aria-current="true" aria-pressed="true">KOR</button>
+        <button class="px-3 py-1.5 transition 2xl:px-4" type="button" data-language-set="en" aria-label="English version" aria-pressed="false">ENG</button>
       </div>
       <button
         class:list={[
@@ -136,21 +136,33 @@ const isHome = normalizedPath === "/";
       </button>
     </div>
 
-    <button
-      class:list={[
-        "flex h-11 w-11 items-center justify-center border lg:hidden",
-        isHome ? "border-white/20 text-white" : "border-neutral-200 text-brand-navy"
-      ]}
-      type="button"
-      data-mobile-toggle
-      aria-label="모바일 메뉴 열기"
-    >
-      <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 6h16"></path>
-        <path d="M4 12h16"></path>
-        <path d="M4 18h16"></path>
-      </svg>
-    </button>
+    <div class="flex shrink-0 items-center gap-2 lg:hidden">
+      <div
+        class:list={[
+          "language-toggle inline-flex overflow-hidden rounded-full text-[11px] font-extrabold",
+          isHome ? "is-home border border-white/18 bg-white/10" : "border border-neutral-200 bg-neutral-50"
+        ]}
+        aria-label="언어 선택"
+      >
+        <button class="is-active px-3 py-1.5 transition" type="button" data-language-set="ko" aria-current="true" aria-pressed="true">KOR</button>
+        <button class="px-3 py-1.5 transition" type="button" data-language-set="en" aria-label="English version" aria-pressed="false">ENG</button>
+      </div>
+      <button
+        class:list={[
+          "flex h-11 w-11 items-center justify-center border",
+          isHome ? "border-white/20 text-white" : "border-neutral-200 text-brand-navy"
+        ]}
+        type="button"
+        data-mobile-toggle
+        aria-label="모바일 메뉴 열기"
+      >
+        <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -208,9 +220,9 @@ const isHome = normalizedPath === "/";
       <a class="border border-slate-200 px-4 py-3 text-center" href={site.japanUrl} target="_blank" rel="noreferrer">BIOLAB Japan</a>
       <a class="border border-slate-200 px-4 py-3 text-center" href={site.shopUrl} target="_blank" rel="noreferrer">iHEAL Mall</a>
     </div>
-    <div class="mt-4 inline-flex overflow-hidden rounded-full border border-slate-200 bg-slate-100 text-xs font-extrabold shadow-sm" aria-label="언어 선택">
-      <a class="bg-brand-green px-6 py-2 text-white" href={withBase("/")} aria-current="true">KOR</a>
-      <a class="px-6 py-2 text-slate-500" href="#" aria-label="English version">ENG</a>
+    <div class="language-toggle mt-4 inline-flex overflow-hidden rounded-full border border-slate-200 bg-slate-100 text-xs font-extrabold shadow-sm" aria-label="언어 선택">
+      <button class="is-active px-6 py-2 transition" type="button" data-language-set="ko" aria-current="true" aria-pressed="true">KOR</button>
+      <button class="px-6 py-2 transition" type="button" data-language-set="en" aria-label="English version" aria-pressed="false">ENG</button>
     </div>
   </nav>
 </div>
