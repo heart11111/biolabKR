@@ -4,8 +4,8 @@ export const site = {
   brandName: "iHEAL",
   url: "https://biolabkr.com/",
   description:
-    "비오랩은 iHEAL 브랜드를 중심으로 여성 건강, 키즈 건강, 이너케어 제품과 국내외 유통 사업을 전개합니다.",
-  email: "iheal.official@gmail.com",
+    "비오랩은 아이힐(iHEAL) 여성 유산균·키즈 유산균·이너케어 건강기능식품을 개발·유통하는 헬스케어 브랜드입니다. 올리브영 입점, 일본 Qoo10 베스트샵 수상.",
+  keywords: "비오랩, 아이힐, iHEAL, BIOLAB, 여성유산균, 비너스유산균, 아이힐비너스, 키즈유산균, 아이힐키즈락, 특허유산균, 이너케어, Y존케어, 건강기능식품, 여성건강, 키즈건강, 올리브영유산균, 유산균브랜드",    email: "iheal.official@gmail.com",
   phone: "02-2043-0740",
   fax: "02-2043-0741",
   address: "경기 성남시 분당구 쇳골북로 10 (궁내동) 2층",
@@ -78,3 +78,4 @@ export const site = {
     { name: "돈키호테", logo: "/images/partners/don-quijote.svg", region: "Japan Offline" }
   ]
 };
+h
