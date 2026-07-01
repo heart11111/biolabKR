@@ -118,7 +118,9 @@ export const news: NewsItem[] = [
     image: "/images/studio/studio-kids-lac.jpg",
     imageAlt: "키즈락 유산균 제품 이미지",
     imageCredit: "이미지 출처: 비오랩 제품 자료",
-    imageSourceUrl: "/products/kids-lac-probiotics/"
+    imageSourceUrl: "/products/kids-lac-probiotics/",
+    sourceName: "키즈락 유산균 제품 상세",
+    sourceUrl: "/products/kids-lac-probiotics/"
   },
   {
     slug: "global-partnership-contact",
@@ -137,7 +139,9 @@ export const news: NewsItem[] = [
     image: "/images/sub-hero.jpg",
     imageAlt: "비오랩 글로벌 제휴 안내 이미지",
     imageCredit: "이미지 출처: 비오랩 대표 이미지",
-    imageSourceUrl: "/support/contact/"
+    imageSourceUrl: "/support/contact/",
+    sourceName: "비오랩 고객 문의",
+    sourceUrl: "/support/contact/"
   }
 ];
 
