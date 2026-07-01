@@ -548,6 +548,7 @@ export const englishTranslations: Record<string, string> = {
   "온누리 약국 CI": "Onnuri Pharmacy CI",
   "돈키호테 CI": "Don Quijote CI",
   "비오랩은 iHEAL 브랜드를 중심으로 여성 건강, 키즈 건강, 이너케어 제품과 국내외 유통 사업을 전개합니다.": "BIOLAB operates women's health, kids health, inner-care products, and domestic and global distribution businesses centered on the iHEAL brand.",
+  "비오랩은 아이힐(iHEAL) 여성 유산균·키즈 유산균·이너케어 건강기능식품을 개발·유통하는 헬스케어 브랜드입니다. 올리브영 입점, 일본 Qoo10 베스트샵 수상.": "BIOLAB is a healthcare brand that develops and distributes iHEAL women's probiotics, kids probiotics, inner-care products, and health functional foods. Available through Olive Young and recognized as a Qoo10 Japan Best Shop.",
   "iHEAL 브랜드 운영 경험을 바탕으로 제품 자료와 채널 커뮤니케이션을 관리합니다.": "We manage product materials and channel communication based on our experience operating the iHEAL brand.",
   "iHEAL 운영 경험을 사업 자료로 연결합니다": "Connecting iHEAL operation experience to business materials",
   "BIOLAB Japan 보기": "View BIOLAB Japan",
