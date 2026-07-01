@@ -4,6 +4,7 @@ import SubHero from "@/components/SubHero.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import CTASection from "@/components/CTASection.astro";
 import { products, type Product } from "@/data/products";
+import { site } from "@/data/site";
 import { withBase } from "@/lib/path";
 
 export function getStaticPaths() {
@@ -19,9 +20,45 @@ type Props = {
 
 const { product } = Astro.props;
 const qualityImage = withBase("/images/ingredients/ingredient-research-lab.jpg");
+const productUrl = new URL(`/products/${product.slug}/`, site.url).toString();
+const productStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": `${productUrl}#product`,
+  name: product.name,
+  alternateName: product.englishName,
+  description: product.summary,
+  category: product.category,
+  image: new URL(withBase(product.image), site.url).toString(),
+  url: productUrl,
+  brand: {
+    "@type": "Brand",
+    name: site.brandName
+  },
+  manufacturer: {
+    "@id": `${site.url}#organization`
+  },
+  additionalProperty: [
+    {
+      "@type": "PropertyValue",
+      name: "제품 포인트",
+      value: product.ingredients.join(", ")
+    },
+    {
+      "@type": "PropertyValue",
+      name: "섭취/사용 방법",
+      value: product.intake
+    },
+    {
+      "@type": "PropertyValue",
+      name: "관리 정보",
+      value: product.certifications.join(", ")
+    }
+  ]
+};
 ---
 
-<BaseLayout title={product.name} description={product.summary} image={product.image}>
+<BaseLayout title={product.name} description={product.summary} image={product.image} structuredData={productStructuredData}>
   <SubHero title={product.name} description={product.tagline} image="/images/science/clinical-capsules-doctor.jpg" imagePosition="55% 48%" visualWord="iHEAL" />
   <Breadcrumb parent={{ label: "제품소개", href: "/products/" }} current={product.name} />
 
