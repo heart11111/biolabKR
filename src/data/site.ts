@@ -16,13 +16,13 @@ export const site = {
   navigation: [
     { label: "회사소개", href: "/company/" },
     { label: "사업/서비스", href: "/business/" },
-    { label: "Product", href: "/products/" },
+    { label: "제품", href: "/products/" },
     { label: "문의사항", href: "/support/" }
   ],
   quickLinks: [
     { label: "대표 인사말", href: "/company/greeting/" },
     { label: "비전 및 목표", href: "/company/vision/" },
-    { label: "Product", href: "/products/" },
+    { label: "제품", href: "/products/" },
     { label: "고객 문의", href: "/support/contact/" }
   ],
   stats: [

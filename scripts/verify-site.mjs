@@ -57,7 +57,7 @@ const astroConfig = read("astro.config.mjs");
 const requiredContent = [
   ["site name", siteData.includes('name: "비오랩"')],
   ["custom domain site URL", astroConfig.includes("https://biolabkr.com") && siteData.includes("https://biolabkr.com/")],
-  ["main navigation", siteData.includes("사업/서비스") && siteData.includes("Product") && siteData.includes("문의사항")],
+  ["main navigation", siteData.includes("사업/서비스") && siteData.includes("제품") && siteData.includes("문의사항")],
   ["BIOLAB Japan link", siteData.includes("https://biolabjp.com/") && header.includes("BIOLAB Japan") && footer.includes("BIOLAB Japan")],
   ["iHEAL Mall link", siteData.includes("https://iheal.co.kr/main/index.php") && header.includes("iHEAL Mall") && footer.includes("iHEAL Mall")],
   ["company sitemap", subpages.includes("대표 인사말") && subpages.includes("비전 및 목표")],

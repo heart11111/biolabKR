@@ -2,6 +2,7 @@ export const englishTranslations: Record<string, string> = {
   "비오랩": "BIOLAB",
   "회사소개": "Company",
   "사업/서비스": "Business / Services",
+  "제품": "Product",
   "문의사항": "Contact",
   "대표 인사말": "CEO Message",
   "비전 및 목표": "Vision & Goals",
