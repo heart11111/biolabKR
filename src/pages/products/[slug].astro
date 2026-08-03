@@ -19,7 +19,49 @@ type Props = {
 };
 
 const { product } = Astro.props;
-const qualityImage = withBase("/images/ingredients/ingredient-research-lab.jpg");
+const productIndex = products.findIndex((item) => item.slug === product.slug);
+const relatedProducts = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+
+const isTopical = product.intake.startsWith("외용");
+const usageLabel = isTopical ? "사용 방법" : "섭취 방법";
+const productType = isTopical ? "이너케어 제품" : "건강기능식품";
+
+const quickFacts = [
+  { label: "제품 분류", value: product.category },
+  { label: "제품 유형", value: productType },
+  { label: "주요 성분", value: `${product.ingredients.length}종 배합` },
+  { label: usageLabel, value: product.intake }
+];
+
+const infoRows = [
+  { label: "제품명", value: product.name },
+  { label: "영문명", value: product.englishName },
+  { label: "제품 분류", value: `${product.category} / ${productType}` },
+  { label: "브랜드 / 판매원", value: `${site.brandName} / ${site.name}` },
+  { label: "주요 성분", value: product.ingredients.join(", ") },
+  { label: usageLabel, value: product.intake },
+  { label: "품질 관리", value: product.certifications.join(" · ") }
+];
+
+const storageNotes = [
+  "직사광선을 피해 서늘하고 건조한 곳에 보관해 주세요.",
+  "개봉 후에는 제품 표시사항의 보관 조건에 따라 관리해 주세요.",
+  "어린이 손이 닿지 않는 곳에 보관해 주세요.",
+  isTopical
+    ? "피부에 이상이 느껴질 경우 사용을 중단하고 전문가와 상담해 주세요."
+    : "이상 사례가 있을 경우 섭취를 중단하고 전문가와 상담해 주세요."
+];
+
+const sectionLinks = [
+  { id: "overview", label: "제품 개요" },
+  { id: "points", label: "핵심 포인트" },
+  { id: "ingredients", label: "주요 성분" },
+  { id: "information", label: "제품 정보" },
+  { id: "quality", label: "품질 관리" }
+];
+
+const ingredientImage = withBase("/images/ingredients/ingredient-research-lab.jpg");
+const qualityImage = withBase("/images/science/petri-pipette-lab.jpg");
 const productUrl = new URL(`/products/${product.slug}/`, site.url).toString();
 const productStructuredData = {
   "@context": "https://schema.org",
@@ -62,102 +104,233 @@ const productStructuredData = {
   <SubHero title={product.name} description={product.tagline} image="/images/science/clinical-capsules-doctor.jpg" imagePosition="55% 48%" visualWord="iHEAL" />
   <Breadcrumb parent={{ label: "제품소개", href: "/products/" }} current={product.name} />
 
-  <section class="section-band bg-white">
-    <div class="container-page">
-      <nav class="mb-16 grid overflow-hidden border border-slate-200 bg-white text-center text-sm font-extrabold text-slate-700 md:grid-cols-3 lg:grid-cols-6" aria-label="제품 상세 메뉴">
-        {products.map((item) => (
-          <a
-            class:list={[
-              "border-b border-slate-200 px-4 py-4 transition hover:bg-brand-mint hover:text-brand-green md:border-r lg:border-b-0",
-              item.slug === product.slug ? "bg-brand-green text-white hover:bg-brand-green hover:text-white" : "bg-white",
-              item.slug === products[products.length - 1].slug ? "md:border-r-0" : ""
-            ]}
-            href={withBase(`/products/${item.slug}/`)}
-          >
-            {item.name.replace("아이힐 ", "")}
+  <nav class="border-b border-neutral-200 bg-white" aria-label="제품 상세 메뉴">
+    <div class="container-page flex gap-2 overflow-x-auto py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {products.map((item) => (
+        <a
+          class:list={[
+            "shrink-0 border px-5 py-2.5 text-sm font-extrabold transition",
+            item.slug === product.slug
+              ? "border-brand-green bg-brand-green text-white"
+              : "border-neutral-200 bg-white text-neutral-600 hover:border-brand-green hover:text-brand-green"
+          ]}
+          href={withBase(`/products/${item.slug}/`)}
+          aria-current={item.slug === product.slug ? "page" : undefined}
+        >
+          {item.name.replace("아이힐 ", "")}
+        </a>
+      ))}
+    </div>
+  </nav>
+
+  <section id="overview" class="relative overflow-hidden bg-gradient-to-b from-brand-mint via-white to-white">
+    <div class="container-page grid gap-14 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-20">
+      <figure class="relative" data-reveal="image">
+        <span class="absolute -top-3 left-0 z-10 bg-brand-green px-4 py-2 text-xs font-black tracking-[0.24em] text-white">
+          {`PRODUCT ${String(productIndex + 1).padStart(2, "0")}`}
+        </span>
+        <div class="border border-neutral-200 bg-white p-8 shadow-corporate">
+          <img
+            class="mx-auto h-[380px] w-full object-contain lg:h-[440px]"
+            src={withBase(product.image)}
+            alt={`${product.name} 제품 이미지`}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        <figcaption class="mt-5 text-center text-sm font-semibold text-neutral-500">
+          판매원: 비오랩 / 브랜드: {product.englishName}
+        </figcaption>
+      </figure>
+
+      <div data-reveal>
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="bg-brand-navy px-3 py-1.5 text-xs font-black tracking-[0.2em] text-white">{product.category}</span>
+          <span class="border border-brand-green px-3 py-1.5 text-xs font-black tracking-[0.2em] text-brand-green">{productType}</span>
+        </div>
+        <h1 class="mt-6 text-4xl font-black leading-tight text-brand-navy lg:text-5xl">{product.name}</h1>
+        <p class="mt-3 text-sm font-black tracking-[0.16em] text-neutral-400">{product.englishName}</p>
+        <p class="mt-6 text-xl font-bold leading-9 text-brand-green">{product.tagline}</p>
+        <p class="mt-6 text-base leading-8 text-neutral-700">{product.summary}</p>
+
+        <ul class="mt-8 flex flex-wrap gap-2">
+          {product.ingredients.map((item) => (
+            <li class="border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700">{item}</li>
+          ))}
+        </ul>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a class="bg-brand-green px-8 py-4 text-sm font-extrabold text-white transition hover:bg-brand-navy" href={withBase("/support/contact/")}>
+            제품 문의하기
           </a>
+          <a class="border border-neutral-900 px-8 py-4 text-sm font-extrabold text-neutral-900 transition hover:border-brand-green hover:text-brand-green" href={withBase("/products/")}>
+            전체 제품 보기
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-page pb-16 lg:pb-20">
+      <dl class="grid gap-px border border-neutral-200 bg-neutral-200 sm:grid-cols-2 lg:grid-cols-4" data-reveal-group>
+        {quickFacts.map((fact) => (
+          <div class="bg-white p-7" data-reveal>
+            <dt class="text-xs font-black tracking-[0.22em] text-brand-green">{fact.label}</dt>
+            <dd class="mt-3 text-base font-bold leading-7 text-brand-navy">{fact.value}</dd>
+          </div>
         ))}
-      </nav>
+      </dl>
+    </div>
+  </section>
 
-      <div class="grid gap-14 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
-        <figure data-reveal="image">
-          <div class="border border-slate-200 bg-slate-50 p-6">
-            <img class="mx-auto h-[420px] w-full object-contain" src={withBase(product.image)} alt={product.name} />
-          </div>
-          <figcaption class="mt-5 text-center text-sm font-semibold text-slate-600">
-            판매원: 비오랩 / 브랜드: {product.englishName}
-          </figcaption>
-        </figure>
+  <nav class="sticky top-[82px] z-40 border-y border-neutral-200 bg-white/95 backdrop-blur" aria-label="제품 섹션 메뉴">
+    <div class="container-page flex gap-6 overflow-x-auto py-4 text-sm font-extrabold text-neutral-500 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {sectionLinks.map((link) => (
+        <a class="shrink-0 transition hover:text-brand-green" href={`#${link.id}`}>{link.label}</a>
+      ))}
+    </div>
+  </nav>
 
-        <div data-reveal>
-          <span class="text-sm font-black tracking-[0.26em] text-brand-green">{product.category}</span>
-          <h1 class="mt-4 text-4xl font-black leading-tight text-brand-navy">{product.name}</h1>
-          <p class="mt-3 text-xl font-semibold text-brand-green">{product.tagline}</p>
-          <div class="mt-8 border-t border-slate-200 pt-8">
-            <p class="text-base leading-8 text-slate-700">{product.detail}</p>
-            <ul class="mt-8 space-y-4">
-              {product.features.map((item) => (
-                <li class="flex gap-4 text-base leading-7 text-slate-700">
-                  <span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+  <section id="points" class="section-band bg-white">
+    <div class="container-page">
+      <p class="text-sm font-black tracking-[0.26em] text-brand-green">KEY POINTS</p>
+      <h2 class="mt-4 text-3xl font-black leading-tight text-brand-navy lg:text-4xl">핵심 포인트</h2>
+      <p class="mt-5 max-w-3xl text-base leading-8 text-neutral-700">{product.detail}</p>
 
-          <div class="mt-9">
-            <a class="inline-flex bg-brand-green px-7 py-4 text-sm font-extrabold text-white transition hover:bg-brand-navy" href={withBase("/support/contact/")}>
-              제품 문의하기
-            </a>
-          </div>
+      <div class="mt-12 grid gap-px bg-neutral-200 md:grid-cols-2" data-reveal-group>
+        {product.features.map((item, index) => (
+          <article class="flex gap-6 bg-white p-8" data-reveal>
+            <span class="text-3xl font-black leading-none text-brand-green/40">{String(index + 1).padStart(2, "0")}</span>
+            <p class="text-lg font-bold leading-8 text-brand-navy">{item}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="ingredients" class="section-band bg-neutral-50">
+    <div class="container-page grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div data-reveal>
+        <p class="text-sm font-black tracking-[0.26em] text-brand-green">INGREDIENTS</p>
+        <h2 class="mt-4 text-3xl font-black leading-tight text-brand-navy lg:text-4xl">주요 성분</h2>
+        <p class="mt-5 text-base leading-8 text-neutral-700">
+          제품에 사용된 주요 성분을 표시사항 기준으로 정리했습니다.
+        </p>
+        <ol class="mt-10 border-t-2 border-brand-navy">
+          {product.ingredients.map((item, index) => (
+            <li class="flex items-center gap-5 border-b border-neutral-200 bg-white px-6 py-5">
+              <span class="w-8 shrink-0 text-sm font-black text-brand-green">{String(index + 1).padStart(2, "0")}</span>
+              <span class="text-base font-bold text-brand-navy">{item}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <figure class="overflow-hidden" data-reveal="image">
+        <img
+          class="aspect-[4/3] h-full w-full object-cover"
+          src={ingredientImage}
+          alt="원료와 성분 연구를 상징하는 이미지"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section id="information" class="section-band bg-white">
+    <div class="container-page">
+      <p class="text-sm font-black tracking-[0.26em] text-brand-green">PRODUCT INFORMATION</p>
+      <h2 class="mt-4 text-3xl font-black leading-tight text-brand-navy lg:text-4xl">제품 상세 정보</h2>
+
+      <div class="mt-12 overflow-x-auto" data-reveal>
+        <table class="table-corporate">
+          <tbody>
+            {infoRows.map((row) => (
+              <tr>
+                <th scope="row">{row.label}</th>
+                <td class="text-base leading-8 text-neutral-700">{row.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-12 grid gap-8 lg:grid-cols-2" data-reveal-group>
+        <div class="border-t-2 border-brand-green bg-neutral-50 p-8" data-reveal>
+          <h3 class="text-2xl font-black text-brand-navy">{usageLabel}</h3>
+          <p class="mt-6 text-base leading-8 text-neutral-700">{product.intake}</p>
+        </div>
+        <div class="border-t-2 border-brand-green bg-neutral-50 p-8" data-reveal>
+          <h3 class="text-2xl font-black text-brand-navy">보관 및 주의사항</h3>
+          <ul class="mt-6 space-y-3">
+            {storageNotes.map((note) => (
+              <li class="flex gap-3 text-base leading-7 text-neutral-700">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>
+                <span>{note}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      <div class="mt-20 border-t-2 border-slate-900 pt-10">
-        <div class="grid overflow-hidden border border-slate-200 bg-[#f6fbf9] lg:grid-cols-[0.34fr_0.66fr]" data-reveal>
-          <div class="min-h-[150px] bg-cover bg-center" style={`background-image: url('${qualityImage}')`}></div>
-          <div class="flex flex-col justify-center px-8 py-8 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p class="text-sm font-black tracking-[0.24em] text-brand-green">QUALITY INFORMATION</p>
-              <p class="mt-3 text-2xl font-black leading-tight text-brand-navy">
-                제품별 표시사항과 품질 기준에 따라 관리합니다.
-              </p>
-            </div>
-            <div class="mt-6 flex gap-3 md:mt-0">
-              <span class="border border-brand-green bg-white px-4 py-3 text-sm font-extrabold text-brand-green">제품 정보</span>
-              <span class="border border-brand-green bg-white px-4 py-3 text-sm font-extrabold text-brand-green">품질 기준</span>
-            </div>
-          </div>
+      <p class="mt-8 border-t border-neutral-200 pt-6 text-sm leading-7 text-neutral-500">
+        본 페이지의 정보는 제품 이해를 돕기 위한 안내이며, 질병의 예방이나 치료를 목적으로 하는 의약품이 아닙니다.
+      </p>
+    </div>
+  </section>
+
+  <section id="quality" class="section-band bg-neutral-50">
+    <div class="container-page">
+      <div class="grid overflow-hidden border border-neutral-200 bg-white lg:grid-cols-[0.36fr_0.64fr]" data-reveal>
+        <div class="min-h-[200px] bg-cover bg-center" style={`background-image: url('${qualityImage}')`}></div>
+        <div class="px-8 py-10 lg:px-12">
+          <p class="text-sm font-black tracking-[0.24em] text-brand-green">QUALITY INFORMATION</p>
+          <h2 class="mt-4 text-2xl font-black leading-tight text-brand-navy lg:text-3xl">
+            제품별 표시사항과 품질 기준에 따라 관리합니다.
+          </h2>
+          <ul class="mt-8 grid gap-3 md:grid-cols-2">
+            {product.certifications.map((item) => (
+              <li class="flex gap-3 bg-neutral-50 p-4 text-sm font-semibold leading-6 text-neutral-700">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-band bg-slate-50">
+  <section class="section-band bg-white">
     <div class="container-page">
-      <div class="grid gap-8 lg:grid-cols-2">
-        <div class="border border-slate-200 bg-white p-8">
-          <h2 class="text-2xl font-black text-brand-navy">제품 포인트</h2>
-          <div class="mt-6 flex flex-wrap gap-2">
-            {product.ingredients.map((item) => <span class="bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700">{item}</span>)}
-          </div>
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="text-sm font-black tracking-[0.26em] text-brand-green">OTHER PRODUCTS</p>
+          <h2 class="mt-4 text-3xl font-black leading-tight text-brand-navy lg:text-4xl">다른 제품 보기</h2>
         </div>
-        <div class="border border-slate-200 bg-white p-8">
-          <h2 class="text-2xl font-black text-brand-navy">섭취/사용 방법</h2>
-          <p class="mt-6 text-base leading-8 text-slate-700">{product.intake}</p>
-        </div>
+        <a class="border border-neutral-900 px-6 py-3 text-sm font-extrabold text-neutral-900 transition hover:border-brand-green hover:text-brand-green" href={withBase("/products/")}>
+          전체 제품 보기
+        </a>
       </div>
 
-      <div class="mt-8 border border-slate-200 bg-white p-8">
-        <h2 class="text-2xl font-black text-brand-navy">인증/관리 정보</h2>
-        <ul class="mt-6 grid gap-3 md:grid-cols-2">
-          {product.certifications.map((item) => (
-            <li class="flex gap-3 bg-slate-50 p-4 text-slate-700">
-              <span class="mt-2 h-1.5 w-1.5 shrink-0 bg-brand-green"></span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+      <div class="mt-12 grid gap-8 md:grid-cols-3" data-reveal-group>
+        {relatedProducts.map((item) => (
+          <a class="group block border border-neutral-200 bg-white transition hover:border-brand-green" href={withBase(`/products/${item.slug}/`)} data-reveal>
+            <div class="bg-neutral-50 p-6">
+              <img
+                class="mx-auto h-[220px] w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+                src={withBase(item.cardImage ?? item.image)}
+                alt={`${item.name} 제품 이미지`}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="border-t border-neutral-200 p-6">
+              <span class="text-xs font-black tracking-[0.2em] text-brand-green">{item.category}</span>
+              <h3 class="mt-3 text-lg font-black text-brand-navy">{item.name}</h3>
+              <p class="mt-3 line-clamp-2 text-sm leading-7 text-neutral-600">{item.tagline}</p>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
