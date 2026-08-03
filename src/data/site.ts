@@ -25,12 +25,6 @@ export const site = {
     { label: "제품", href: "/products/" },
     { label: "고객 문의", href: "/support/contact/" }
   ],
-  stats: [
-    { label: "채널 판매 성과", value: "올리브영 1위" },
-    { label: "비너스 누적 출고", value: "100만+" },
-    { label: "주요 제품군", value: "5+" },
-    { label: "국내외 채널", value: "확장 중" }
-  ],
   strengths: [
     {
       title: "iHEAL 브랜드 제품 운영",

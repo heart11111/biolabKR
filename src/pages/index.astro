@@ -8,19 +8,6 @@ import { site } from "@/data/site";
 import { products } from "@/data/products";
 import { news } from "@/data/news";
 import { withBase } from "@/lib/path";
-
-const animatedStats = site.stats.map((stat) => {
-  const match = stat.value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
-  const numericText = match?.[2] ?? "0";
-
-  return {
-    ...stat,
-    countPrefix: match?.[1] ?? "",
-    countTarget: Number(numericText),
-    countDecimals: numericText.includes(".") ? numericText.split(".")[1].length : 0,
-    countSuffix: match?.[3] ?? stat.value
-  };
-});
 ---
 
 <BaseLayout title="비오랩" description={site.description}>
@@ -99,25 +86,6 @@ const animatedStats = site.stats.map((stat) => {
             비오랩은 단기 판매보다 지속 가능한 품질 관리와 채널 운영을 우선합니다.
             국내 약국·면세점과 일본 온라인·오프라인 채널을 통해 브랜드 접점을 넓혀갑니다.
           </p>
-          <div class="mt-10 grid grid-cols-2 gap-px bg-neutral-200" data-animated-stats data-reveal-group>
-            {animatedStats.map((stat, index) => (
-              <div class="bg-white p-7 text-left" data-reveal>
-                <strong
-                  class="block text-4xl font-light tabular-nums text-neutral-900"
-                  data-countup
-                  data-count-target={stat.countTarget}
-                  data-count-prefix={stat.countPrefix}
-                  data-count-suffix={stat.countSuffix}
-                  data-count-decimals={stat.countDecimals}
-                  data-count-index={index}
-                  aria-label={stat.value}
-                >
-                  {stat.value}
-                </strong>
-                <span class="mt-3 block text-sm font-bold text-neutral-600">{stat.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
         <figure class="order-1 overflow-hidden lg:order-2" data-reveal="image">
           <img
@@ -188,76 +156,3 @@ const animatedStats = site.stats.map((stat) => {
   </section>
 
 </BaseLayout>
-
-<script>
-  const statsSection = document.querySelector("[data-animated-stats]");
-  const counters = Array.from(document.querySelectorAll<HTMLElement>("[data-countup]"));
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const formatCounter = (value: number, decimals: number) => value.toFixed(decimals);
-
-  const setCounterText = (counter: HTMLElement, value: number) => {
-    const decimals = Number(counter.dataset.countDecimals ?? 0);
-    const prefix = counter.dataset.countPrefix ?? "";
-    const suffix = counter.dataset.countSuffix ?? "";
-    counter.textContent = `${prefix}${formatCounter(value, decimals)}${suffix}`;
-  };
-
-  const animateCounter = (counter: HTMLElement) => {
-    if (counter.dataset.countAnimated === "true") return;
-
-    counter.dataset.countAnimated = "true";
-    const target = Number(counter.dataset.countTarget ?? 0);
-
-    if (prefersReducedMotion) {
-      setCounterText(counter, target);
-      return;
-    }
-
-    const duration = 1400;
-    const startTime = performance.now();
-    const settleTimer = window.setTimeout(() => setCounterText(counter, target), duration + 260);
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-
-      setCounterText(counter, target * eased);
-
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        window.clearTimeout(settleTimer);
-        setCounterText(counter, target);
-      }
-    };
-
-    requestAnimationFrame(tick);
-  };
-
-  const runCounters = () => {
-    counters.forEach((counter, index) => {
-      window.setTimeout(() => animateCounter(counter), index * 120);
-    });
-  };
-
-  counters.forEach((counter) => {
-    const target = Number(counter.dataset.countTarget ?? 0);
-    setCounterText(counter, prefersReducedMotion ? target : 0);
-  });
-
-  if (statsSection && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return;
-        runCounters();
-        observer.disconnect();
-      },
-      { threshold: 0.35 }
-    );
-
-    observer.observe(statsSection);
-  } else {
-    runCounters();
-  }
-</script>
