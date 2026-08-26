@@ -10,13 +10,13 @@ import { products } from "@/data/products";
 const innerCareProducts = products.filter((product) => product.category.includes("이너"));
 ---
 
-<BaseLayout title="이너케어 제품" description="아이힐 이너클린 V와 비너스 이너 퍼퓸을 소개합니다.">
+<BaseLayout title="이너케어 제품" description="아이힐 이너클린 V3와 비너스 이너 퍼퓸을 소개합니다.">
   <SubHero title="이너케어" description="Y존 케어, 보습, 피부 장벽 컨셉을 중심으로 한 이너 뷰티 라인입니다." />
   <Breadcrumb parent={{ label: "제품소개", href: "/products/" }} current="이너케어" />
 
   <section class="section-band bg-white">
     <div class="container-page">
-      <SectionTitle eyebrow="INNER CARE" title="이너클린 V / 비너스 이너 퍼퓸" description="약산성 저자극 클렌저와 5중 히알루론산 기반 이너 퍼퓸으로 데일리 이너케어 루틴을 제안합니다." />
+      <SectionTitle eyebrow="INNER CARE" title="이너클린 V3 / 비너스 이너 퍼퓸" description="pH 4.5 약산성 청결제와 5중 히알루론산 이너 퍼퓸의 공식 상세페이지를 확인할 수 있습니다." />
       <div class="grid gap-6 md:grid-cols-2">
         {innerCareProducts.map((product) => <ProductCard product={product} />)}
       </div>

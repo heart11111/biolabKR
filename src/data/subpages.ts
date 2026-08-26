@@ -68,7 +68,7 @@ export const productSubpages: SubpageItem[] = [
     label: "이너케어",
     href: "/products/inner-care/",
     eyebrow: "INNER CARE",
-    summary: "아이힐 이너클린 V와 비너스 이너 퍼퓸을 소개합니다.",
+    summary: "아이힐 이너클린 V3와 비너스 이너 퍼퓸을 소개합니다.",
     icon: "droplet"
   }
 ];

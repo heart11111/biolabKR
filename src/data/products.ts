@@ -11,8 +11,12 @@ export type Product = {
   features: string[];
   intake: string;
   certifications: string[];
-  detail: string;
+  detailImages: string[];
 };
+
+function detailImages(slug: string, files: string[]) {
+  return files.map((file) => `/images/details/${slug}/${file}`);
+}
 
 export const products: Product[] = [
   {
@@ -20,102 +24,106 @@ export const products: Product[] = [
     name: "아이힐 비너스 유산균",
     englishName: "iHEAL Venus Probiotics",
     category: "여성 유산균",
-    tagline: "건강한 한국 여성의 질에서 유래한 특허 유산균 3종 함유",
+    tagline: "하루, 한 캡슐에 담은 20억 보장 프로바이오틱스",
     summary:
-      "특허균주 MG242, MG901, MG989와 철분, 크랜베리를 배합한 iHEAL 대표 여성 유산균입니다.",
+      "건강한 한국 여성의 질에서 유래한 특허 유산균 3종 함유. 하루 1캡슐, 20억 보장.",
     image: "/images/product-venus-probiotics-actual.jpg",
     cardImage: "/images/products/card-venus-probiotics.jpg",
     ingredients: ["락토바실러스 살리바리우스 MG242", "락토바실러스 퍼멘툼 MG901", "락토바실러스 플란타룸 MG989", "철분", "크랜베리"],
-    features: ["20억 보장 유산균", "여성 맞춤형 포뮬러", "누적 후기와 재구매 기반의 대표 제품", "간편한 데일리 섭취"],
-    intake: "1일 1회, 제품 표시사항에 따라 물과 함께 섭취",
-    certifications: ["특허 균주 3종 적용", "건강기능식품 기준에 따른 품질 관리"],
-    detail:
-      "아이힐 비너스 유산균은 여성 건강을 고려해 설계한 대표 제품입니다. 건강기능식품 표현 기준에 맞춰 제품 정보와 기능성 자료를 관리합니다."
+    features: ["20억 보장 유산균", "특허 유산균 3종", "하루 1캡슐", "30캡슐"],
+    intake: "1일 1회, 1캡슐을 물과 함께 섭취하십시오.",
+    certifications: ["특허 균주 3종 적용", "건강기능식품"],
+    detailImages: detailImages("venus-probiotics", ["01.jpg"])
   },
   {
     slug: "venus-stick-probiotics",
     name: "아이힐 비너스 유산균 스틱",
     englishName: "iHEAL Venus Stick Probiotics",
     category: "스틱 유산균",
-    tagline: "여성 유산균과 뷰티 성분을 함께 담은 스틱형 포뮬러",
+    tagline: "특허받은 유산균 3종 + 피부 속부터 촘촘하게 채우는 수분",
     summary:
-      "특허 유산균 3종에 히알루론산, 콜라겐, 비타민E, 이노시톨을 더한 여성 이너케어 제품입니다.",
+      "건강한 한국 여성의 질에서 유래한 특허 유산균 3종에 히알루론산, 콜라겐, 비타민E, 이노시톨을 담았습니다.",
     image: "/images/product-venus-stick-actual.jpg",
     cardImage: "/images/products/card-venus-stick-probiotics.jpg",
     ingredients: ["특허 유산균 3종", "히알루론산", "콜라겐", "비타민E", "이노시톨"],
-    features: ["휴대가 쉬운 스틱 제형", "여성 건강과 피부 컨디션 동시 케어", "복합 성분 구성", "부드러운 섭취감"],
-    intake: "1일 1포, 제품 표시사항에 따라 섭취",
-    certifications: ["특허 균주 적용", "제품별 품질 기준 관리"],
-    detail:
-      "비너스 유산균 스틱은 여성의 일상 루틴에 맞춘 스틱형 제품으로, 유산균과 뷰티 성분을 함께 제안합니다."
+    features: ["특허균주 MG242 · MG901 · MG989", "히알루론산", "1일 1포", "90g(3g × 30포)"],
+    intake: "1일 1회, 1포를 물과 함께 섭취하십시오.",
+    certifications: ["특허 균주 적용", "HACCP"],
+    detailImages: detailImages("venus-stick-probiotics", ["01.jpg", "02.jpg", "03.gif", "04.jpg", "05.webp"])
   },
   {
     slug: "kids-lac-probiotics",
     name: "아이힐 키즈락 유산균",
     englishName: "iHEAL Kids Lac Probiotics",
     category: "키즈 유산균",
-    tagline: "아이의 건강한 성장을 위한 올인원 키즈 유산균",
+    tagline: "영유아 유래 특허균 3종 + 모유 유래 특허균 + 아연 + 비타민D",
     summary:
-      "모유 유래 유산균과 영유아 유래 특허 유산균, 아연, 비타민D, 칼슘, 식이섬유를 배합했습니다.",
+      "영유아 유래 특허균 3종과 모유 유래 특허균을 포함한 보장균수 10억의 8종 혼합 유산균입니다.",
     image: "/images/product-kids-lac-actual.jpg",
     cardImage: "/images/products/card-kids-lac-probiotics.jpg",
     ingredients: ["L. reuteri MG505", "영유아 유래 유산균 3종", "아연", "비타민D", "칼슘", "식이섬유"],
-    features: ["10억 보장 유산균", "호박 동결건조 특허 코팅", "아이 섭취 편의 고려", "성장기 영양 설계"],
-    intake: "연령과 제품 표시사항에 따라 보호자 지도하에 섭취",
-    certifications: ["특허 코팅 기술 적용", "아연 및 비타민D 기능성 기준 고려"],
-    detail:
-      "키즈락 유산균은 열, 위산, 담즙에 약한 유산균의 특성을 고려해 코팅 기술과 성장기 영양 설계를 함께 적용한 제품입니다."
+    features: ["10억 보장 유산균", "호박 분말 동결 건조 코팅", "아연 3mg + 비타민D", "밀크 맛"],
+    intake: "1일 1회, 1포를 직접 섭취하거나 물과 함께 섭취하십시오. 12개월 이후부터 권장.",
+    certifications: ["건강기능식품", "GMP", "심의번호 220710226"],
+    detailImages: detailImages("kids-lac-probiotics", [
+      "01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg",
+      "09.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg", "15.jpg", "16.jpg"
+    ])
   },
   {
     slug: "line-n-probiotics",
     name: "아이힐 라인엔 유산균",
     englishName: "iHEAL Line N Probiotics",
     category: "다이어트 유산균",
-    tagline: "특허 유산균과 가르시니아 추출물을 담은 체지방 관리 라인",
+    tagline: "20억 유산균 + 가르시니아 + 특허균주 2종",
     summary:
-      "항비만 활성을 갖는 인체 유래 특허균주 2종과 가르시니아 캄보지아 추출물을 배합했습니다.",
+      "체지방 감소를 위한 가르시니아 추출물과 특허균주 2종을 담은 유산균입니다.",
     image: "/images/product-line-n-actual.jpg",
     cardImage: "/images/products/card-line-n-probiotics.jpg",
     ingredients: ["MG4231", "MG4244", "가르시니아 캄보지아 추출물", "HCA"],
-    features: ["20억 보장 유산균", "체지방 관리 컨셉", "간편한 다이어트 루틴", "특허 균주 연구 기반"],
-    intake: "제품 표시사항에 따라 1일 권장량을 섭취",
-    certifications: ["특허 균주 적용", "건강기능식품 품질 기준 관리"],
-    detail:
-      "라인엔 유산균은 바쁜 일상에서도 건강한 체지방 관리 루틴을 이어갈 수 있도록 설계한 제품입니다."
+    features: ["20억 보장 유산균", "가르시니아 HCA", "특허균주 MG4231 · MG4244", "1일 1포"],
+    intake: "1일 1회, 1포를 직접 섭취하거나 물과 함께 섭취하십시오.",
+    certifications: ["건강기능식품", "GMP", "심의번호 200910681"],
+    detailImages: detailImages("line-n-probiotics", [
+      "01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg",
+      "09.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg", "15.jpg", "16.jpg", "17.jpg"
+    ])
   },
   {
     slug: "inner-clean-v",
-    name: "아이힐 이너클린 V",
-    englishName: "iHEAL Inner Clean V",
+    name: "아이힐 이너클린 V3",
+    englishName: "iHEAL Inner Clean V3",
     category: "이너케어 클렌저",
-    tagline: "여성 Y존을 위한 약산성 저자극 클렌저",
+    tagline: "Y존 밸런스를 위한 pH4.5 유산균 거품 케어",
     summary:
-      "알란토인, 13종 발효 약재 추출물, 락토바실러스 발효여과물, 순한 세정 성분을 담았습니다.",
+      "pH 4.5 약산성 여성 청결제. 특허 유산균 3종 배양액과 13종 발효약재 추출물을 담았습니다.",
     image: "/images/product-inner-clean-v-actual.jpg",
     cardImage: "/images/products/card-inner-clean-v.jpg",
     ingredients: ["알란토인", "13종 발효 약재 추출물", "락토바실러스 발효여과물", "데실글루코사이드", "시트릭애씨드"],
-    features: ["약산성 포뮬러", "저자극 세정", "피부 진정 및 보습 컨셉", "데일리 이너케어"],
-    intake: "외용 제품으로, 사용 방법은 제품 표시사항을 따름",
-    certifications: ["피부 저자극 컨셉", "제품별 품질 관리"],
-    detail:
-      "이너클린 V는 민감한 부위의 pH 밸런스와 보습감을 고려한 여성 이너케어 클렌저입니다."
+    features: ["pH 4.5 약산성", "특허 유산균 3종", "13종 발효약재", "거품 타입 150ml"],
+    intake: "외음부에만 사용하며 질 내에 사용하지 않도록 주의하세요.",
+    certifications: ["한국피부과학연구원 항균시험", "피부 저자극"],
+    detailImages: detailImages("inner-clean-v", [
+      "01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg"
+    ])
   },
   {
     slug: "venus-inner-perfume",
     name: "아이힐 비너스 이너 퍼퓸",
     englishName: "iHEAL Venus Inner Perfume",
     category: "이너 뷰티",
-    tagline: "5중 히알루론산과 식물 유래 성분을 담은 이너 퍼퓸",
+    tagline: "유산균과 식물유래 성분으로 순하게, 5중 히알루론산으로 촉촉하게",
     summary:
-      "5중 히알루론산, 특허균주 3종 배양액, 글루타치온, 판테놀, 식물 유래 성분을 배합했습니다.",
+      "향기 그 이상의 가치를 담은 이너퍼퓸. 5중 히알루론산과 특허 유산균 3종 배양액을 담았습니다.",
     image: "/images/product-venus-inner-perfume-actual.jpg",
     cardImage: "/images/products/card-venus-inner-perfume.jpg",
     ingredients: ["5중 히알루론산", "특허균주 3종 배양액", "글루타치온", "판테놀", "인도멀구슬나무잎 추출물", "드럼스틱씨오일"],
-    features: ["보습 중심 설계", "피부 장벽 컨셉", "식물 유래 성분", "고급스러운 향"],
-    intake: "외용 제품으로, 사용 방법은 제품 표시사항을 따름",
-    certifications: ["제품별 품질 기준 관리", "피부 보습 컨셉"],
-    detail:
-      "비너스 이너 퍼퓸은 청결감, 보습, 피부 컨디션을 함께 고려한 이너 뷰티 제품입니다."
+    features: ["5중 히알루론산", "특허 유산균 3종 배양액", "약 11cm 휴대 사이즈", "30ml"],
+    intake: "사용 전 충분히 흔든 뒤 속옷 혹은 Y존에 1-2회 분사합니다.",
+    certifications: ["한국피부과학연구원 항균시험", "저자극"],
+    detailImages: detailImages("venus-inner-perfume", [
+      "01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg", "06.jpg", "07.jpg", "08.jpg", "09.jpg"
+    ])
   }
 ];
 
